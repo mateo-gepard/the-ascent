@@ -205,58 +205,76 @@
         <p class="chapter__dek" data-reveal>Machines for places hands can't reach.</p>
       </header>
 
-      <!-- pinned wheel scrub: wheel sits left, text flies in right -->
+      <!-- pinned wheel scrub: plate left, text column right -->
       <div class="wheelstage" id="wheelStage">
         <div class="wheelstage__pin">
-          <video class="wheelstage__video" id="wheelVideo" playsinline muted preload="auto"
-                 poster="assets/wheel-poster.jpg">
-            <source src="assets/wheel-scrub.mp4" type='video/mp4; codecs="avc1.64001F"' />
-          </video>
-          <div class="wheelstage__scrim"></div>
+          <figure class="plate wheelstage__plate">
+            <span class="plate__head"><i>Fig. 01-A</i><i>Iris wheel — contract · expand</i></span>
+            <div class="plate__frame plate__frame--169 grade">
+              <video class="wheelstage__video" id="wheelVideo" playsinline muted preload="auto"
+                     poster="assets/wheel-poster.jpg">
+                <source src="assets/wheel-scrub.mp4" type='video/mp4; codecs="avc1.64001F"' />
+              </video>
+            </div>
+            <span class="plate__cap">Scroll — the mechanism answers</span>
+          </figure>
 
-          <div class="wheelstage__scene" data-wscene="a">
-            <h3>An iris that grips.</h3>
-            <p>A wheel that changes shape for terrain that changes its mind —
-               designed, printed and geared by hand.</p>
-          </div>
-          <div class="wheelstage__scene" data-wscene="b">
-            <h3>MAGMA.</h3>
-            <p>A rover built for DLR's Vulcano Summer School challenge:
-               expandable wheels, environmental sensors, a body shell —
-               made with Juan and Roman.</p>
-            <span class="mono dim">Fig. 01-A — wheel, contracting · expanding</span>
+          <div class="wheelstage__scenes">
+            <div class="wheelstage__scene" data-wscene="a">
+              <h3>An iris that grips.</h3>
+              <p>A wheel that changes shape for terrain that changes its mind —
+                 designed, printed and geared by hand.</p>
+            </div>
+            <div class="wheelstage__scene" data-wscene="b">
+              <h3>MAGMA.</h3>
+              <p>A rover built for DLR's Vulcano Summer School challenge:
+                 expandable wheels, environmental sensors, a body shell —
+                 made with Juan and Roman.</p>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- rover footage + blueprint -->
-      <div class="split">
-        <figure class="split__media" data-reveal>
-          <video src="assets/rover-loop.mp4" data-ambient muted loop playsinline preload="metadata" aria-label="MAGMA rover rolling test"></video>
-          <figcaption class="mono dim">MAGMA V1 — four-wheel prototype, first rolling test</figcaption>
+      <div class="row">
+        <figure class="plate row__media">
+          <span class="plate__head" data-reveal><i>Fig. 01-B</i><i>MAGMA V1 — rolling test</i></span>
+          <div class="plate__frame plate__frame--169 grade">
+            <video src="assets/rover-loop.mp4" data-ambient muted loop playsinline preload="metadata" aria-label="MAGMA rover rolling test"></video>
+          </div>
+          <span class="plate__cap" data-reveal>Four-wheel prototype — first crossing of a desk</span>
         </figure>
-        <div class="split__copy">
-          <img class="split__drawing" src="assets/drawings/magma-chassis-sections-transparent.png"
-               alt="MAGMA chassis engineering sections" data-reveal />
+        <div class="copy row__copy">
+          <p class="copy__lead" data-reveal>Volcanic ground is closed terrain.</p>
           <p data-reveal>
-            Volcanic ground is closed terrain — too hot, too loose, too poisonous.
-            So the instrument goes instead: gas sensing, adaptive wheels,
-            and an engineering drawing for every part.
+            Too hot, too loose, too poisonous. So the instrument goes instead —
+            gas sensing, adaptive wheels, and an engineering drawing for
+            every part.
           </p>
           <a class="mono link" href="assets/docs/magma_engineering_revD.pdf" target="_blank" data-reveal>
             magma_engineering_revD.pdf ↗
           </a>
+          <figure class="plate plate--sub">
+            <div class="plate__frame plate__frame--43 plate__frame--contain">
+              <img loading="lazy" decoding="async" src="assets/drawings/magma-chassis-sections-transparent.png"
+                   alt="MAGMA chassis engineering sections" />
+            </div>
+            <span class="plate__cap" data-reveal>Fig. 01-C — chassis sections, rev D</span>
+          </figure>
         </div>
       </div>
 
       <!-- robot: the handshake -->
-      <div class="split split--rev">
-        <figure class="split__media" data-reveal>
-          <video src="assets/robothand-loop.mp4" data-ambient muted loop playsinline preload="metadata" aria-label="Shaking hands with the humanoid robot"></video>
-          <figcaption class="mono dim">The robotics course — a hand that grasps</figcaption>
+      <div class="row row--rev">
+        <figure class="plate row__media">
+          <span class="plate__head" data-reveal><i>Fig. 01-D</i><i>Humanoid — right hand</i></span>
+          <div class="plate__frame plate__frame--169 grade">
+            <video src="assets/robothand-loop.mp4" data-ambient muted loop playsinline preload="metadata" aria-label="Shaking hands with the humanoid robot"></video>
+          </div>
+          <span class="plate__cap" data-reveal>The robotics course — a hand that grasps</span>
         </figure>
-        <div class="split__copy">
-          <p class="split__lead" data-reveal>To teach a machine to grasp,<br/>you must first understand grasping.</p>
+        <div class="copy row__copy">
+          <p class="copy__lead" data-reveal>To teach a machine to grasp, you must first understand grasping.</p>
           <p data-reveal>
             Since 2024 he has led a school robotics course, coordinating younger
             students through the mechanics, electronics and software of a
@@ -277,13 +295,16 @@
       </header>
 
       <!-- watch prelude -->
-      <div class="split">
-        <figure class="split__media" data-reveal>
-          <img loading="lazy" decoding="async" src="assets/img/watch-heuer.jpg" alt="Heuer Game-Master on a workbench" />
-          <figcaption class="mono dim">Heuer Game-Master — one of the traded pieces</figcaption>
+      <div class="row">
+        <figure class="plate row__media">
+          <span class="plate__head" data-reveal><i>Fig. 02-A</i><i>Heuer Game-Master</i></span>
+          <div class="plate__frame plate__frame--43 grade">
+            <img loading="lazy" decoding="async" src="assets/img/watch-heuer.jpg" alt="Heuer Game-Master on a workbench" />
+          </div>
+          <span class="plate__cap" data-reveal>One of the traded pieces — Swiss, mechanical, openable</span>
         </figure>
-        <div class="split__copy">
-          <p class="split__lead" data-reveal>For a century, the thing on your wrist<br/>was a machine you could open.</p>
+        <div class="copy row__copy">
+          <p class="copy__lead" data-reveal>For a century, the thing on your wrist was a machine you could open.</p>
           <p data-reveal>
             At fifteen he began trading vintage watches — sourcing, valuing,
             negotiating, restoring trust in old machines. A registered business
@@ -324,21 +345,29 @@
         </div>
       </div>
 
-      <!-- proof strip -->
-      <div class="proof">
-        <figure data-reveal>
-          <img loading="lazy" decoding="async" src="assets/img/openpulse-internals.jpg" alt="Opening the OpenPulse enclosure" />
-          <figcaption class="mono dim">Opening the box — development unit</figcaption>
+      <!-- proof strip: two plates + records panel, equal columns -->
+      <div class="row row--even">
+        <figure class="plate">
+          <span class="plate__head" data-reveal><i>Fig. 02-B</i><i>Development unit</i></span>
+          <div class="plate__frame plate__frame--45 grade">
+            <img loading="lazy" decoding="async" src="assets/img/openpulse-internals.jpg" alt="Opening the OpenPulse enclosure" />
+          </div>
+          <span class="plate__cap" data-reveal>Opening the box — sensors, fan, wiring loom</span>
         </figure>
-        <figure data-reveal>
-          <img loading="lazy" decoding="async" src="assets/img/puck.jpg" alt="OpenPulse sensor puck" />
-          <figcaption class="mono dim">Sensor puck — PPG optical module</figcaption>
+        <figure class="plate">
+          <span class="plate__head" data-reveal><i>Fig. 02-C</i><i>Sensor puck</i></span>
+          <div class="plate__frame plate__frame--45 grade">
+            <img loading="lazy" decoding="async" src="assets/img/puck-centered.jpg" alt="OpenPulse sensor puck" />
+          </div>
+          <span class="plate__cap" data-reveal>PPG optical module — pogo-pin interface</span>
         </figure>
-        <div class="proof__docs" data-reveal>
-          <span class="mono dim">Fabrication records</span>
+        <div class="docs" data-reveal>
+          <span class="docs__head">Fabrication records</span>
           <a class="mono link" href="assets/docs/openpulse-mainboard-fabrication-A-RC2.pdf" target="_blank">mainboard-A-RC2.pdf ↗</a>
           <a class="mono link" href="assets/docs/openpulse-ppg-puck-fabrication-A-RC2.pdf" target="_blank">ppg-puck-A-RC2.pdf ↗</a>
           <a class="mono link" href="assets/docs/openpulse-env-puck-fabrication-A-RC2.pdf" target="_blank">env-puck-A-RC2.pdf ↗</a>
+          <p class="docs__note">Every board revision ships with its
+             manufacturing record — sealed nothing, ever.</p>
         </div>
       </div>
     </section>
@@ -353,14 +382,16 @@
         <p class="chapter__dek" data-reveal>Knowledge you can hold.</p>
       </header>
 
-      <figure class="wide" data-reveal>
-        <video src="assets/vr-loop.mp4" data-ambient muted loop playsinline preload="metadata" aria-label="Inside the BeGreifbar VR laboratory"></video>
-        <figcaption class="mono dim">Inside BeGreifbar — a field of vectors over a real desk, Meta Quest 3</figcaption>
-      </figure>
-
-      <div class="split">
-        <div class="split__copy split__copy--solo">
-          <p class="split__lead" data-reveal>Chemistry has notations.<br/>BeGreifbar gives them a body.</p>
+      <div class="row">
+        <figure class="plate row__media">
+          <span class="plate__head" data-reveal><i>Fig. 03-A</i><i>BeGreifbar — in-headset</i></span>
+          <div class="plate__frame plate__frame--169 grade">
+            <video src="assets/vr-loop.mp4" data-ambient muted loop playsinline preload="metadata" aria-label="Inside the BeGreifbar VR laboratory"></video>
+          </div>
+          <span class="plate__cap" data-reveal>A field of vectors over a real desk — Meta Quest 3, passthrough</span>
+        </figure>
+        <div class="copy row__copy">
+          <p class="copy__lead" data-reveal>Chemistry has notations. BeGreifbar gives them a body.</p>
           <p data-reveal>
             With Juan and Roman, he built an immersive laboratory where molecules,
             fields and forces can be picked up, rotated and taken apart —
@@ -387,26 +418,35 @@
         <p class="chapter__dek" data-reveal>Institutions answer to those who ask.</p>
       </header>
 
-      <figure class="wide wide--tall" data-reveal>
-        <img loading="lazy" decoding="async" src="assets/img/msc.jpg" alt="Speaking from the audience at a Munich Security Conference side event" />
-        <figcaption class="mono dim">
-          Munich Security Conference side event — Prinz-Carl-Palais, February 2026.
-          A question for the generals.
-        </figcaption>
+      <figure class="plate plate--full">
+        <span class="plate__head" data-reveal><i>Fig. 04-A</i><i>Prinz-Carl-Palais — February 2026</i></span>
+        <div class="plate__frame plate__frame--pano grade">
+          <img loading="lazy" decoding="async" src="assets/img/msc.jpg" alt="Speaking from the audience at a Munich Security Conference side event" />
+        </div>
+        <span class="plate__cap" data-reveal>Munich Security Conference side event — a question for the generals</span>
       </figure>
 
-      <div class="gallery">
-        <figure data-reveal>
-          <img loading="lazy" decoding="async" src="assets/img/public-bavarian-landtag.jpg" alt="At the Bavarian Landtag" />
-          <figcaption class="mono dim">Bavarian Landtag</figcaption>
+      <div class="row row--even">
+        <figure class="plate">
+          <span class="plate__head" data-reveal><i>Fig. 04-B</i><i>Bavarian Landtag</i></span>
+          <div class="plate__frame plate__frame--34 grade">
+            <img loading="lazy" decoding="async" src="assets/img/public-bavarian-landtag.jpg" alt="At the Bavarian Landtag" />
+          </div>
+          <span class="plate__cap" data-reveal>Inside the state parliament</span>
         </figure>
-        <figure data-reveal>
-          <img loading="lazy" decoding="async" src="assets/img/public-lithuanian-consul.jpeg" alt="With the Consul General of Lithuania" />
-          <figcaption class="mono dim">On societal resilience — with Lithuania's Consul General</figcaption>
+        <figure class="plate">
+          <span class="plate__head" data-reveal><i>Fig. 04-C</i><i>Consulate of Lithuania</i></span>
+          <div class="plate__frame plate__frame--34 grade">
+            <img loading="lazy" decoding="async" src="assets/img/public-lithuanian-consul.jpeg" alt="With the Consul General of Lithuania" />
+          </div>
+          <span class="plate__cap" data-reveal>On societal resilience — with the Consul General</span>
         </figure>
-        <figure data-reveal>
-          <img loading="lazy" decoding="async" src="assets/img/public-tv-br2.jpg" alt="On Bavarian television" />
-          <figcaption class="mono dim">Bavarian broadcasting — on AI in school</figcaption>
+        <figure class="plate">
+          <span class="plate__head" data-reveal><i>Fig. 04-D</i><i>Bavarian broadcasting</i></span>
+          <div class="plate__frame plate__frame--34 grade">
+            <img loading="lazy" decoding="async" src="assets/img/public-tv-br2.jpg" alt="On Bavarian television" />
+          </div>
+          <span class="plate__cap" data-reveal>On television — AI in the classroom</span>
         </figure>
       </div>
 

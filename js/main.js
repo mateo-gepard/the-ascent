@@ -114,7 +114,9 @@
         scrollTrigger: {
           trigger: ".hero",
           start: "top top",
-          end: "+=380%",
+          // function-based px distance: constant across refreshes.
+          // (%-based ends re-measure against the inflated pin spacer and compound)
+          end: () => "+=" + Math.round(window.innerHeight * 3.8),
           pin: true,          // pin the hero section itself — video stays full-screen
           pinSpacing: true,
           scrub: 1,
@@ -221,7 +223,8 @@
       dur = video.duration || dur;
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: stage, start: "top top", end: "+=260%",
+          trigger: stage, start: "top top",
+          end: () => "+=" + Math.round(window.innerHeight * 2.6),
           pin: ".wheelstage__pin", scrub: 1,
         },
       });
@@ -321,7 +324,8 @@
     const proxy = { f: 0 };
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: stage, start: "top top", end: "+=340%",
+        trigger: stage, start: "top top",
+        end: () => "+=" + Math.round(window.innerHeight * 3.4),
         pin: ".seqstage__pin", scrub: 1,
       },
     });
@@ -368,6 +372,39 @@
         { yPercent: 110 },
         { yPercent: 0, duration: 1.15, ease: "expo.out",
           scrollTrigger: { trigger: line, start: "top 90%" } });
+    });
+  }
+
+  /* ---------------- plate reveals: clip-wipe + settle-scale ---------------- */
+  function initPlates() {
+    if (REDUCED) return;
+    $$(".plate__frame").forEach((frame) => {
+      // the pinned wheel plate is choreographed by its own stage
+      if (frame.closest(".wheelstage")) return;
+      const media = frame.querySelector("img, video");
+      const tl = gsap.timeline({
+        scrollTrigger: { trigger: frame, start: "top 86%" },
+      });
+      tl.fromTo(frame,
+        { clipPath: "inset(0 0 100% 0)" },
+        { clipPath: "inset(0 0 0% 0)", duration: 1.05, ease: "power3.inOut" }, 0);
+      if (media) {
+        tl.fromTo(media,
+          { scale: 1.16 },
+          { scale: 1, duration: 1.6, ease: "power2.out" }, 0);
+      }
+    });
+  }
+
+  /* ---------------- stale-trigger guard: lazy media changes heights ---------------- */
+  function initRefreshGuards() {
+    let t;
+    const req = () => { clearTimeout(t); t = setTimeout(() => ScrollTrigger.refresh(), 250); };
+    $$('img[loading="lazy"]').forEach((im) => {
+      if (!im.complete) im.addEventListener("load", req, { once: true });
+    });
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) req();
     });
   }
 
@@ -435,9 +472,11 @@
     initWheel();
     initSequence();
     initReveals();
+    initPlates();
     initAmbient();
     initCounters();
     initAnchors();
+    initRefreshGuards();
 
     ScrollTrigger.refresh();
     window.addEventListener("load", () => ScrollTrigger.refresh());
