@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mateo Mamaladze</title>
+  <meta name="description" content="Mateo Mamaladze — a Munich-based, German-Georgian student engineer, founder and maker." />
+
+  <!-- Fonts (self-hosted: Switzer + IBM Plex Mono) -->
+  <link rel="preload" href="assets/fonts/Switzer-Variable.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="is-loading">
+
+  <!-- ===================== PRELOADER ===================== -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__name">MATEO&nbsp;MAMALADZE</div>
+    <div class="loader__bar"><span class="loader__fill" id="loaderFill"></span></div>
+    <div class="loader__count"><span id="loaderCount">0</span></div>
+  </div>
+
+  <!-- ===================== TOP BAR ===================== -->
+  <header class="topbar">
+    <a class="topbar__brand" href="#hero">Mateo Mamaladze</a>
+    <span class="topbar__meta"><i class="dot"></i>Munich — 46.6°N</span>
+  </header>
+
+  <main>
+
+    <!-- ===================== HERO (full-screen scrubbed video) ===================== -->
+    <section class="hero" id="hero">
+      <div class="hero__pin">
+        <div class="hero__media">
+          <video class="hero__video" id="heroVideo" playsinline muted preload="auto"
+                 poster="assets/hero-poster.jpg">
+            <source src="assets/hero-scrub.mp4" type='video/mp4; codecs="avc1.64001F"' />
+            <source src="assets/hero-scrub.webm" type='video/webm; codecs="vp9"' />
+          </video>
+          <div class="hero__scrim"></div>
+        </div>
+
+        <!-- Scroll-driven scenes -->
+        <div class="scenes">
+
+          <!-- A · centered name -->
+          <div class="scene scene--center" data-scene="a">
+            <h1 class="scene__name">
+              <span class="ln">Mateo</span>
+              <span class="ln">Mamaladze</span>
+            </h1>
+          </div>
+
+          <!-- B · centered role -->
+          <div class="scene scene--center" data-scene="b">
+            <p class="scene__role">
+              <span class="ln">Student engineer<i>·</i>Founder<i>·</i>Maker</span>
+            </p>
+          </div>
+
+          <!-- C · left column (appears when he enters the frame, kept clear of him) -->
+          <div class="scene scene--left" data-scene="c">
+            <div class="scene__inner">
+              <span class="scene__eyebrow">Est. Munich · 2009</span>
+              <h2 class="scene__statement">
+                <span class="ln">Some people</span>
+                <span class="ln">look at the peaks.</span>
+                <span class="ln em">He builds the way&nbsp;up.</span>
+              </h2>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="hero__cue" id="heroCue">
+          <span>Scroll</span>
+          <i></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== THE THREAD ===================== -->
+    <section class="thesis" id="thread">
+      <span class="sec-tag" data-reveal>The Thread</span>
+
+      <h2 class="thesis__word" data-line><span>be·grei·fen</span></h2>
+
+      <div class="thesis__def">
+        <p data-reveal><i>German, verb</i></p>
+        <p data-reveal><b>1.</b> to grasp — to take hold of with the hand</p>
+        <p data-reveal><b>2.</b> to understand</p>
+      </div>
+
+      <p class="thesis__statement" data-reveal>
+        One language insists that holding and understanding are the same act.
+        Everything here starts from that: take what is sealed —
+        a molecule, a market, a machine, an institution —
+        and put a handle on it.
+      </p>
+    </section>
+
+    <!-- ===================== FOUR MOVEMENTS (index) ===================== -->
+    <section class="movements" id="movements">
+      <span class="sec-tag" data-reveal>The Record — in four movements</span>
+
+      <a class="movement" href="#matter" data-reveal>
+        <span class="movement__num">01</span>
+        <div class="movement__body">
+          <h3 class="movement__title">Matter</h3>
+          <p class="movement__text">
+            Machines for places hands can't reach. A rover built for volcanic
+            terrain. A humanoid robot younger students learn to build. Eight
+            designs published before fifteen.
+          </p>
+        </div>
+        <span class="movement__meta">5,343 downloads</span>
+      </a>
+
+      <a class="movement" href="#body" data-reveal>
+        <span class="movement__num">02</span>
+        <div class="movement__body">
+          <h3 class="movement__title">Body</h3>
+          <p class="movement__text">
+            For a century, the watch was a machine you could open. He traded
+            vintage movements at fifteen — then began building the wrist's
+            successor: OpenPulse, a wearable whose data belongs to the wearer.
+          </p>
+        </div>
+        <span class="movement__meta">1st in Europe · Blue Ocean 2026</span>
+      </a>
+
+      <a class="movement" href="#mind" data-reveal>
+        <span class="movement__num">03</span>
+        <div class="movement__body">
+          <h3 class="movement__title">Mind</h3>
+          <p class="movement__text">
+            Knowledge you can hold. A VR laboratory that makes molecules
+            graspable. Platforms that map the way to mentors, competitions
+            and licenses.
+          </p>
+        </div>
+        <span class="movement__meta">Jugend forscht · Bavaria 2026</span>
+      </a>
+
+      <a class="movement" href="#society" data-reveal>
+        <span class="movement__num">04</span>
+        <div class="movement__body">
+          <h3 class="movement__title">Society</h3>
+          <p class="movement__text">
+            Institutions answer to those who ask. The student with the
+            microphone at a Munich Security Conference side event. Talks on
+            societal resilience. Tools that protect and include.
+          </p>
+        </div>
+        <span class="movement__meta">Prinz-Carl-Palais · 2026</span>
+      </a>
+
+      <p class="movements__note" data-reveal>The record follows.</p>
+    </section>
+
+    <!-- ===================================================================
+         CHAPTER 01 — MATTER
+         =================================================================== -->
+    <section class="chapter" id="matter">
+      <header class="chapter__head">
+        <span class="chapter__num mono" data-reveal>Chapter 01</span>
+        <h2 class="chapter__title" data-line><span>Matter</span></h2>
+        <p class="chapter__dek" data-reveal>Machines for places hands can't reach.</p>
+      </header>
+
+      <!-- pinned wheel scrub: wheel sits left, text flies in right -->
+      <div class="wheelstage" id="wheelStage">
+        <div class="wheelstage__pin">
+          <video class="wheelstage__video" id="wheelVideo" playsinline muted preload="auto"
+                 poster="assets/wheel-poster.jpg">
+            <source src="assets/wheel-scrub.mp4" type='video/mp4; codecs="avc1.64001F"' />
+          </video>
+          <div class="wheelstage__scrim"></div>
+
+          <div class="wheelstage__scene" data-wscene="a">
+            <h3>An iris that grips.</h3>
+            <p>A wheel that changes shape for terrain that changes its mind —
+               designed, printed and geared by hand.</p>
+          </div>
+          <div class="wheelstage__scene" data-wscene="b">
+            <h3>MAGMA.</h3>
+            <p>A rover built for DLR's Vulcano Summer School challenge:
+               expandable wheels, environmental sensors, a body shell —
+               made with Juan and Roman.</p>
+            <span class="mono dim">Fig. 01-A — wheel, contracting · expanding</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- rover footage + blueprint -->
+      <div class="split">
+        <figure class="split__media" data-reveal>
+          <video src="assets/rover-loop.mp4" autoplay muted loop playsinline></video>
+          <figcaption class="mono dim">MAGMA V1 — four-wheel prototype, first rolling test</figcaption>
+        </figure>
+        <div class="split__copy">
+          <img class="split__drawing" src="assets/drawings/magma-chassis-sections-transparent.png"
+               alt="MAGMA chassis engineering sections" data-reveal />
+          <p data-reveal>
+            Volcanic ground is closed terrain — too hot, too loose, too poisonous.
+            So the instrument goes instead: gas sensing, adaptive wheels,
+            and an engineering drawing for every part.
+          </p>
+          <a class="mono link" href="assets/docs/magma_engineering_revD.pdf" target="_blank" data-reveal>
+            magma_engineering_revD.pdf ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- robot: the handshake -->
+      <div class="split split--rev">
+        <figure class="split__media" data-reveal>
+          <video src="assets/robothand-loop.mp4" autoplay muted loop playsinline></video>
+          <figcaption class="mono dim">The robotics course — a hand that grasps</figcaption>
+        </figure>
+        <div class="split__copy">
+          <p class="split__lead" data-reveal>To teach a machine to grasp,<br/>you must first understand grasping.</p>
+          <p data-reveal>
+            Since 2024 he has led a school robotics course, coordinating younger
+            students through the mechanics, electronics and software of a
+            humanoid robot — servo by servo, joint by joint.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         CHAPTER 02 — BODY
+         =================================================================== -->
+    <section class="chapter chapter--alt" id="body">
+      <header class="chapter__head">
+        <span class="chapter__num mono" data-reveal>Chapter 02</span>
+        <h2 class="chapter__title" data-line><span>Body</span></h2>
+        <p class="chapter__dek" data-reveal>The wrist, reopened.</p>
+      </header>
+
+      <!-- watch prelude -->
+      <div class="split">
+        <figure class="split__media" data-reveal>
+          <img src="assets/img/watch-heuer.jpg" alt="Heuer Game-Master on a workbench" />
+          <figcaption class="mono dim">Heuer Game-Master — one of the traded pieces</figcaption>
+        </figure>
+        <div class="split__copy">
+          <p class="split__lead" data-reveal>For a century, the thing on your wrist<br/>was a machine you could open.</p>
+          <p data-reveal>
+            At fifteen he began trading vintage watches — sourcing, valuing,
+            negotiating, restoring trust in old machines. A registered business
+            at sixteen; more than €17,000 in revenue.
+          </p>
+          <p data-reveal>
+            Then he started building what comes after the watch.
+          </p>
+        </div>
+      </div>
+
+      <!-- THE SEQUENCE — 430-frame explode, canvas scrubbed -->
+      <div class="seqstage" id="seqStage">
+        <div class="seqstage__pin">
+          <canvas class="seqstage__canvas" id="seqCanvas"></canvas>
+
+          <div class="seqstage__scene" data-sscene="a">
+            <h3>OpenPulse.</h3>
+            <p>A wearable that opens.</p>
+          </div>
+          <div class="seqstage__scene" data-sscene="b">
+            <h3>Choose your sensors.</h3>
+            <p>Swappable pucks — optical pulse, temperature, environment —
+               click into a platform you are allowed to understand.</p>
+          </div>
+          <div class="seqstage__scene" data-sscene="c">
+            <span class="mono dim">nRF52840 · PPG · pogo-pin contacts · printed enclosure</span>
+            <p>Raw data belongs to the wearer. No sealed ecosystem, no subscription wall.</p>
+          </div>
+          <div class="seqstage__scene" data-sscene="d">
+            <h3>It worked.</h3>
+            <p class="seqstage__wins">
+              <span>1<sup>st</sup> in Europe — Blue Ocean 2026</span>
+              <span>1<sup>st</sup>, Health &amp; Lifestyle — Startup Teens</span>
+              <span>Top 14 — Jugend gründet</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- proof strip -->
+      <div class="proof">
+        <figure data-reveal>
+          <img src="assets/img/openpulse-internals.jpg" alt="Opening the OpenPulse enclosure" />
+          <figcaption class="mono dim">Opening the box — development unit</figcaption>
+        </figure>
+        <figure data-reveal>
+          <img src="assets/img/puck.jpg" alt="OpenPulse sensor puck" />
+          <figcaption class="mono dim">Sensor puck — PPG optical module</figcaption>
+        </figure>
+        <div class="proof__docs" data-reveal>
+          <span class="mono dim">Fabrication records</span>
+          <a class="mono link" href="assets/docs/openpulse-mainboard-fabrication-A-RC2.pdf" target="_blank">mainboard-A-RC2.pdf ↗</a>
+          <a class="mono link" href="assets/docs/openpulse-ppg-puck-fabrication-A-RC2.pdf" target="_blank">ppg-puck-A-RC2.pdf ↗</a>
+          <a class="mono link" href="assets/docs/openpulse-env-puck-fabrication-A-RC2.pdf" target="_blank">env-puck-A-RC2.pdf ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         CHAPTER 03 — MIND
+         =================================================================== -->
+    <section class="chapter" id="mind">
+      <header class="chapter__head">
+        <span class="chapter__num mono" data-reveal>Chapter 03</span>
+        <h2 class="chapter__title" data-line><span>Mind</span></h2>
+        <p class="chapter__dek" data-reveal>Knowledge you can hold.</p>
+      </header>
+
+      <figure class="wide" data-reveal>
+        <video src="assets/vr-loop.mp4" autoplay muted loop playsinline></video>
+        <figcaption class="mono dim">Inside BeGreifbar — a field of vectors over a real desk, Meta Quest 3</figcaption>
+      </figure>
+
+      <div class="split">
+        <div class="split__copy split__copy--solo">
+          <p class="split__lead" data-reveal>Chemistry has notations.<br/>BeGreifbar gives them a body.</p>
+          <p data-reveal>
+            With Juan and Roman, he built an immersive laboratory where molecules,
+            fields and forces can be picked up, rotated and taken apart —
+            roughly 31,000 lines of code, studied in a real research process
+            through Jugend forscht: regional round München-Süd, then the
+            Bavarian state round.
+          </p>
+          <p data-reveal>
+            The same instinct runs through everything he builds for other
+            learners — mentoring platforms, competition maps, flight-theory
+            simulators, an e-reader that opens Goethe.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         CHAPTER 04 — SOCIETY
+         =================================================================== -->
+    <section class="chapter chapter--alt" id="society">
+      <header class="chapter__head">
+        <span class="chapter__num mono" data-reveal>Chapter 04</span>
+        <h2 class="chapter__title" data-line><span>Society</span></h2>
+        <p class="chapter__dek" data-reveal>Institutions answer to those who ask.</p>
+      </header>
+
+      <figure class="wide wide--tall" data-reveal>
+        <img src="assets/img/msc.jpg" alt="Speaking from the audience at a Munich Security Conference side event" />
+        <figcaption class="mono dim">
+          Munich Security Conference side event — Prinz-Carl-Palais, February 2026.
+          A question for the generals.
+        </figcaption>
+      </figure>
+
+      <div class="gallery">
+        <figure data-reveal>
+          <img src="assets/img/public-bavarian-landtag.jpg" alt="At the Bavarian Landtag" />
+          <figcaption class="mono dim">Bavarian Landtag</figcaption>
+        </figure>
+        <figure data-reveal>
+          <img src="assets/img/public-lithuanian-consul.jpeg" alt="With the Consul General of Lithuania" />
+          <figcaption class="mono dim">On societal resilience — with Lithuania's Consul General</figcaption>
+        </figure>
+        <figure data-reveal>
+          <img src="assets/img/public-tv-br2.jpg" alt="On Bavarian television" />
+          <figcaption class="mono dim">Bavarian broadcasting — on AI in school</figcaption>
+        </figure>
+      </div>
+
+      <p class="chapter__close" data-reveal>
+        The pattern doesn't change with scale: find the sealed system,
+        ask it a question, hand the answer on.
+      </p>
+    </section>
+
+    <!-- ===================================================================
+         FINALE
+         =================================================================== -->
+    <section class="finale" id="contact">
+      <h2 class="finale__line">
+        <span data-line>The next peak</span>
+        <span data-line>is unnamed.</span>
+      </h2>
+      <a class="finale__mail link" href="mailto:hello@mateomamaladze.com" data-reveal>hello@mateomamaladze.com</a>
+      <footer class="foot">
+        <span class="mono dim">© MMXXVI — Mateo Mamaladze</span>
+        <span class="mono dim">Munich · 46.6°N</span>
+      </footer>
+    </section>
+
+  </main>
+
+  <script src="js/vendor/gsap.min.js"></script>
+  <script src="js/vendor/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
