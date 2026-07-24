@@ -27,6 +27,7 @@
   --white:     #f4f5f7;
   --grey:      #9aa0a8;
   --grey-dim:  #62676e;
+  --mist:      #b9c3ce;
   --line:      rgba(244,245,247,0.12);
 
   --sans: "Switzer", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -113,6 +114,10 @@ body.is-loading .topbar { opacity: 0; }
 /* ======================================================================== */
 .hero { position: relative; height: 100vh; overflow: hidden; background: var(--bg); }
 .hero__pin { position: relative; height: 100%; width: 100%; }
+@supports (height: 100svh) {
+  .hero, .wheelstage, .seqstage { height: 100svh; }
+  body.is-loading { height: 100svh; }
+}
 .hero__media { position: absolute; inset: 0; }
 .hero__video {
   position: absolute; inset: 0; width: 100%; height: 100%;
@@ -230,7 +235,7 @@ body.is-loading .topbar { opacity: 0; }
   transition: opacity 0.4s var(--ease-out);
 }
 .movement:last-of-type { border-bottom: 1px solid var(--line); }
-.movements:hover .movement:not(:hover) { opacity: 0.35; }
+.movements:has(.movement:hover) .movement:not(:hover) { opacity: 0.35; }
 .movement__num {
   font-size: 12px; font-weight: 400; letter-spacing: 0.2em; color: var(--grey-dim);
 }
@@ -341,7 +346,7 @@ body.is-loading .topbar { opacity: 0; }
   line-height: 1; color: var(--white); text-shadow: 0 4px 40px rgba(0,0,0,0.6);
 }
 .wheelstage__scene p {
-  font-size: clamp(15px, 1.4vw, 19px); font-weight: 300; line-height: 1.65; color: var(--mist, #b9c3ce);
+  font-size: clamp(15px, 1.4vw, 19px); font-weight: 300; line-height: 1.65; color: var(--mist);
   text-shadow: 0 2px 24px rgba(0,0,0,0.7);
 }
 .wheelstage__scene .mono { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; }

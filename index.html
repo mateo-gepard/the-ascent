@@ -3,8 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mateo Mamaladze</title>
-  <meta name="description" content="Mateo Mamaladze — a Munich-based, German-Georgian student engineer, founder and maker." />
+  <title>Mateo Mamaladze — Student Engineer · Founder · Maker</title>
+  <meta name="description" content="Mateo Mamaladze — a Munich-based, German-Georgian student engineer, founder and maker. Co-founder of OpenPulse, 1st in Europe at Blue Ocean 2026. He opens sealed systems: hardware, learning, institutions." />
+  <link rel="canonical" href="https://mateo-gepard.github.io/the-ascent/" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <meta name="theme-color" content="#060708" />
+
+  <!-- Social cards -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Mateo Mamaladze — The Ascent" />
+  <meta property="og:description" content="Student engineer, founder, maker. OpenPulse — 1st in Europe, Blue Ocean 2026. He builds the way up." />
+  <meta property="og:url" content="https://mateo-gepard.github.io/the-ascent/" />
+  <meta property="og:image" content="https://mateo-gepard.github.io/the-ascent/assets/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mateo Mamaladze — The Ascent" />
+  <meta name="twitter:image" content="https://mateo-gepard.github.io/the-ascent/assets/og.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mateo Mamaladze",
+    "url": "https://mateo-gepard.github.io/the-ascent/",
+    "jobTitle": "Student engineer, founder and maker",
+    "birthDate": "2009-05-11",
+    "nationality": ["German", "Georgian"],
+    "homeLocation": { "@type": "Place", "name": "Munich, Germany" },
+    "affiliation": { "@type": "Organization", "name": "OpenPulse" },
+    "award": [
+      "1st place for Europe — Blue Ocean Student Entrepreneur Competition 2026 (OpenPulse)",
+      "1st place, Health & Lifestyle — STARTUP TEENS 2026 (OpenPulse)",
+      "National top 14 — JUGEND GRÜNDET 2026 (OpenPulse)"
+    ],
+    "sameAs": [
+      "https://github.com/mateo-gepard",
+      "https://www.printables.com/@Matrix/models"
+    ]
+  }
+  </script>
 
   <!-- Fonts (self-hosted: Switzer + IBM Plex Mono) -->
   <link rel="preload" href="assets/fonts/Switzer-Variable.woff2" as="font" type="font/woff2" crossorigin />
@@ -196,7 +232,7 @@
       <!-- rover footage + blueprint -->
       <div class="split">
         <figure class="split__media" data-reveal>
-          <video src="assets/rover-loop.mp4" autoplay muted loop playsinline></video>
+          <video src="assets/rover-loop.mp4" data-ambient muted loop playsinline preload="metadata" aria-label="MAGMA rover rolling test"></video>
           <figcaption class="mono dim">MAGMA V1 — four-wheel prototype, first rolling test</figcaption>
         </figure>
         <div class="split__copy">
@@ -216,7 +252,7 @@
       <!-- robot: the handshake -->
       <div class="split split--rev">
         <figure class="split__media" data-reveal>
-          <video src="assets/robothand-loop.mp4" autoplay muted loop playsinline></video>
+          <video src="assets/robothand-loop.mp4" data-ambient muted loop playsinline preload="metadata" aria-label="Shaking hands with the humanoid robot"></video>
           <figcaption class="mono dim">The robotics course — a hand that grasps</figcaption>
         </figure>
         <div class="split__copy">
@@ -243,7 +279,7 @@
       <!-- watch prelude -->
       <div class="split">
         <figure class="split__media" data-reveal>
-          <img src="assets/img/watch-heuer.jpg" alt="Heuer Game-Master on a workbench" />
+          <img loading="lazy" decoding="async" src="assets/img/watch-heuer.jpg" alt="Heuer Game-Master on a workbench" />
           <figcaption class="mono dim">Heuer Game-Master — one of the traded pieces</figcaption>
         </figure>
         <div class="split__copy">
@@ -291,11 +327,11 @@
       <!-- proof strip -->
       <div class="proof">
         <figure data-reveal>
-          <img src="assets/img/openpulse-internals.jpg" alt="Opening the OpenPulse enclosure" />
+          <img loading="lazy" decoding="async" src="assets/img/openpulse-internals.jpg" alt="Opening the OpenPulse enclosure" />
           <figcaption class="mono dim">Opening the box — development unit</figcaption>
         </figure>
         <figure data-reveal>
-          <img src="assets/img/puck.jpg" alt="OpenPulse sensor puck" />
+          <img loading="lazy" decoding="async" src="assets/img/puck.jpg" alt="OpenPulse sensor puck" />
           <figcaption class="mono dim">Sensor puck — PPG optical module</figcaption>
         </figure>
         <div class="proof__docs" data-reveal>
@@ -318,7 +354,7 @@
       </header>
 
       <figure class="wide" data-reveal>
-        <video src="assets/vr-loop.mp4" autoplay muted loop playsinline></video>
+        <video src="assets/vr-loop.mp4" data-ambient muted loop playsinline preload="metadata" aria-label="Inside the BeGreifbar VR laboratory"></video>
         <figcaption class="mono dim">Inside BeGreifbar — a field of vectors over a real desk, Meta Quest 3</figcaption>
       </figure>
 
@@ -352,7 +388,7 @@
       </header>
 
       <figure class="wide wide--tall" data-reveal>
-        <img src="assets/img/msc.jpg" alt="Speaking from the audience at a Munich Security Conference side event" />
+        <img loading="lazy" decoding="async" src="assets/img/msc.jpg" alt="Speaking from the audience at a Munich Security Conference side event" />
         <figcaption class="mono dim">
           Munich Security Conference side event — Prinz-Carl-Palais, February 2026.
           A question for the generals.
@@ -361,15 +397,15 @@
 
       <div class="gallery">
         <figure data-reveal>
-          <img src="assets/img/public-bavarian-landtag.jpg" alt="At the Bavarian Landtag" />
+          <img loading="lazy" decoding="async" src="assets/img/public-bavarian-landtag.jpg" alt="At the Bavarian Landtag" />
           <figcaption class="mono dim">Bavarian Landtag</figcaption>
         </figure>
         <figure data-reveal>
-          <img src="assets/img/public-lithuanian-consul.jpeg" alt="With the Consul General of Lithuania" />
+          <img loading="lazy" decoding="async" src="assets/img/public-lithuanian-consul.jpeg" alt="With the Consul General of Lithuania" />
           <figcaption class="mono dim">On societal resilience — with Lithuania's Consul General</figcaption>
         </figure>
         <figure data-reveal>
-          <img src="assets/img/public-tv-br2.jpg" alt="On Bavarian television" />
+          <img loading="lazy" decoding="async" src="assets/img/public-tv-br2.jpg" alt="On Bavarian television" />
           <figcaption class="mono dim">Bavarian broadcasting — on AI in school</figcaption>
         </figure>
       </div>

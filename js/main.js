@@ -293,10 +293,21 @@
       imgs[i] = im;
     };
 
-    // coarse pass first (every 6th), then fill — first frame drawn ASAP
+    // first frame immediately; the rest only once the Body chapter approaches
+    // (saves ~11 MB on visits that never reach it — matters on mobile)
     load(0, () => draw(current));
-    for (let i = 6; i < COUNT; i += 6) load(i, (k) => { if (Math.abs(k - current) < 8) draw(current); });
-    setTimeout(() => { for (let i = 0; i < COUNT; i++) load(i); }, 1200);
+    let loadingStarted = false;
+    const startLoading = () => {
+      if (loadingStarted) return;
+      loadingStarted = true;
+      for (let i = 6; i < COUNT; i += 6) load(i, (k) => { if (Math.abs(k - current) < 8) draw(current); });
+      setTimeout(() => { for (let i = 0; i < COUNT; i++) load(i); }, 900);
+    };
+    ScrollTrigger.create({
+      trigger: "#body", start: "top 250%", once: true, onEnter: startLoading,
+    });
+    canvas.setAttribute("role", "img");
+    canvas.setAttribute("aria-label", "Exploded view of the OpenPulse sensor puck, driven by scroll");
 
     window.addEventListener("resize", () => draw(current));
 
@@ -344,19 +355,34 @@
   /* ---------------- reveals ---------------- */
   function initReveals() {
     if (REDUCED) return;
+    // explicit fromTo so start values never depend on CSS-transform parsing
     $$("[data-reveal]").forEach((el) => {
-      gsap.to(el, {
-        opacity: 1, y: 0, filter: "blur(0px)", duration: 1.1, ease: "power3.out",
-        scrollTrigger: { trigger: el, start: "top 88%" },
-      });
+      gsap.fromTo(el,
+        { opacity: 0, y: 26, filter: "blur(6px)" },
+        { opacity: 1, y: 0, filter: "blur(0px)", duration: 1.1, ease: "power3.out",
+          scrollTrigger: { trigger: el, start: "top 88%" } });
     });
     $$("[data-line]").forEach((line) => {
       const inner = line.firstElementChild || line;
-      gsap.to(inner, {
-        yPercent: 0, duration: 1.15, ease: "expo.out",
-        scrollTrigger: { trigger: line, start: "top 90%" },
-      });
+      gsap.fromTo(inner,
+        { yPercent: 110 },
+        { yPercent: 0, duration: 1.15, ease: "expo.out",
+          scrollTrigger: { trigger: line, start: "top 90%" } });
     });
+  }
+
+  /* ---------------- ambient videos: play only while on screen ---------------- */
+  function initAmbient() {
+    const vids = $$("video[data-ambient]");
+    if (!vids.length) return;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        const v = en.target;
+        if (en.isIntersecting) v.play().catch(() => {});
+        else v.pause();
+      });
+    }, { threshold: 0.2 });
+    vids.forEach((v) => io.observe(v));
   }
 
   /* ---------------- counters ---------------- */
@@ -409,6 +435,7 @@
     initWheel();
     initSequence();
     initReveals();
+    initAmbient();
     initCounters();
     initAnchors();
 
