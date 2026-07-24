@@ -436,6 +436,67 @@ body.is-loading .topbar { opacity: 0; }
   }
 }
 
+/* ---- LEDGER ROWS — dense facts, calmly set ---- */
+.lgroup { padding: clamp(56px, 9vh, 110px) var(--edge) 0; }
+.lgroup__head {
+  display: block; font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey-dim);
+  margin-bottom: 18px;
+}
+.lrow {
+  display: grid; grid-template-columns: 92px 1fr auto;
+  gap: clamp(14px, 2vw, 32px); align-items: baseline;
+  padding: 15px 0; border-top: 1px solid var(--line);
+}
+.lrow:last-of-type { border-bottom: 1px solid var(--line); }
+.lrow i {
+  font-style: normal; font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.08em; color: var(--grey-dim);
+}
+.lrow p { font-size: clamp(14px, 1.2vw, 16px); font-weight: 300; line-height: 1.55; min-width: 0; }
+.lrow b { font-weight: 400; color: var(--white); }
+.lrow span { color: var(--grey); }
+.lrow em {
+  font-style: normal; font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.06em; color: var(--grey-dim); white-space: nowrap;
+  text-align: right;
+}
+.lgroup__foot { display: inline-block; margin-top: 18px; font-size: 12px; letter-spacing: 0.06em; }
+@media (max-width: 720px){
+  .lrow { grid-template-columns: 56px 1fr; }
+  .lrow em { grid-column: 2; text-align: left; }
+}
+
+/* ---- chapter footnote line ---- */
+.chapter__also {
+  padding: 0 var(--edge); margin-top: clamp(40px, 7vh, 70px);
+  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  line-height: 2; max-width: 72ch;
+}
+
+/* ---- climber row proportions ---- */
+.row__media--narrow { grid-column: 1 / span 5; }
+.row__copy--wide { grid-column: 7 / span 6; }
+@media (max-width: 900px){ .row__media--narrow, .row__copy--wide { grid-column: auto; } }
+
+/* ---- progress thread ---- */
+.progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 600;
+  pointer-events: none;
+}
+.progress i {
+  display: block; height: 100%; width: 100%;
+  background: linear-gradient(90deg, var(--grey), var(--white));
+  transform: scaleX(0); transform-origin: 0 50%; will-change: transform;
+}
+.topbar__meta em { font-style: normal; transition: opacity 0.25s var(--ease-out); }
+
+/* ---- finale links ---- */
+.finale__links {
+  margin-top: 26px; display: flex; flex-wrap: wrap; gap: clamp(18px, 3vw, 40px);
+}
+.finale__links .link { font-size: 12px; letter-spacing: 0.08em; }
+
 /* ---- finale ---- */
 .finale {
   position: relative; z-index: 10; background: var(--bg);

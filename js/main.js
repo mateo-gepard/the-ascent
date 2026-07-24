@@ -408,6 +408,52 @@
     });
   }
 
+  /* ---------------- the thread: progress line + chapter label ---------------- */
+  function initThread() {
+    const bar = $("#progressBar");
+    const label = $("#topLabel");
+    if (bar) {
+      ScrollTrigger.create({
+        start: 0,
+        end: () => ScrollTrigger.maxScroll(window) - 2,
+        onUpdate: (self) => gsap.set(bar, { scaleX: self.progress }),
+      });
+    }
+    if (!label) return;
+    const map = [
+      ["#hero", "Munich — 46.6°N"],
+      ["#thread", "The Thread"],
+      ["#movements", "The Record"],
+      ["#matter", "01 — Matter"],
+      ["#body", "02 — Body"],
+      ["#mind", "03 — Mind"],
+      ["#society", "04 — Society"],
+      ["#climber", "05 — The Climber"],
+      ["#ledger", "Appendix"],
+      ["#contact", "The Next Peak"],
+    ];
+    let current = label.textContent;
+    const setLabel = (t) => {
+      if (t === current) return;
+      current = t;
+      gsap.to(label, {
+        opacity: 0, duration: 0.18, ease: "power1.in",
+        onComplete: () => {
+          label.textContent = t;
+          gsap.to(label, { opacity: 1, duration: 0.25, ease: "power1.out" });
+        },
+      });
+    };
+    map.forEach(([sel, text]) => {
+      const el = $(sel);
+      if (!el) return;
+      ScrollTrigger.create({
+        trigger: el, start: "top 50%", end: "bottom 50%",
+        onToggle: (self) => { if (self.isActive) setLabel(text); },
+      });
+    });
+  }
+
   /* ---------------- ambient videos: play only while on screen ---------------- */
   function initAmbient() {
     const vids = $$("video[data-ambient]");
@@ -476,6 +522,7 @@
     initAmbient();
     initCounters();
     initAnchors();
+    initThread();
     initRefreshGuards();
 
     ScrollTrigger.refresh();
