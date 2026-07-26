@@ -298,6 +298,7 @@ body.is-loading .topbar { opacity: 0; }
   letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-dim);
 }
 .plate__head i { font-style: normal; }
+.plate__head strong { color: var(--white); font-weight: 500; }
 .plate__frame {
   position: relative; overflow: hidden;
   border: 1px solid var(--line); background: var(--bg-2);
