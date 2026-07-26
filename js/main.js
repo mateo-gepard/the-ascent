@@ -116,7 +116,7 @@
           start: "top top",
           // function-based px distance: constant across refreshes.
           // (%-based ends re-measure against the inflated pin spacer and compound)
-          end: () => "+=" + Math.round(window.innerHeight * 3.8),
+          end: () => "+=" + Math.round(Math.max(window.innerHeight, 600) * 3.8),
           pin: true,          // pin the hero section itself — video stays full-screen
           pinSpacing: true,
           scrub: 1,
@@ -224,7 +224,7 @@
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: stage, start: "top top",
-          end: () => "+=" + Math.round(window.innerHeight * 2.6),
+          end: () => "+=" + Math.round(Math.max(window.innerHeight, 600) * 2.6),
           pin: ".wheelstage__pin", scrub: 1,
         },
       });
@@ -325,7 +325,7 @@
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: stage, start: "top top",
-        end: () => "+=" + Math.round(window.innerHeight * 3.4),
+        end: () => "+=" + Math.round(Math.max(window.innerHeight, 600) * 3.4),
         pin: ".seqstage__pin", scrub: 1,
       },
     });

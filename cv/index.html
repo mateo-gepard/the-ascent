@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Mateo Mamaladze — Curriculum Vitae</title>
+<style>
+  /* ===================================================================
+     Print-engineered CV — A4, restrained, evidence-forward.
+     Rendered to PDF with headless Chrome.
+     =================================================================== */
+  /* static instances — Chrome cannot embed variable fonts into PDF */
+  @font-face{font-family:"Switzer";src:url("../assets/fonts/Switzer-Light.ttf") format("truetype");font-weight:300;font-display:block}
+  @font-face{font-family:"Switzer";src:url("../assets/fonts/Switzer-Regular.ttf") format("truetype");font-weight:400;font-display:block}
+  @font-face{font-family:"Switzer";src:url("../assets/fonts/Switzer-Medium.ttf") format("truetype");font-weight:500;font-display:block}
+  @font-face{font-family:"Plex";src:url("../assets/fonts/IBMPlexMono-Regular.woff2") format("woff2");font-weight:400;font-display:block}
+  @font-face{font-family:"Plex";src:url("../assets/fonts/IBMPlexMono-Medium.woff2") format("woff2");font-weight:500;font-display:block}
+
+  @page { size: A4; margin: 16mm 15mm 14mm; }
+
+  :root{
+    --ink:#111417;
+    --body:#2c3238;
+    --meta:#767d85;
+    --rule:#d9dde1;
+    --rule-strong:#9aa1a8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{
+    font-family:"Switzer",-apple-system,sans-serif;
+    font-size:9.1pt; line-height:1.5; color:var(--body);
+    font-weight:400; background:#fff;
+  }
+  .mono{font-family:"Plex",monospace}
+  a{color:inherit;text-decoration:none;border-bottom:.4pt solid var(--rule-strong)}
+
+  /* ---------- masthead ---------- */
+  .mast{border-bottom:1.2pt solid var(--ink);padding-bottom:6mm;margin-bottom:6mm}
+  .mast__name{
+    font-size:27pt;font-weight:500;letter-spacing:-.02em;line-height:1;
+    color:var(--ink);margin-bottom:2.6mm;
+  }
+  .mast__role{
+    font-size:10.6pt;font-weight:300;color:var(--body);letter-spacing:.005em;margin-bottom:4.4mm;
+  }
+  .mast__grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:3.2mm 8mm;
+    font-family:"Plex",monospace;font-size:7.4pt;color:var(--meta);
+  }
+  .mast__grid b{display:block;font-weight:500;color:var(--ink);letter-spacing:.01em;font-size:7.6pt;margin-top:.6mm}
+
+  /* ---------- sections ---------- */
+  section{margin-bottom:5.6mm;break-inside:auto}
+  h2{
+    font-family:"Plex",monospace;font-size:7.4pt;font-weight:500;
+    letter-spacing:.19em;text-transform:uppercase;color:var(--ink);
+    padding-bottom:1.5mm;margin-bottom:3mm;border-bottom:.5pt solid var(--rule);
+    break-after:avoid;
+  }
+  .lead{font-size:9.6pt;font-weight:300;line-height:1.58;color:var(--body);max-width:172mm}
+  .lead strong{font-weight:500;color:var(--ink)}
+
+  /* ---------- entry rows: date rail + content ---------- */
+  .e{display:grid;grid-template-columns:26mm 1fr;gap:5mm;padding:2.4mm 0;break-inside:avoid}
+  .e + .e{border-top:.4pt solid var(--rule)}
+  .e__when{font-family:"Plex",monospace;font-size:7.4pt;color:var(--meta);padding-top:.5mm;line-height:1.45}
+  .e__what{min-width:0}
+  .e__title{font-size:9.5pt;font-weight:500;color:var(--ink);line-height:1.35}
+  .e__title span{font-weight:400;color:var(--body)}
+  .e__org{font-size:8.5pt;font-weight:400;color:var(--meta);margin-top:.4mm}
+  .e__body{font-size:8.7pt;font-weight:300;line-height:1.52;margin-top:1.3mm;max-width:150mm}
+  .e__body li{margin-left:3.6mm;padding-left:.6mm;margin-top:.7mm}
+  .e__scope{
+    font-family:"Plex",monospace;font-size:7.2pt;color:var(--meta);margin-top:1.3mm;
+  }
+
+  /* ---------- headline results ---------- */
+  .res{display:grid;grid-template-columns:1fr 1fr;gap:0 8mm}
+  .res__i{padding:2.5mm 0;break-inside:avoid;border-top:.4pt solid var(--rule)}
+  .res__i:nth-child(1),.res__i:nth-child(2){border-top:0;padding-top:0}
+  .res__h{font-size:9.4pt;font-weight:500;color:var(--ink);line-height:1.32}
+  .res__s{font-size:8.5pt;font-weight:300;line-height:1.5;margin-top:.8mm}
+  .res__m{font-family:"Plex",monospace;font-size:7pt;color:var(--meta);margin-top:1mm}
+
+  /* ---------- compact table ---------- */
+  table{width:100%;border-collapse:collapse;font-size:8.5pt}
+  th{
+    font-family:"Plex",monospace;font-size:6.9pt;font-weight:500;letter-spacing:.13em;
+    text-transform:uppercase;color:var(--meta);text-align:left;
+    padding:0 4mm 1.5mm 0;border-bottom:.5pt solid var(--rule);
+  }
+  td{padding:1.9mm 4mm 1.9mm 0;border-bottom:.4pt solid var(--rule);vertical-align:top;font-weight:300}
+  td:last-child,th:last-child{padding-right:0}
+  td b{font-weight:500;color:var(--ink)}
+  .t-when{width:23mm;font-family:"Plex",monospace;font-size:7.3pt;color:var(--meta);white-space:nowrap}
+  .t-scope{width:46mm;font-family:"Plex",monospace;font-size:7.2pt;color:var(--meta)}
+
+  /* ---------- two-col lists ---------- */
+  .cols{column-count:2;column-gap:9mm}
+  .kv{padding:1.7mm 0;border-bottom:.4pt solid var(--rule);break-inside:avoid}
+  .kv:first-child{padding-top:0}
+  .kv__k{font-family:"Plex",monospace;font-size:6.9pt;letter-spacing:.13em;text-transform:uppercase;color:var(--meta)}
+  .kv__v{font-size:8.6pt;font-weight:300;line-height:1.5;margin-top:.7mm}
+  .kv__v b{font-weight:500;color:var(--ink)}
+
+  /* ---------- footer note ---------- */
+  .foot{
+    margin-top:6mm;padding-top:3mm;border-top:.5pt solid var(--rule);
+    font-family:"Plex",monospace;font-size:6.8pt;line-height:1.7;color:var(--meta);
+  }
+  .foot b{font-weight:500;color:var(--ink)}
+  .brk{break-before:page}
+</style>
+</head>
+<body>
+
+<!-- ============================ MASTHEAD ============================ -->
+<header class="mast">
+  <div class="mast__name">Mateo Mamaladze</div>
+  <div class="mast__role">
+    Student engineer — hardware, product and research. Co-founder of OpenPulse.
+  </div>
+  <div class="mast__grid">
+    <div>Location<b>Munich, Germany</b></div>
+    <div>Born<b>11 May 2009</b></div>
+    <div>Background<b>German–Georgian</b></div>
+    <div>Email<b>hello@mateomamaladze.com</b></div>
+    <div>Code<b>github.com/mateo-gepard</b></div>
+    <div>Designs<b>printables.com/@Matrix</b></div>
+  </div>
+</header>
+
+<!-- ============================ PROFILE ============================ -->
+<section>
+  <h2>Profile</h2>
+  <p class="lead">
+    Seventeen-year-old engineer working across hardware, software and research.
+    I co-founded <strong>OpenPulse</strong>, a modular biosensor platform that took
+    <strong>first place for Europe</strong> in the 2026 Blue Ocean competition and
+    <strong>first place in its category</strong> at STARTUP TEENS. I have research
+    experience in materials testing at a neutron source, I run my school's robotics
+    course, and I published eight 3D-printable designs — now past 5,300 downloads —
+    before I turned fifteen. My work has a consistent bias: I build systems that
+    can be opened, understood and repaired by the people who use them.
+  </p>
+</section>
+
+<!-- ============================ HEADLINE RESULTS ============================ -->
+<section>
+  <h2>Selected results</h2>
+  <div class="res">
+    <div class="res__i">
+      <div class="res__h">1st place, Europe — Blue Ocean 2026</div>
+      <div class="res__s">Student Entrepreneur Competition, with OpenPulse. Regional first place for Europe.</div>
+      <div class="res__m">23,000+ students · 9,000+ schools · 173 countries</div>
+    </div>
+    <div class="res__i">
+      <div class="res__h">1st place, Health &amp; Lifestyle — STARTUP TEENS 2026</div>
+      <div class="res__s">One of seven national category winners. €10,000 prize, decided at the Berlin final.</div>
+      <div class="res__m">1,482+ projects · 6,621 students</div>
+    </div>
+    <div class="res__i">
+      <div class="res__h">Top 14 nationally — JUGEND GRÜNDET 2026</div>
+      <div class="res__s">Invited to pitch at the IHK Munich; among the national top 14 with OpenPulse.</div>
+      <div class="res__m">34 of 1,461 teams invited to pitch</div>
+    </div>
+    <div class="res__i">
+      <div class="res__h">Special prize, Bavarian state round — Jugend forscht 2026</div>
+      <div class="res__s">For BeGreifbar, a VR chemistry laboratory, after winning the regional round in München-Süd.</div>
+      <div class="res__m">State round: 87 participants · 59 projects</div>
+    </div>
+    <div class="res__i">
+      <div class="res__h">1st prize twice — Känguru der Mathematik</div>
+      <div class="res__s">Consecutive first prizes in grades 9 and 10.</div>
+      <div class="res__m">First prize ≈ top 0.85% of a year group</div>
+    </div>
+    <div class="res__i">
+      <div class="res__h">8 published designs before age 15</div>
+      <div class="res__s">Original 3D-printable models on Printables, led by an anti-gravity bottle stand.</div>
+      <div class="res__m">5,343 downloads · 1,593 likes (19 Jul 2026)</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ EDUCATION ============================ -->
+<section>
+  <h2>Education</h2>
+  <div class="e">
+    <div class="e__when">2019 — 2027<br/>expected</div>
+    <div class="e__what">
+      <div class="e__title">Abitur — Maria-Theresia-Gymnasium, Munich</div>
+      <div class="e__org">Gifted-track class · Physics as advanced course</div>
+      <div class="e__body">
+        Skipped one school year; youngest student in my cohort. Currently Q12,
+        with the Bavarian Abitur expected in 2027. Seminar paper on guest-worker
+        migration in Munich's Westend.
+      </div>
+    </div>
+  </div>
+  <div class="e">
+    <div class="e__when">Jun — Jul 2026</div>
+    <div class="e__what">
+      <div class="e__title">Engineering summer programme <span>— Cambridge, United Kingdom</span></div>
+      <div class="e__body">Two-week intensive engineering programme.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ RESEARCH ============================ -->
+<section>
+  <h2>Research experience</h2>
+  <div class="e">
+    <div class="e__when">Apr — May 2024<br/>2 months</div>
+    <div class="e__what">
+      <div class="e__title">Research intern — FRM II research reactor</div>
+      <div class="e__org">Technische Universität München · Garching bei München, on site</div>
+      <div class="e__body">
+        Mechanical characterisation of an experimental boron-filled 3D-printing
+        filament. Boron absorbs neutrons, so printing with it would let the
+        facility produce neutron-shielding and beam-shaping components in
+        arbitrary geometries rather than machining them — but the printed
+        material's load behaviour was uncharacterised.
+        <ul>
+          <li>Printed and prepared tensile specimens across material and print-orientation configurations, three specimens per configuration.</li>
+          <li>Ran tensile tests to failure on a universal testing machine; recorded and compared results against reference materials.</li>
+          <li>Worked to the facility's measurement and documentation standards.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="e">
+    <div class="e__when">2024 — 2026</div>
+    <div class="e__what">
+      <div class="e__title">BeGreifbar — VR learning research <span>(Jugend forscht, chemistry)</span></div>
+      <div class="e__org">With Juan Rivera Chopinaud and Roman Daugavet</div>
+      <div class="e__body">
+        Investigated whether an immersive VR environment improves comprehension of
+        abstract chemistry representations. Built the system (Meta Quest 3, Unity,
+        iPad control surface, web dashboard; ≈31,000 lines of code), then ran an
+        initial study. Results were directional rather than conclusive; a larger
+        sample and interview round are the planned next step.
+        <ul>
+          <li>Regional round München-Süd, then the Bavarian state competition (13–15 April 2026), where the project received a special prize.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ VENTURES ============================ -->
+<section>
+  <h2>Ventures and work</h2>
+  <div class="e">
+    <div class="e__when">2025 — present</div>
+    <div class="e__what">
+      <div class="e__title">Co-founder — OpenPulse</div>
+      <div class="e__org">Hardware architecture and product · with Juan Rivera Chopinaud and Roman Daugavet</div>
+      <div class="e__body">
+        A modular biosensor platform: interchangeable sensor "pucks" on a shared
+        body, with the wearer retaining access to raw data instead of a closed
+        subscription ecosystem. Positioned for research, workplace safety and
+        specialised monitoring.
+        <ul>
+          <li>Responsible for hardware architecture, enclosure design and product direction; first PCB batch manufactured and a development prototype running on an nRF52840 with PPG, temperature, environmental and IMU sensing over BLE.</li>
+          <li>Openly documented, including fabrication records for the current board revisions.</li>
+          <li>Actively developed prototype — not a clinically validated or certified medical device.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="e">
+    <div class="e__when">2024 — present</div>
+    <div class="e__what">
+      <div class="e__title">Founder — vintage watch trading</div>
+      <div class="e__org">Registered business (Gewerbe) since age 16</div>
+      <div class="e__body">
+        Sourcing, valuation, negotiation, restoration coordination, customer
+        relations and bookkeeping for mechanical vintage watches.
+        <div class="e__scope">Turnover in excess of €17,000 to date (turnover, not profit)</div>
+      </div>
+    </div>
+  </div>
+  <div class="e">
+    <div class="e__when">2025 — present</div>
+    <div class="e__what">
+      <div class="e__title">Co-founder — Munich Scholar Mentors</div>
+      <div class="e__org">munichscholarmentors.de</div>
+      <div class="e__body">
+        A live tutoring platform matching high-performing student tutors with
+        learners, including profiles, matching, booking and parent-facing views.
+        I am also listed as a tutor for physics, computer science, mathematics
+        and biology.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ TEACHING ============================ -->
+<section>
+  <h2>Teaching and institution-building</h2>
+  <div class="e">
+    <div class="e__when">Sep 2024 —<br/>present</div>
+    <div class="e__what">
+      <div class="e__title">Course leader — humanoid robotics course</div>
+      <div class="e__org">Maria-Theresia-Gymnasium, Munich</div>
+      <div class="e__body">
+        Lead a weekly course for younger students building a humanoid robot,
+        coordinating mechanical assembly, electronics and control software. Wrote
+        the servo-control and calibration interface the group uses (Flask,
+        Socket.IO, pose management, emergency stop, mock mode).
+      </div>
+    </div>
+  </div>
+  <div class="e">
+    <div class="e__when">2026 — present</div>
+    <div class="e__what">
+      <div class="e__title">Co-founder — MTG forscht.</div>
+      <div class="e__org">School research programme · with Roman Daugavet</div>
+      <div class="e__body">
+        Founded a repeatable structure that helps younger students start and
+        develop their own Jugend-forscht projects: proposed it to school
+        leadership, secured funding from the Förderverein and a supervising
+        teacher, recruited across year groups, and produced the recruiting
+        material. First meeting held 14 July 2026.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ ENGINEERING ============================ -->
+<section>
+  <h2>Engineering and software portfolio</h2>
+  <p class="lead" style="font-size:8.7pt;margin-bottom:3mm">
+    30 public repositories. Grouped by what they are, rather than counted.
+  </p>
+  <div class="e">
+    <div class="e__when">Hardware &amp;<br/>physical systems</div>
+    <div class="e__what">
+      <div class="e__body" style="margin-top:0">
+        <b>OpenPulse</b> — modular biosensor hardware, firmware and dashboard ·
+        <b>MAGMA</b> — rover for the DLR Vulcano Summer School challenge, with
+        gear-driven expanding wheels and environmental sensing, built with Juan and
+        Roman · <b>PibUi</b> — humanoid robot control and calibration interface ·
+        <b>GCodeBending</b> — Python tool that deforms sliced G-code along a spline
+        for non-planar printing · <b>Glow Timer</b> — Arduino and printed
+        productivity timer · <b>Sundial</b> — location- and season-aware bracelet
+        sundial calibration tool.
+      </div>
+    </div>
+  </div>
+  <div class="e">
+    <div class="e__when">Learning tools</div>
+    <div class="e__what">
+      <div class="e__body" style="margin-top:0">
+        <b>BeGreifbar</b> — immersive VR laboratory for chemistry, physics and
+        mathematics · <b>SkyLab</b> — interactive EASA principles-of-flight course
+        with eleven units, simulations and exam mode · <b>deinwettbewerb</b> —
+        matching engine over ~300 youth competitions with explainable fit and
+        deadline logic · <b>EduVids</b> and <b>EduSlides</b> — AI pipelines that
+        plan, critique and revise teaching videos and slide decks ·
+        <b>Iphigenie e-reader</b> — annotated interactive edition of Goethe's play ·
+        <b>Stundenplan</b> — timetable viewer.
+      </div>
+    </div>
+  </div>
+  <div class="e">
+    <div class="e__when">Organisation<br/>&amp; AI</div>
+    <div class="e__what">
+      <div class="e__body" style="margin-top:0">
+        <b>Stufenportal</b> — progressive web app for year-group organisation:
+        events, polls, cash transparency, notifications · <b>Threadmap</b> —
+        local-first graph of tasks, projects, habits and goals with
+        natural-language capture · <b>Athena</b> — personal planning dashboard ·
+        <b>Safeguard</b> — content-scoring and parental-control layer for YouTube ·
+        <b>Maestro</b> — zero-dependency multi-model agent orchestrator with
+        planning, routing, verification and cost tracking.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ COMPETITIONS ============================ -->
+<section>
+  <h2>Competitions and selections</h2>
+  <table>
+    <thead>
+      <tr><th class="t-when">When</th><th>Competition and result</th><th class="t-scope">Scope</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="t-when">May 2026</td>
+        <td><b>Blue Ocean Student Entrepreneur Competition</b> — first place for Europe, with OpenPulse</td>
+        <td class="t-scope">23,000+ students, 173 countries</td>
+      </tr>
+      <tr>
+        <td class="t-when">Jun 2026</td>
+        <td><b>STARTUP TEENS Challenge</b> — first place, Health &amp; Lifestyle category; €10,000</td>
+        <td class="t-scope">1,482+ projects; 1 of 7 categories</td>
+      </tr>
+      <tr>
+        <td class="t-when">Mar 2026</td>
+        <td><b>JUGEND GRÜNDET</b> — national top 14; pitched at IHK Munich</td>
+        <td class="t-scope">34 of 1,461 teams pitched</td>
+      </tr>
+      <tr>
+        <td class="t-when">Apr 2026</td>
+        <td><b>Jugend forscht, Bavarian state round</b> — special prize (chemistry, BeGreifbar)</td>
+        <td class="t-scope">87 participants, 59 projects</td>
+      </tr>
+      <tr>
+        <td class="t-when">Feb 2026</td>
+        <td><b>Jugend forscht, regional round München-Süd</b> — advanced to the state competition</td>
+        <td class="t-scope">Regional</td>
+      </tr>
+      <tr>
+        <td class="t-when">2026</td>
+        <td><b>DLR Vulcano Summer School challenge</b> — designed and built the MAGMA rover for the volcanic-terrain brief</td>
+        <td class="t-scope">National challenge</td>
+      </tr>
+      <tr>
+        <td class="t-when">Nov 2025</td>
+        <td><b>German Physics Olympiad (IPhO selection)</b> — participant, second round</td>
+        <td class="t-scope">759 entrants nationally</td>
+      </tr>
+      <tr>
+        <td class="t-when">2025</td>
+        <td><b>Känguru der Mathematik</b> — first prize (grade 10)</td>
+        <td class="t-scope">≈ top 0.85% of year group</td>
+      </tr>
+      <tr>
+        <td class="t-when">2024</td>
+        <td><b>Känguru der Mathematik</b> — first prize (grade 9)</td>
+        <td class="t-scope">≈ top 0.85% of year group</td>
+      </tr>
+      <tr>
+        <td class="t-when">—</td>
+        <td><b>Mathematik-Olympiade</b> — reached the Bavarian state round</td>
+        <td class="t-scope">State round</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============================ PUBLIC ============================ -->
+<section>
+  <h2>Public engagement and media</h2>
+  <div class="e">
+    <div class="e__when">14 Feb 2026</div>
+    <div class="e__what">
+      <div class="e__title">Munich Security Conference side event <span>— Prinz-Carl-Palais, Munich</span></div>
+      <div class="e__body">
+        Attended as part of a school delegation to a discussion on deterrence and
+        the role of land forces in Euro-Atlantic security, and put a question to
+        the panel from the floor. Panel included Lieutenant General Dr Christian
+        Freuding (Inspector of the German Army), General Christopher Donahue
+        (Commanding General, US Army Europe and Africa) and Bavarian State
+        Minister Dr Florian Herrmann, moderated by Prof Dr Carlo Masala.
+      </div>
+    </div>
+  </div>
+  <div class="e">
+    <div class="e__when">2026</div>
+    <div class="e__what">
+      <div class="e__title">Talk on societal resilience <span>— with the Consul General of Lithuania in Munich</span></div>
+      <div class="e__body">Short joint talk to an adult audience on strengthening societal resilience.</div>
+    </div>
+  </div>
+  <div class="e">
+    <div class="e__when">—</div>
+    <div class="e__what">
+      <div class="e__title">Bavarian television and radio <span>— on artificial intelligence in schools</span></div>
+    </div>
+  </div>
+  <div class="e">
+    <div class="e__when">Ongoing</div>
+    <div class="e__what">
+      <div class="e__title">Civic participation</div>
+      <div class="e__body">
+        Political simulation exercises at the Amerikahaus Munich; repeated visits
+        to and discussions at the Bavarian Landtag; a panel discussion with former
+        members of the US Congress. Rhetoric and public-speaking training since
+        September 2025.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SKILLS ============================ -->
+<section>
+  <h2>Skills and tools</h2>
+  <div class="cols">
+    <div class="kv">
+      <div class="kv__k">Hardware</div>
+      <div class="kv__v">PCB design and bring-up · sensor integration (PPG, IMU, environmental) · BLE / nRF52840 · enclosure design in CAD, including parametric CadQuery · 3D printing and design for manufacture · soldering and prototype assembly</div>
+    </div>
+    <div class="kv">
+      <div class="kv__k">Measurement</div>
+      <div class="kv__v">Tensile testing on a universal testing machine · specimen preparation and configuration series · comparison against reference materials · lab documentation standards</div>
+    </div>
+    <div class="kv">
+      <div class="kv__k">Software</div>
+      <div class="kv__v">Python · JavaScript and TypeScript · React and Next.js · Flask and Socket.IO · Unity and C# · Firebase, SQLite · Git</div>
+    </div>
+    <div class="kv">
+      <div class="kv__k">Research &amp; product</div>
+      <div class="kv__v">Study design and user testing · scientific writing and poster preparation · business modelling · pitching to juries and investors · teaching and mentoring</div>
+    </div>
+    <div class="kv">
+      <div class="kv__k">Languages</div>
+      <div class="kv__v"><b>German</b> — native · <b>English</b> — fluent · <b>Georgian</b> — family language</div>
+    </div>
+    <div class="kv">
+      <div class="kv__k">Outside work</div>
+      <div class="kv__v">Regular attendance at Munich's theatres and opera houses (eleven productions, Dec 2024 – Jul 2026) · sailing on the Ammersee, co-owner of a small cabin boat · road cycling and running · Georgian cooking · mechanical watches</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SOURCES ============================ -->
+<div class="foot">
+  <b>Verification.</b>
+  Blue Ocean winners — blueoceancompetition.org/2025-2026-winners ·
+  STARTUP TEENS results — startupteens.de ·
+  JUGEND GRÜNDET pitch teams — jugend-gruendet.de/pitch-events-2026 ·
+  Jugend forscht Bayern project listing — jugend-forscht-bayern.de ·
+  Physics Olympiad round-two report — scienceolympiaden.de ·
+  Munich Security Conference side event — mtg.musin.de ·
+  Code — github.com/mateo-gepard ·
+  Designs — printables.com/@Matrix/models ·
+  Munich Scholar Mentors — munichscholarmentors.de<br/>
+  <b>Notes.</b>
+  Printables metrics are a snapshot of 19 July 2026 and continue to change.
+  OpenPulse is an actively developed prototype without clinical validation or
+  certification. Watch-trading figures are turnover, not profit.
+  Full site and project documentation: mateo-gepard.github.io/the-ascent
+</div>
+
+</body>
+</html>
