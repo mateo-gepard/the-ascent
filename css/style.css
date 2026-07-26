@@ -467,6 +467,13 @@ body.is-loading .topbar { opacity: 0; }
   .lrow em { grid-column: 2; text-align: left; }
 }
 
+/* ---- chapter intro paragraph ---- */
+.chapter__intro {
+  padding: 0 var(--edge); margin-top: clamp(30px, 5vh, 54px);
+  font-size: clamp(15px, 1.4vw, 19px); font-weight: 300; line-height: 1.7;
+  color: var(--grey); max-width: 62ch;
+}
+
 /* ---- chapter footnote line ---- */
 .chapter__also {
   padding: 0 var(--edge); margin-top: clamp(40px, 7vh, 70px);
@@ -509,8 +516,12 @@ body.is-loading .topbar { opacity: 0; }
 }
 .finale__line span[data-line] { display: block; overflow: hidden; }
 .finale__line span[data-line] > * { display: inline-block; }
+.finale__note {
+  margin-top: 28px; font-size: clamp(15px, 1.4vw, 19px); font-weight: 300;
+  line-height: 1.65; color: var(--grey); max-width: 40ch;
+}
 .finale__mail {
-  margin-top: 40px; font-family: var(--mono); font-size: clamp(14px, 1.6vw, 18px);
+  margin-top: 30px; font-family: var(--mono); font-size: clamp(14px, 1.6vw, 18px);
   letter-spacing: 0.06em;
 }
 .foot {

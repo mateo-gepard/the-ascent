@@ -422,15 +422,15 @@
     if (!label) return;
     const map = [
       ["#hero", "Munich — 46.6°N"],
-      ["#thread", "The Thread"],
-      ["#movements", "The Record"],
+      ["#thread", "How I work"],
+      ["#movements", "Contents"],
       ["#matter", "01 — Matter"],
       ["#body", "02 — Body"],
       ["#mind", "03 — Mind"],
       ["#society", "04 — Society"],
-      ["#climber", "05 — The Climber"],
-      ["#ledger", "Appendix"],
-      ["#contact", "The Next Peak"],
+      ["#climber", "Background"],
+      ["#ledger", "The Record"],
+      ["#contact", "Contact"],
     ];
     let current = label.textContent;
     const setLabel = (t) => {
