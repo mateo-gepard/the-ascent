@@ -25,30 +25,20 @@
 
   // Mobile Safari can replace a valid poster with a black video surface after
   // metadata loads but before it has actually painted a frame. Keep the
-  // independent background image visible until the browser reports a rendered
-  // frame; if decoding is delayed or blocked, the fallback simply stays put.
-  function revealHeroVideoWhenPainted(video) {
+  // independent background visible through the initial load, then reveal the
+  // video two paints after its first completed scroll seek. requestVideoFrameCallback
+  // is intentionally avoided here: Safari may not fire it for paused scrub video.
+  function revealHeroVideoAfterSeek(video) {
     if (!video || REDUCED || SAVE_DATA) return;
-    let queued = false;
     const reveal = () => {
-      queued = false;
-      video.classList.add("is-frame-ready");
+      if (video.classList.contains("is-frame-ready") || video.currentTime <= 0.01) return;
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => video.classList.add("is-frame-ready"));
+      });
     };
-    const queueReveal = () => {
-      if (queued || video.classList.contains("is-frame-ready") || video.readyState < 2) return;
-      queued = true;
-      if (typeof video.requestVideoFrameCallback === "function") {
-        video.requestVideoFrameCallback(reveal);
-      } else {
-        requestAnimationFrame(() => requestAnimationFrame(reveal));
-      }
-    };
-    video.addEventListener("loadeddata", queueReveal);
-    video.addEventListener("canplay", queueReveal);
-    video.addEventListener("seeked", queueReveal);
-    queueReveal();
+    video.addEventListener("seeked", reveal);
   }
-  revealHeroVideoWhenPainted(heroVideo);
+  revealHeroVideoAfterSeek(heroVideo);
 
   // The loader visually covers the site, so keep its links out of the tab order
   // until the page is actually available.
