@@ -19,9 +19,18 @@
     });
     $$("[data-line]").forEach((line) => {
       const inner = line.firstElementChild || line;
-      gsap.fromTo(inner, { yPercent: 110 },
-        { yPercent: 0, duration: 1.1, ease: "expo.out",
-          scrollTrigger: { trigger: line, start: "top 92%" } });
+      const tween = { yPercent: 0, duration: 1.1, ease: "expo.out" };
+      // Mastheads are already in view at scroll position zero. Running their
+      // reveal directly avoids ScrollTrigger leaving the clipped title below
+      // its mask when the trigger starts above the viewport.
+      if (line.classList.contains("phead__title")) {
+        gsap.fromTo(inner, { yPercent: 110 }, tween);
+      } else {
+        gsap.fromTo(inner, { yPercent: 110 }, {
+          ...tween,
+          scrollTrigger: { trigger: line, start: "top 92%" },
+        });
+      }
     });
   }
 

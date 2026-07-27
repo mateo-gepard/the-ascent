@@ -122,6 +122,7 @@
           scrub: 1,
         },
       });
+      const compactHero = window.matchMedia("(max-width: 820px)").matches;
 
       // ---- video scrubs across the whole pin (holds final gaze at the end) ----
       tl.fromTo(proxy, { t: 0 },
@@ -142,27 +143,27 @@
       // ---- Scene A · centered name (over the empty vista) ----
       tl.set('[data-scene="a"]', { opacity: 1 }, 0.02)
         .fromTo('[data-scene="a"] .ln',
-        { yPercent: 120, opacity: 0, filter: "blur(16px)" },
-        { yPercent: 0, opacity: 1, filter: "blur(0px)", ease: "power3.out", duration: 0.1, stagger: 0.02 }, 0.03)
+        { yPercent: compactHero ? 78 : 120, opacity: 0, filter: `blur(${compactHero ? 9 : 16}px)` },
+        { yPercent: 0, opacity: 1, filter: "blur(0px)", ease: "power3.out", duration: 0.09, stagger: 0.015 }, 0.035)
         .to('[data-scene="a"] .ln',
-        { yPercent: -60, opacity: 0, filter: "blur(14px)", ease: "power2.in", duration: 0.09, stagger: 0.015 }, 0.17)
-        .set('[data-scene="a"]', { opacity: 0 }, 0.27);
+        { yPercent: compactHero ? -34 : -60, opacity: 0, filter: `blur(${compactHero ? 8 : 14}px)`, ease: "power2.in", duration: 0.08, stagger: 0.012 }, 0.24)
+        .set('[data-scene="a"]', { opacity: 0 }, 0.335);
 
       // ---- Scene B · centered role (just before he appears) ----
       tl.fromTo('[data-scene="b"]',
-        { opacity: 0, y: 44, filter: "blur(14px)" },
-        { opacity: 1, y: 0, filter: "blur(0px)", ease: "power3.out", duration: 0.09 }, 0.21)
+        { opacity: 0, y: compactHero ? 26 : 44, filter: `blur(${compactHero ? 8 : 14}px)` },
+        { opacity: 1, y: 0, filter: "blur(0px)", ease: "power3.out", duration: 0.09 }, 0.30)
         .to('[data-scene="b"]',
-        { opacity: 0, y: -36, filter: "blur(12px)", ease: "power2.in", duration: 0.08 }, 0.30);
+        { opacity: 0, y: compactHero ? -22 : -36, filter: `blur(${compactHero ? 7 : 12}px)`, ease: "power2.in", duration: 0.08 }, 0.51);
 
       // ---- Scene C · flies in from the LEFT when he enters, stays clear of him ----
-      tl.set('[data-scene="c"]', { opacity: 1 }, 0.34)
+      tl.set('[data-scene="c"]', { opacity: 1 }, 0.58)
         .fromTo('[data-scene="c"] .scene__eyebrow',
-          { x: -60, opacity: 0, filter: "blur(10px)" },
-          { x: 0, opacity: 1, filter: "blur(0px)", ease: "power3.out", duration: 0.1 }, 0.35)
+          { x: compactHero ? -34 : -60, opacity: 0, filter: `blur(${compactHero ? 6 : 10}px)` },
+          { x: 0, opacity: 1, filter: "blur(0px)", ease: "power3.out", duration: 0.1 }, 0.59)
         .fromTo('[data-scene="c"] .scene__statement .ln',
-          { x: -80, opacity: 0, filter: "blur(14px)" },
-          { x: 0, opacity: 1, filter: "blur(0px)", ease: "power3.out", duration: 0.14, stagger: 0.035 }, 0.37);
+          { x: compactHero ? -42 : -80, opacity: 0, filter: `blur(${compactHero ? 8 : 14}px)` },
+          { x: 0, opacity: 1, filter: "blur(0px)", ease: "power3.out", duration: 0.14, stagger: 0.035 }, 0.61);
 
       ScrollTrigger.refresh();
     }
