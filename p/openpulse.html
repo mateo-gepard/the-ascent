@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>OpenPulse — Mateo Mamaladze</title>
+<meta name="description" content="A wearable biosensor platform where the sensors are swappable and the raw data belongs to the person wearing it." />
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+<meta name="theme-color" content="#060708" />
+<meta property="og:title" content="OpenPulse — Mateo Mamaladze" />
+<meta property="og:description" content="A wearable biosensor platform where the sensors are swappable and the raw data belongs to the person wearing it." />
+<meta property="og:image" content="https://mateo-gepard.github.io/the-ascent/assets/og.png" />
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="../css/page.css" />
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+
+<nav class="pnav">
+  <a class="pnav__back" href="../index.html"><i>←</i> All work</a>
+  <a class="pnav__name" href="../index.html">Mateo Mamaladze</a>
+</nav>
+
+<header class="phead">
+  <span class="phead__kicker">Project 01 · 2025 — present</span>
+  <h1 class="phead__title" data-line><span>OpenPulse</span></h1>
+  <p class="phead__dek">
+    A wearable biosensor platform where the sensors are swappable and the raw
+    data belongs to the person wearing it.
+  </p>
+  <dl class="phead__facts" data-reveal>
+    <div><dt>Role</dt><dd>Co-founder · hardware architecture and product</dd></div>
+    <div><dt>Team</dt><dd>Roman Daugavet (firmware, signal processing) · Juan Rivera Chopinaud (business)</dd></div>
+    <div><dt>Status</dt><dd>Actively developed prototype</dd></div>
+    <div><dt>Recognition</dt><dd>1st for Europe, Blue Ocean 2026 · 1st in category, STARTUP TEENS</dd></div>
+  </dl>
+</header>
+
+<!-- ============ THE SEQUENCE: scroll-scrubbed exploded view ============ -->
+<div class="seqstage" id="seqStage">
+  <div class="seqstage__pin">
+    <canvas class="seqstage__canvas" id="seqCanvas"></canvas>
+    <div class="seqstage__scene" data-sscene="a">
+      <h3>One body.</h3>
+      <p>Power, storage and Bluetooth live in the mainboard.</p>
+    </div>
+    <div class="seqstage__scene" data-sscene="b">
+      <h3>Modules that twist out.</h3>
+      <p>Each puck carries its own sensors and identifies itself when connected,
+         so the firmware knows what it is talking to.</p>
+    </div>
+    <div class="seqstage__scene" data-sscene="c">
+      <span class="mono dim">Bayonet lock · pogo-pin contacts · parametric enclosure</span>
+      <p>Not magnets, which release under a knock. Not screws, which need a tool
+         and a free second hand.</p>
+    </div>
+    <div class="seqstage__scene" data-sscene="d">
+      <h3>And the signal is yours.</h3>
+      <p>Open data format, from the first revision.</p>
+    </div>
+  </div>
+</div>
+
+<main class="pbody">
+
+  <section class="psec">
+    <h2 class="psec__h">What it is</h2>
+    <div class="prose">
+      <p class="lede" data-reveal>
+        OpenPulse is a wearable built around interchangeable sensor modules.
+      </p>
+      <p data-reveal>
+        You choose which signals you want to measure, twist the corresponding
+        module into the housing, and the raw data goes to you rather than into a
+        subscription service. We're building it for research groups, occupational
+        safety and specialised monitoring, where people need the underlying
+        signal rather than a score out of a hundred.
+      </p>
+    </div>
+  </section>
+
+  <section class="psec">
+    <h2 class="psec__h">Why it exists</h2>
+    <div class="prose">
+      <p data-reveal>
+        I wear a Whoop. It measures my heart rate, my skin temperature, my sleep
+        and my recovery, and as a consumer device it is very good. What I can't
+        do is get at the raw photoplethysmography signal, change what it
+        measures, or use it at all if I stop paying. Every commercial wearable I
+        looked at worked the same way: sealed hardware, a sensor set fixed for
+        the life of the product, and data visible only through the
+        manufacturer's app.
+      </p>
+      <div class="pull" data-reveal>
+        <p>That is a sensible business model and a poor research instrument.</p>
+      </div>
+      <p data-reveal>
+        A sleep lab, a physiotherapist and a factory safety officer each need a
+        different combination of sensors, and all three need the signal itself
+        rather than an interpretation of it. So we designed the device around
+        modules instead of a fixed board, and made the data format open from
+        the start.
+      </p>
+    </div>
+  </section>
+
+  <section class="psec">
+    <h2 class="psec__h">How it works</h2>
+    <div class="row">
+      <figure class="plate row__media">
+        <span class="plate__head" data-reveal><i>Fig. 1</i><i>Development unit, opened</i></span>
+        <div class="plate__frame plate__frame--45 grade">
+          <img loading="lazy" decoding="async" src="../assets/img/openpulse-internals.jpg"
+               alt="An OpenPulse development unit opened, showing sensors and wiring" />
+        </div>
+        <span class="plate__cap" data-reveal>Sensors, fan and wiring loom inside a printed housing</span>
+      </figure>
+      <div class="copy row__copy">
+        <p data-reveal>
+          The architecture separates a mainboard from replaceable sensor pucks.
+          The mainboard handles power, storage and Bluetooth Low Energy. Each puck
+          carries its own sensors and identifies itself when connected, so the
+          firmware knows what it is talking to and can configure itself
+          accordingly.
+        </p>
+        <p data-reveal>
+          The mechanical connection is a bayonet twist lock. We chose it over
+          magnets, which release under a knock, and over screws, which need a tool
+          and a free second hand. A bayonet gives a definite tactile end position,
+          which matters when someone is changing a module on a wrist they can't
+          see properly.
+        </p>
+      </div>
+    </div>
+
+    <div class="prose" style="margin-top:clamp(40px,6vh,70px)">
+      <p data-reveal>
+        The sensor set specified for the first full puck generation:
+      </p>
+    </div>
+
+    <table class="spec" data-reveal>
+      <thead>
+        <tr><th>Part</th><th>Measures</th><th>Note</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>MAX86150</td><td>Photoplethysmography and single-lead ECG</td><td class="num">Optical + electrical</td></tr>
+        <tr><td>TMP117</td><td>Skin temperature</td><td class="num">to 0.1 °C</td></tr>
+        <tr><td>BNO085</td><td>Motion and orientation</td><td class="num">9-axis IMU</td></tr>
+        <tr><td>BME688</td><td>Ambient conditions</td><td class="num">Environment</td></tr>
+        <tr><td>ADS1115</td><td>Electrodermal activity</td><td class="num">16-bit ADC</td></tr>
+      </tbody>
+    </table>
+
+    <div class="prose" style="margin-top:clamp(34px,5vh,56px)">
+      <p data-reveal>
+        The current development hardware is one generation behind that, running a
+        Seeed XIAO nRF52840 with a MAX30102, which is deliberate: it lets Roman
+        work on firmware and signal processing while the final board is still
+        moving.
+      </p>
+      <p data-reveal>
+        The housing isn't drawn by hand. It's written as a CadQuery script, so
+        wall thickness, module diameter and locking geometry are parameters
+        rather than geometry. When a sensor changes, I change three numbers and
+        regenerate every part instead of editing a model in a dozen places.
+        <strong>That decision has saved more time than anything else in the
+        project.</strong>
+      </p>
+    </div>
+  </section>
+
+  <section class="psec">
+    <h2 class="psec__h">What I got wrong</h2>
+    <div class="prose">
+      <p class="lede" data-reveal>We lost our first serious pitch.</p>
+      <p data-reveal>
+        In March 2026 we presented at the JUGEND GRÜNDET event at the Munich
+        Chamber of Commerce and didn't place, because I pitched the idea instead
+        of the device. We spent our three minutes explaining why closed
+        ecosystems are a problem and almost none of it on the fact that there was
+        a working board in a bag under the table. The jury concluded, reasonably,
+        that we had a manifesto and no hardware.
+      </p>
+      <p data-reveal>
+        After the results I stayed at our stand and put the actual board into the
+        hands of anyone who stopped, including two of the jurors. One of them
+        asked why we hadn't led with it. By the end of the evening we had a
+        scholarship to the UnternehmerTUM Makerspace at TU Munich, which gave us
+        the fabrication access we were actually short of, an offer to apply for a
+        Bavarian innovation voucher, and two contacts we still use.
+        <strong>Every pitch since then starts with the object.</strong>
+      </p>
+      <p data-reveal>
+        The second thing I got wrong is visible in the hardware. We wrote a full
+        five-sensor specification before we had a simple version working end to
+        end, which is why the specification and the running board are still a
+        generation apart. The board that exists is the one that taught us things.
+        The board on paper taught us nothing until it was built.
+      </p>
+    </div>
+  </section>
+
+  <section class="psec">
+    <h2 class="psec__h">Where it stands</h2>
+    <div class="row">
+      <div class="copy row__copy" style="grid-column:1 / span 6">
+        <p data-reveal>
+          A prototype mainboard has been manufactured and tested, the first thirty
+          boards have come back from fabrication, and sensor modules are being
+          assembled now. Wrist-worn prototypes are the goal for this summer.
+        </p>
+        <p data-reveal>
+          The mobile app and the SDK are not finished. The signal-processing
+          algorithms are specified but not validated against reference equipment,
+          which means we can't make accuracy claims and don't make them. It is an
+          actively developed prototype with awards attached, and it is not a
+          certified medical device.
+        </p>
+        <div class="plinks" data-reveal style="margin-top:12px">
+          <a href="../assets/docs/openpulse-mainboard-fabrication-A-RC2.pdf" target="_blank" rel="noopener">Mainboard fabrication ↗</a>
+          <a href="../assets/docs/openpulse-ppg-puck-fabrication-A-RC2.pdf" target="_blank" rel="noopener">PPG puck ↗</a>
+          <a href="../assets/docs/openpulse-env-puck-fabrication-A-RC2.pdf" target="_blank" rel="noopener">Environment puck ↗</a>
+        </div>
+      </div>
+      <figure class="plate" style="grid-column:8 / span 5">
+        <span class="plate__head" data-reveal><i>Fig. 2</i><i>Sensor puck</i></span>
+        <div class="plate__frame plate__frame--43 grade">
+          <img loading="lazy" decoding="async" src="../assets/img/puck-centered.jpg" alt="An OpenPulse sensor puck" />
+        </div>
+        <span class="plate__cap" data-reveal>Optical module — pogo-pin interface</span>
+      </figure>
+    </div>
+  </section>
+
+  <section class="psec">
+    <h2 class="psec__h">Results</h2>
+    <div class="rlist">
+      <div class="rlist__i" data-reveal>
+        <div>
+          <div class="rlist__t">First place for Europe — Blue Ocean Student Entrepreneur Competition 2026</div>
+          <p class="rlist__s">This is the European award, not the global one.</p>
+        </div>
+        <span class="rlist__m">23,000+ students<br/>173 countries</span>
+      </div>
+      <div class="rlist__i" data-reveal>
+        <div>
+          <div class="rlist__t">First place, Health &amp; Lifestyle — STARTUP TEENS Challenge 2026, Berlin</div>
+          <p class="rlist__s">€10,000 prize. We reached the final through a jury wildcard after finishing third in our category's public vote with 21.68%.</p>
+        </div>
+        <span class="rlist__m">€10,000</span>
+      </div>
+      <div class="rlist__i" data-reveal>
+        <div>
+          <div class="rlist__t">Top 14 nationally — JUGEND GRÜNDET 2025/26</div>
+        </div>
+        <span class="rlist__m">from 1,461 teams</span>
+      </div>
+    </div>
+
+    <div class="plinks" data-reveal style="margin-top:clamp(30px,5vh,50px)">
+      <a href="https://github.com/mateo-gepard/Openpulse" target="_blank" rel="noopener">Firmware and hardware ↗</a>
+      <a href="https://github.com/mateo-gepard/OpenpulseWebsite" target="_blank" rel="noopener">Website ↗</a>
+      <a href="https://github.com/mateo-gepard/OpenpulseApp" target="_blank" rel="noopener">Companion app prototype ↗</a>
+    </div>
+  </section>
+
+</main>
+
+<a class="pnext" href="begreifbar.html">
+  <div><span class="pnext__l">Next project</span><span class="pnext__t">BeGreifbar</span></div>
+  <span class="mono dim">02 →</span>
+</a>
+
+<footer class="pfoot">
+  <span>© MMXXVI — Mateo Mamaladze</span>
+  <span><a href="mailto:mateo.mamaladze@gmail.com">mateo.mamaladze@gmail.com</a></span>
+</footer>
+
+<script src="../js/vendor/gsap.min.js"></script>
+<script src="../js/vendor/ScrollTrigger.min.js"></script>
+<script src="../js/page.js"></script>
+<script src="../js/sequence.js"></script>
+</body>
+</html>

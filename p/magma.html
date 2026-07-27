@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MAGMA — Mateo Mamaladze</title>
+<meta name="description" content="A rover for volcanic terrain, with wheels that change diameter as the ground changes." />
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+<meta name="theme-color" content="#060708" />
+<meta property="og:title" content="MAGMA — Mateo Mamaladze" />
+<meta property="og:description" content="A rover for volcanic terrain, with wheels that change diameter as the ground changes." />
+<meta property="og:image" content="https://mateo-gepard.github.io/the-ascent/assets/og.png" />
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="../css/page.css" />
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+
+<nav class="pnav">
+  <a class="pnav__back" href="../index.html"><i>←</i> All work</a>
+  <a class="pnav__name" href="../index.html">Mateo Mamaladze</a>
+</nav>
+
+<header class="phead">
+  <span class="phead__kicker">Project 03 · 2026</span>
+  <h1 class="phead__title" data-line><span>MAGMA</span></h1>
+  <p class="phead__dek">
+    A rover for volcanic terrain, with wheels that change diameter as the ground
+    changes.
+  </p>
+  <dl class="phead__facts" data-reveal>
+    <div><dt>Role</dt><dd>Mechanical design — wheel mechanism and chassis</dd></div>
+    <div><dt>Team</dt><dd>Juan Rivera Chopinaud · Roman Daugavet</dd></div>
+    <div><dt>Brief</dt><dd>DLR Vulcano challenge — cross an active volcanic field, take measurements</dd></div>
+    <div><dt>Funding</dt><dd>Mouser Electronics · Stadtsparkasse München · Bayerischer Bildungsverband</dd></div>
+  </dl>
+</header>
+
+<!-- ============ THE WHEEL: scroll-scrubbed mechanism ============ -->
+<div class="wheelstage" id="wheelStage">
+  <div class="wheelstage__pin">
+    <figure class="plate wheelstage__plate">
+      <span class="plate__head"><i>Fig. 1</i><i>Wheel — contract · expand</i></span>
+      <div class="plate__frame plate__frame--169 grade">
+        <video class="wheelstage__video" id="wheelVideo" playsinline muted preload="auto"
+               poster="../assets/wheel-poster.jpg">
+          <source src="../assets/wheel-scrub.mp4" type='video/mp4; codecs="avc1.64001F"' />
+        </video>
+      </div>
+      <span class="plate__cap">Scroll to run the mechanism</span>
+    </figure>
+    <div class="wheelstage__scenes">
+      <div class="wheelstage__scene" data-wscene="a">
+        <h3>Two incompatible problems.</h3>
+        <p>Loose ash, where a narrow wheel sinks and a wide one floats. Broken
+           rock, where a large wheel jams between edges and a smaller one steps
+           through cleanly.</p>
+      </div>
+      <div class="wheelstage__scene" data-wscene="b">
+        <h3>So the wheel changes size.</h3>
+        <p>Curved segments on a gear ring slide outwards or inwards together,
+           while the rover keeps moving.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main class="pbody">
+
+  <section class="psec">
+    <h2 class="psec__h">What it is</h2>
+    <div class="prose">
+      <p class="lede" data-reveal>
+        A four-wheeled rover built for the German Aerospace Center's Vulcano
+        challenge, which asks school teams to design a vehicle that can cross an
+        active volcanic field and take useful environmental measurements.
+      </p>
+    </div>
+  </section>
+
+  <section class="psec">
+    <h2 class="psec__h">Why it exists</h2>
+    <div class="prose">
+      <p data-reveal>
+        The ground on a volcano is two incompatible problems at once. There is
+        loose ash, where a narrow wheel sinks and a wide one floats. And there is
+        broken rock, where a large wheel jams between edges and a smaller one
+        steps through cleanly. A fixed wheel diameter is a compromise between the
+        two, and every school rover I looked at accepted that compromise and then
+        drove slowly enough to survive it.
+      </p>
+      <p data-reveal>
+        We built wheels that change diameter instead. Each wheel opens and closes
+        like a camera iris while the rover is moving, so it can run wide across
+        ash and narrow across rock without stopping to be reconfigured.
+      </p>
+    </div>
+  </section>
+
+  <section class="psec">
+    <h2 class="psec__h">How it works</h2>
+    <div class="row">
+      <figure class="plate row__media">
+        <span class="plate__head" data-reveal><i>Fig. 2</i><i>Wheel — front elevation</i></span>
+        <div class="plate__frame plate__frame--43 plate__frame--contain">
+          <img loading="lazy" decoding="async" src="../assets/drawings/magma-wheel-front-transparent.png"
+               alt="Engineering drawing of the variable-diameter wheel, front elevation" />
+        </div>
+        <span class="plate__cap" data-reveal>Segments carried on a gear ring</span>
+      </figure>
+      <div class="copy row__copy">
+        <p data-reveal>
+          Each wheel is built from overlapping curved segments carried on a gear
+          ring. Rotating the ring relative to the hub slides every segment
+          outwards or inwards at once, which changes the effective rolling
+          diameter while keeping the contact surface continuous. The expansion
+          drive is separate from the drive that turns the wheel, so diameter and
+          speed are controlled independently and the rover doesn't have to stop
+          to change configuration.
+        </p>
+        <p data-reveal>
+          The load path was the difficult part. In a camera iris the blades carry
+          nothing; here every segment carries a share of the vehicle's weight at
+          whatever diameter it happens to be at, and the worst case is the fully
+          expanded position, where the segments overlap least and the unsupported
+          span is longest. That case set the segment thickness and the material,
+          and it is also what sets the upper limit on the diameter range.
+        </p>
+      </div>
+    </div>
+
+    <div class="prose" style="margin-top:clamp(34px,5vh,56px)">
+      <p data-reveal>
+        The starting point was a published variable-diameter wheel mechanism. I
+        adapted it to a vehicle this size and to parts that could either be
+        printed or bought from a normal distributor, because the version two bill
+        of materials had to come in around €410. <strong>That budget was the real
+        design constraint and it removed most of the elegant options
+        early.</strong>
+      </p>
+    </div>
+
+    <div class="row row--rev" style="padding-top:clamp(30px,5vh,60px)">
+      <figure class="plate row__media">
+        <span class="plate__head" data-reveal><i>Fig. 3</i><i>Chassis sections, rev D</i></span>
+        <div class="plate__frame plate__frame--43 plate__frame--contain">
+          <img loading="lazy" decoding="async" src="../assets/drawings/magma-chassis-sections-transparent.png"
+               alt="Engineering sections of the MAGMA chassis" />
+        </div>
+        <span class="plate__cap" data-reveal>Every part has a drawing behind it</span>
+      </figure>
+      <div class="copy row__copy">
+        <p data-reveal>
+          The rover carries an environmental sensor package and measures the air
+          while it drives. The chassis was drawn to revision D before anything was
+          cut.
+        </p>
+        <div class="plinks" data-reveal>
+          <a href="../assets/docs/magma_engineering_revD.pdf" target="_blank" rel="noopener">Engineering drawings, rev D ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="psec">
+    <h2 class="psec__h">What I got wrong</h2>
+    <div class="prose">
+      <p class="lede" data-reveal>The rover was built. The submission wasn't.</p>
+      <p data-reveal>
+        Our five-minute demonstration video was due while I was in Georgia
+        visiting my grandparents, and the two days before the deadline were the
+        Bavarian state round of a different competition. The rover was at my
+        flat, nobody was there to film it, and what I had were isolated
+        five-second clips of individual functions, filmed in a hurry the evening
+        before my flight. I cut them together and submitted them, and the result
+        was bad. We had spent months and about €450 on a machine that worked, and
+        what the judges saw was a badly shot clip of something that could have
+        been anything.
+      </p>
+      <div class="pull" data-reveal>
+        <p>Documentation is part of the build and has to be scheduled like the
+           build, not treated as the thing you do at the end if there's time left.</p>
+      </div>
+      <p data-reveal>
+        On the next project I filmed each subsystem on the day it first worked.
+      </p>
+    </div>
+  </section>
+
+  <section class="psec">
+    <h2 class="psec__h">Where it stands</h2>
+    <div class="row">
+      <figure class="plate row__media">
+        <span class="plate__head" data-reveal><i>Fig. 4</i><i>MAGMA V1 — rolling test</i></span>
+        <div class="plate__frame plate__frame--169 grade">
+          <video src="../assets/rover-loop.mp4" data-ambient muted loop playsinline preload="metadata"
+                 aria-label="The MAGMA rover driving"></video>
+        </div>
+        <span class="plate__cap" data-reveal>Four-wheel prototype, remote-operated</span>
+      </figure>
+      <div class="copy row__copy">
+        <p data-reveal>
+          Version one drives, the wheel mechanism works, and the sensor package is
+          integrated. Version two is designed and partly sourced.
+        </p>
+        <p data-reveal>
+          Autonomy isn't implemented; the current vehicle is remote-operated, and
+          I'd rather say that than call it autonomous because the challenge brief
+          uses the word.
+        </p>
+        <div class="plinks" data-reveal>
+          <a href="https://github.com/mateo-gepard/Vulcano" target="_blank" rel="noopener">Repository ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<a class="pnext" href="teaching.html">
+  <div><span class="pnext__l">Next project</span><span class="pnext__t">Teaching</span></div>
+  <span class="mono dim">04 →</span>
+</a>
+
+<footer class="pfoot">
+  <span>© MMXXVI — Mateo Mamaladze</span>
+  <span><a href="mailto:mateo.mamaladze@gmail.com">mateo.mamaladze@gmail.com</a></span>
+</footer>
+
+<script src="../js/vendor/gsap.min.js"></script>
+<script src="../js/vendor/ScrollTrigger.min.js"></script>
+<script src="../js/page.js"></script>
+<script src="../js/wheel.js"></script>
+</body>
+</html>

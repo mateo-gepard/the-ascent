@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Teaching — Mateo Mamaladze</title>
+<meta name="description" content="Two years of a robotics course, and the research programme I built afterwards." />
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+<meta name="theme-color" content="#060708" />
+<meta property="og:title" content="Teaching — Mateo Mamaladze" />
+<meta property="og:description" content="Two years of a robotics course, and the research programme I built afterwards." />
+<meta property="og:image" content="https://mateo-gepard.github.io/the-ascent/assets/og.png" />
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="../css/page.css" />
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+
+<nav class="pnav">
+  <a class="pnav__back" href="../index.html"><i>←</i> All work</a>
+  <a class="pnav__name" href="../index.html">Mateo Mamaladze</a>
+</nav>
+
+<header class="phead">
+  <span class="phead__kicker">Project 04 · 2024 — present</span>
+  <h1 class="phead__title" data-line><span>Teaching</span></h1>
+  <p class="phead__dek">
+    Two years of a robotics course, and the research programme I built
+    afterwards.
+  </p>
+  <dl class="phead__facts" data-reveal>
+    <div><dt>Role</dt><dd>Course lead · author of the control software</dd></div>
+    <div><dt>Since</dt><dd>September 2024, weekly</dd></div>
+    <div><dt>Built</dt><dd>PibUi — control, calibration and a mock mode</dd></div>
+    <div><dt>Also</dt><dd>MTG forscht., founded with Roman Daugavet</dd></div>
+  </dl>
+</header>
+
+<figure class="plate plate--full" style="margin-bottom:clamp(50px,8vh,90px)">
+  <span class="plate__head" data-reveal><i>Fig. 1</i><i>The course robot</i></span>
+  <div class="plate__frame plate__frame--pano grade">
+    <video src="../assets/robothand-loop.mp4" data-ambient muted loop playsinline preload="metadata"
+           aria-label="Shaking hands with the humanoid robot"></video>
+  </div>
+  <span class="plate__cap" data-reveal>A hand that grasps — one robot, a group of students</span>
+</figure>
+
+<main class="pbody">
+
+  <section class="psec">
+    <h2 class="psec__h">The robotics course</h2>
+    <div class="prose">
+      <p data-reveal>
+        Since September 2024 I've taught the robotics course at my school, where
+        a group of students builds and programs a humanoid robot. It runs weekly
+        and I plan the sessions, split the work between mechanics, electronics
+        and software, and teach.
+      </p>
+      <p data-reveal>
+        I got the course because I asked for it, not because anyone was looking
+        for someone to run one. The students are a few years below me, which
+        turns out to be the right distance: <strong>close enough that I remember
+        not knowing what they don't know, far enough that they'll ask me things
+        they wouldn't ask a teacher.</strong>
+      </p>
+    </div>
+  </section>
+
+  <section class="psec">
+    <h2 class="psec__h">The bottleneck, and PibUi</h2>
+    <div class="prose">
+      <p data-reveal>
+        We had one robot and a group of students, and the robot was available two
+        afternoons a week. That meant most of the course's time went on waiting
+        for a turn, and anyone who had an idea on a Wednesday evening had to hold
+        onto it until the following week. Attendance suffered, and for a while I
+        read that as a motivation problem.
+      </p>
+      <div class="pull" data-reveal>
+        <p>It wasn't. It was a hardware access problem, and hardware access
+           problems have software solutions.</p>
+      </div>
+      <p data-reveal>
+        PibUi is the control interface I wrote for the course. It's a Flask
+        application with a Socket.IO layer for live control, handling individual
+        servo control, calibration and limit setting, saving and replaying poses,
+        and an emergency stop that cuts all servo output at once.
+      </p>
+      <p data-reveal>
+        The part that changed the course is the mock mode: with no robot
+        connected, the whole interface still runs and returns plausible
+        responses, so a student can write, run and debug a movement sequence on a
+        laptop at home and arrive on Tuesday with something that already works.
+        <strong>The two afternoons stopped being the course and became the part
+        of the course where you find out whether you were right.</strong>
+      </p>
+      <p data-reveal>
+        The thing I'd change is the timing. The mock mode should have existed in
+        the first month, not after I'd spent a term watching people wait.
+      </p>
+    </div>
+
+    <table class="spec" data-reveal style="margin-top:clamp(34px,5vh,56px)">
+      <thead><tr><th>PibUi</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td>Servo control</td><td>Individual joints, live over Socket.IO</td></tr>
+        <tr><td>Calibration</td><td>Per-servo limits and zero positions, stored</td></tr>
+        <tr><td>Poses</td><td>Save, name and replay positions and sequences</td></tr>
+        <tr><td>Emergency stop</td><td>Cuts all servo output at once</td></tr>
+        <tr><td>Mock mode</td><td>Full interface with no robot attached — the reason the course scaled</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="psec">
+    <h2 class="psec__h">MTG forscht.</h2>
+    <div class="row">
+      <figure class="plate row__media">
+        <span class="plate__head" data-reveal><i>Fig. 2</i><i>Students at work</i></span>
+        <div class="plate__frame plate__frame--43 grade">
+          <img loading="lazy" decoding="async" src="../assets/img/robot.jpg"
+               alt="The humanoid robot the course builds" />
+        </div>
+        <span class="plate__cap" data-reveal>The robot the course is built around</span>
+      </figure>
+      <div class="copy row__copy">
+        <p data-reveal>
+          My school runs selective classes for gifted students. One of my
+          classmates is the strongest school-level mathematician in Germany and is
+          on the national team for the International Mathematical Olympiad, and
+          two others were in the selection group for it. There are thirty to
+          forty students in these classes at any time.
+        </p>
+        <p data-reveal>
+          At Jugend forscht, Germany's national science competition, we were
+          almost absent, while schools nearby were entering six or seven teams a
+          year. I assumed for a long time that this was about our students.
+        </p>
+      </div>
+    </div>
+
+    <div class="prose" style="margin-top:clamp(34px,5vh,56px)">
+      <div class="pull" data-reveal>
+        <p>It isn't. Those schools have teachers with allocated hours for it, a
+           budget for materials, and a structure that finds students in year 8 and
+           walks them through a first project.</p>
+      </div>
+      <p data-reveal>
+        We had none of that, so our entries were whoever happened to organise
+        themselves, which was almost nobody.
+      </p>
+      <p data-reveal>
+        Roman Daugavet and I wrote a proposal and presented it to the school
+        leadership, who approved it and took it to the parents' association, which
+        provided a budget for project materials. The usual reason a school science
+        project dies is that nobody wants to pay €200 for components. We asked Dr.
+        Waschbüsch to supervise it, then went through the gifted classes from year
+        8 to year 13 in person and recruited two or three students from each,
+        choosing people who were interested rather than people with the best
+        marks. We designed the identity and printed the material ourselves,
+        because something that looks like an official part of the school gets
+        taken more seriously than a note on a noticeboard.
+      </p>
+      <p data-reveal>
+        The first meeting was on 14 July 2026.
+      </p>
+      <p data-reveal>
+        It is too early to say whether this works. <strong>I leave school in 2027,
+        which means the structure has to keep running without either of us, and
+        that is the actual test rather than the first year's results.</strong>
+      </p>
+    </div>
+
+    <div class="plinks" data-reveal style="margin-top:clamp(26px,4vh,44px)">
+      <a href="https://github.com/mateo-gepard/PibUi" target="_blank" rel="noopener">PibUi ↗</a>
+    </div>
+  </section>
+
+</main>
+
+<a class="pnext" href="sundial.html">
+  <div><span class="pnext__l">Next project</span><span class="pnext__t">Sundial</span></div>
+  <span class="mono dim">05 →</span>
+</a>
+
+<footer class="pfoot">
+  <span>© MMXXVI — Mateo Mamaladze</span>
+  <span><a href="mailto:mateo.mamaladze@gmail.com">mateo.mamaladze@gmail.com</a></span>
+</footer>
+
+<script src="../js/vendor/gsap.min.js"></script>
+<script src="../js/vendor/ScrollTrigger.min.js"></script>
+<script src="../js/page.js"></script>
+</body>
+</html>

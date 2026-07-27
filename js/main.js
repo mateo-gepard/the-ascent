@@ -422,14 +422,9 @@
     if (!label) return;
     const map = [
       ["#hero", "Munich"],
-      ["#thread", "How I work"],
-      ["#movements", "Contents"],
-      ["#matter", "01 — Matter"],
-      ["#body", "02 — Body"],
-      ["#mind", "03 — Mind"],
-      ["#society", "04 — Society"],
-      ["#climber", "Background"],
-      ["#ledger", "The Record"],
+      ["#intro", "Munich"],
+      ["#work", "Selected work"],
+      ["#common", "What these have in common"],
       ["#contact", "Contact"],
     ];
     let current = label.textContent;

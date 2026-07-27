@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>A sundial, and the website that tells it what time it is — Mateo Mamaladze</title>
+<meta name="description" content="A wearable brass sundial made by hand as a leaving present, and a web tool that gives you the correction you need to read it accurately." />
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+<meta name="theme-color" content="#060708" />
+<meta property="og:title" content="A sundial, and the website that tells it what time it is" />
+<meta property="og:description" content="A wearable brass sundial made by hand, and the correction that makes it readable." />
+<meta property="og:image" content="https://mateo-gepard.github.io/the-ascent/assets/og.png" />
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="../css/page.css" />
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+
+<nav class="pnav">
+  <a class="pnav__back" href="../index.html"><i>←</i> All work</a>
+  <a class="pnav__name" href="../index.html">Mateo Mamaladze</a>
+</nav>
+
+<header class="phead">
+  <span class="phead__kicker">Project 05 · 2025</span>
+  <h1 class="phead__title" data-line><span>Sundial</span></h1>
+  <p class="phead__dek">
+    A wearable brass sundial, made by hand as a leaving present, and the website
+    that tells it what time it actually is.
+  </p>
+  <dl class="phead__facts" data-reveal>
+    <div><dt>Made</dt><dd>Brass, gold-plated, wearable</dd></div>
+    <div><dt>Given</dt><dd>December 2025</dd></div>
+    <div><dt>Also built</dt><dd>A correction tool for any date and place</dd></div>
+    <div><dt>Documented</dt><dd>A booklet of every sketch, calculation and failed version</dd></div>
+  </dl>
+</header>
+
+<main class="pbody">
+
+  <section class="psec">
+    <h2 class="psec__h">What it is</h2>
+    <div class="prose">
+      <p class="lede" data-reveal>
+        A wearable brass sundial, gold-plated, made by hand as a leaving present,
+        and a small web tool that gives you the correction you need to read it
+        accurately on any date and in any place.
+      </p>
+    </div>
+  </section>
+
+  <section class="psec">
+    <h2 class="psec__h">Why it exists</h2>
+    <div class="prose">
+      <p data-reveal>
+        A close friend was moving to the United States for a year and I wanted to
+        make something rather than buy something. A sundial felt right for a year
+        that was already measured out in advance, and making it wearable meant it
+        would be carried rather than put on a shelf.
+      </p>
+      <p data-reveal>
+        Then I worked out the error, and it stopped being a nice idea and became
+        an engineering problem.
+      </p>
+      <p data-reveal>
+        A sundial doesn't show clock time. It shows apparent solar time, and
+        three separate effects sit between the two.
+      </p>
+    </div>
+
+    <table class="spec" data-reveal style="margin-top:clamp(30px,4vh,50px)">
+      <thead><tr><th>Effect</th><th>Cause</th><th>Size</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Longitude</td>
+          <td>Central European Time is defined at 15° east; Munich is at 11.6° east, and each degree is four minutes</td>
+          <td class="num">≈ 14 min, constant</td>
+        </tr>
+        <tr>
+          <td>Equation of time</td>
+          <td>The eccentricity of the Earth's orbit and the tilt of its axis</td>
+          <td class="num">−14 to +16 min</td>
+        </tr>
+        <tr>
+          <td>Daylight saving</td>
+          <td>Bookkeeping. Nothing to do with the sun at all</td>
+          <td class="num">60 min, or 0</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="prose" style="margin-top:clamp(30px,4vh,50px)">
+      <p data-reveal>
+        Together those can put the object more than half an hour out, and the
+        amount is different every week. I could have built a more accurate
+        sundial. <strong>What I built instead was the correction</strong>, as a
+        website, because the dial was going to a different latitude anyway and
+        anything calibrated for Munich would have been wrong in a second way the
+        moment it landed.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ LIVE CORRECTION TOOL ============ -->
+  <section class="psec">
+    <h2 class="psec__h">The correction, running</h2>
+    <div class="prose" style="margin-bottom:clamp(24px,3.5vh,40px)">
+      <p data-reveal>
+        This is the same calculation the tool does. Pick a date and a place, and
+        it returns the difference between what the dial reads and what a clock
+        reads.
+      </p>
+    </div>
+
+    <div class="dial" data-reveal>
+      <div class="dial__row">
+        <div class="dial__f">
+          <label for="dDate">Date</label>
+          <input type="date" id="dDate" />
+        </div>
+        <div class="dial__f">
+          <label for="dPlace">Place</label>
+          <select id="dPlace">
+            <option value="11.58|15|eu">Munich (11.6°E, CET)</option>
+            <option value="13.40|15|eu">Berlin (13.4°E, CET)</option>
+            <option value="-0.13|0|uk">London (0.1°W, GMT)</option>
+            <option value="-74.01|-75|us">New York (74.0°W, EST)</option>
+            <option value="-122.42|-120|us">San Francisco (122.4°W, PST)</option>
+            <option value="44.79|45|none">Tbilisi (44.8°E, GET)</option>
+            <option value="custom">Custom longitude…</option>
+          </select>
+        </div>
+        <div class="dial__f" id="dCustomWrap" hidden>
+          <label for="dLon">Longitude (° east, negative for west)</label>
+          <input type="number" id="dLon" step="0.01" value="11.58" />
+        </div>
+      </div>
+
+      <div class="dial__out">
+        <div>
+          <div class="dial__big" id="dTotal">—</div>
+          <div class="dial__part" style="margin-top:10px">
+            <span id="dPhrase">The dial reads behind the clock</span>
+          </div>
+        </div>
+        <div class="dial__parts">
+          <div class="dial__part"><span>Longitude</span><b id="dLonOut">—</b></div>
+          <div class="dial__part"><span>Equation of time</span><b id="dEotOut">—</b></div>
+          <div class="dial__part"><span>Daylight saving</span><b id="dDstOut">—</b></div>
+        </div>
+      </div>
+
+      <p class="dial__note">
+        Add this to the dial reading to get clock time. Latitude doesn't appear
+        here because it changes the angle the gnomon has to make with the
+        horizontal, not the time — which is exactly why a sundial that travels
+        has to be adjusted rather than simply carried.
+      </p>
+    </div>
+
+    <div class="eot" data-reveal>
+      <svg id="eotChart" viewBox="0 0 900 260" role="img"
+           aria-label="The equation of time across a year, from about minus fourteen minutes in February to plus sixteen in November"></svg>
+    </div>
+  </section>
+
+  <section class="psec">
+    <h2 class="psec__h">How it works</h2>
+    <div class="prose">
+      <p data-reveal>
+        The tool takes a date and a location and returns the offset in minutes
+        between what the dial reads and what a clock reads. The longitude
+        correction is the difference between the local meridian and the time-zone
+        meridian, at four minutes per degree. The equation of time is computed
+        for the date. Daylight saving is applied by rule for the relevant
+        jurisdiction. Latitude determines the angle the gnomon has to make with
+        the horizontal, which is why a sundial that travels has to be adjusted
+        rather than simply carried.
+      </p>
+      <p data-reveal>
+        The object itself went through several versions before the one I gave
+        away. Gold plating took considerably longer than I'd planned, which is
+        why I finished the day before the flight rather than the week before, and
+        it's the part of the process I'd do differently: I treated the finishing
+        as a final step rather than as a process with its own failure modes and
+        its own schedule.
+      </p>
+    </div>
+  </section>
+
+  <section class="psec">
+    <h2 class="psec__h">What I documented</h2>
+    <div class="prose">
+      <p data-reveal>
+        I kept a booklet alongside the build with every sketch, every
+        calculation, the versions that didn't work, and a Polaroid of each stage.
+        It exists because I wanted the person receiving it to see the work and not
+        just the object.
+      </p>
+      <div class="pull" data-reveal>
+        <p>It turned out to be the most useful thing I've ever done for my own
+           engineering, because I can still reconstruct why every decision was
+           made, including the ones I'd now make differently.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="psec">
+    <h2 class="psec__h">Where it stands</h2>
+    <div class="prose">
+      <p data-reveal>
+        The sundial was given away in December 2025. The web tool is online and
+        works for any location.
+      </p>
+      <p class="note" data-reveal style="margin-top:24px">
+        Photographs of the dial and pages from the booklet are being added.
+      </p>
+    </div>
+    <div class="plinks" data-reveal style="margin-top:clamp(26px,4vh,44px)">
+      <a href="https://github.com/mateo-gepard/Sundial" target="_blank" rel="noopener">Repository ↗</a>
+    </div>
+  </section>
+
+</main>
+
+<a class="pnext" href="models.html">
+  <div><span class="pnext__l">Next project</span><span class="pnext__t">3D models</span></div>
+  <span class="mono dim">06 →</span>
+</a>
+
+<footer class="pfoot">
+  <span>© MMXXVI — Mateo Mamaladze</span>
+  <span><a href="mailto:mateo.mamaladze@gmail.com">mateo.mamaladze@gmail.com</a></span>
+</footer>
+
+<script src="../js/vendor/gsap.min.js"></script>
+<script src="../js/vendor/ScrollTrigger.min.js"></script>
+<script src="../js/page.js"></script>
+<script src="../js/sundial.js"></script>
+</body>
+</html>

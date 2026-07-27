@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BeGreifbar — Mateo Mamaladze</title>
+<meta name="description" content="A chemistry and physics lab for the Meta Quest 3 that you can walk around inside, and a study on whether it actually helps." />
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+<meta name="theme-color" content="#060708" />
+<meta property="og:title" content="BeGreifbar — Mateo Mamaladze" />
+<meta property="og:description" content="A chemistry and physics lab for the Meta Quest 3 that you can walk around inside, and a study on whether it actually helps." />
+<meta property="og:image" content="https://mateo-gepard.github.io/the-ascent/assets/og.png" />
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="../css/page.css" />
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+
+<nav class="pnav">
+  <a class="pnav__back" href="../index.html"><i>←</i> All work</a>
+  <a class="pnav__name" href="../index.html">Mateo Mamaladze</a>
+</nav>
+
+<header class="phead">
+  <span class="phead__kicker">Project 02 · 2024 — 2026</span>
+  <h1 class="phead__title" data-line><span>BeGreifbar</span></h1>
+  <p class="phead__dek">
+    A chemistry and physics lab for the Meta Quest 3 that you can walk around
+    inside, and a study on whether it actually helps.
+  </p>
+  <dl class="phead__facts" data-reveal>
+    <div><dt>Role</dt><dd>System architecture, chemistry modules, poster tooling</dd></div>
+    <div><dt>Team</dt><dd>Juan Rivera Chopinaud · Roman Daugavet</dd></div>
+    <div><dt>Scale</dt><dd>≈31,000 lines · Unity, Quest 3, iPad console, web dashboard</dd></div>
+    <div><dt>Outcome</dt><dd>Regional win, München-Süd → Bavarian state round 2026</dd></div>
+  </dl>
+</header>
+
+<figure class="plate plate--full" style="margin-bottom:clamp(50px,8vh,90px)">
+  <span class="plate__head" data-reveal><i>Fig. 1</i><i>Inside the headset</i></span>
+  <div class="plate__frame plate__frame--pano grade">
+    <video src="../assets/vr-loop.mp4" data-ambient muted loop playsinline preload="metadata"
+           aria-label="Recording from inside the BeGreifbar VR laboratory"></video>
+  </div>
+  <span class="plate__cap" data-reveal>A field drawn over a real desk — Quest 3 passthrough</span>
+</figure>
+
+<main class="pbody">
+
+  <section class="psec">
+    <h2 class="psec__h">What it is</h2>
+    <div class="prose">
+      <p class="lede" data-reveal>
+        A virtual laboratory built in Unity for the Quest 3, with an iPad console
+        for the teacher and a web dashboard for results.
+      </p>
+      <p data-reveal>
+        It covers molecular geometry, chirality and isomerism in chemistry; the
+        Lorentz force, swinging conductors and induction in physics; and
+        visualisations in complex mathematics. It's around 31,000 lines of code.
+      </p>
+    </div>
+  </section>
+
+  <section class="psec">
+    <h2 class="psec__h">Why it exists</h2>
+    <div class="prose">
+      <p data-reveal>
+        Stereochemistry is taught on paper using wedge-and-dash notation. A wedge
+        means a bond points towards you, a dash means it points away, and from
+        that you're expected to see that two molecules with identical
+        connectivity are mirror images which cannot be laid on top of each other.
+        Some people see it instantly. Most of my class didn't, including people
+        who were better at chemistry than I was.
+      </p>
+      <div class="pull" data-reveal>
+        <p>The difficulty isn't the chemistry. It's that the notation is a
+           two-dimensional encoding of a three-dimensional fact.</p>
+      </div>
+      <p data-reveal>
+        Students are decoding and learning at the same time. In VR you can hand
+        someone the molecule, let them turn it, and put its mirror image next to
+        it. The decoding step disappears and what's left is the actual concept.
+      </p>
+    </div>
+  </section>
+
+  <section class="psec">
+    <h2 class="psec__h">How it works</h2>
+    <div class="prose prose--wide">
+      <p data-reveal>
+        The application runs natively on the Quest 3. Molecules are generated
+        from a structural definition rather than modelled one by one, so adding a
+        compound means adding data rather than geometry. Chirality is shown by
+        generating the mirror image of whatever molecule the student is holding
+        and letting them try, and fail, to superimpose the two.
+      </p>
+      <p data-reveal>
+        The physics modules are simulations rather than animations. The
+        swinging-conductor demonstration computes the force on a current-carrying
+        wire from the field strength, the current and the length of wire in the
+        field, and the wire moves accordingly, so changing a parameter changes
+        the outcome instead of playing a different clip.
+      </p>
+      <p data-reveal>
+        That distinction is the whole point: <strong>an animation teaches what
+        happens, a simulation lets you find out what would happen.</strong>
+      </p>
+      <p data-reveal>
+        The teacher's iPad console controls what the headset shows, which matters
+        in a classroom where you can't see what a student is looking at. The web
+        dashboard records task completion and timing for the study.
+      </p>
+    </div>
+  </section>
+
+  <section class="psec">
+    <h2 class="psec__h">What we found, and what we didn't</h2>
+    <div class="prose">
+      <p data-reveal>
+        We ran a first round of testing with students at our school and compared
+        their performance against conventional teaching of the same content. The
+        results leaned in favour of the VR group, but the dataset was small and
+        the effect wasn't large enough to conclude anything. We wrote that down
+        as a tendency rather than a result, both in our submission and when we
+        presented it.
+      </p>
+      <div class="pull" data-reveal>
+        <p>A clean positive result would have been a much better story at a
+           competition, and nobody would have checked.</p>
+        <cite>The hardest decision in the project</cite>
+      </div>
+      <p data-reveal>
+        The next round needs a larger sample, a cleaner control condition and
+        interviews, because completion times on their own can't distinguish
+        between students who understood more and students who simply enjoyed it
+        more.
+      </p>
+    </div>
+  </section>
+
+  <section class="psec">
+    <h2 class="psec__h">What I got wrong</h2>
+    <div class="prose">
+      <p class="lede" data-reveal>We built too wide.</p>
+      <p data-reveal>
+        Chemistry, physics and mathematics modules across three subject areas,
+        and 31,000 lines to maintain, while the study — which was the actual
+        scientific question — ran on a small dataset collected late. If I did it
+        again I'd build the chirality module alone, spend the remaining time on a
+        proper experimental design, and have an answer instead of a tendency.
+      </p>
+    </div>
+  </section>
+
+  <section class="psec">
+    <h2 class="psec__h">Where it stands</h2>
+    <div class="prose">
+      <p data-reveal>
+        The application works and has been used in lessons. The study is
+        unfinished. The project won its regional Jugend forscht competition in
+        Munich South and went on to the Bavarian state round in April 2026, where
+        59 projects were presented by 87 participants. It didn't advance to the
+        national final.
+      </p>
+    </div>
+    <div class="plinks" data-reveal style="margin-top:clamp(26px,4vh,44px)">
+      <a href="https://github.com/mateo-gepard/JugendForscht" target="_blank" rel="noopener">Repository ↗</a>
+      <a href="https://github.com/mateo-gepard/PlakateJugendForscht" target="_blank" rel="noopener">Poster tooling ↗</a>
+      <a href="https://www.jugend-forscht-bayern.de/" target="_blank" rel="noopener">Project listing ↗</a>
+    </div>
+  </section>
+
+</main>
+
+<a class="pnext" href="magma.html">
+  <div><span class="pnext__l">Next project</span><span class="pnext__t">MAGMA</span></div>
+  <span class="mono dim">03 →</span>
+</a>
+
+<footer class="pfoot">
+  <span>© MMXXVI — Mateo Mamaladze</span>
+  <span><a href="mailto:mateo.mamaladze@gmail.com">mateo.mamaladze@gmail.com</a></span>
+</footer>
+
+<script src="../js/vendor/gsap.min.js"></script>
+<script src="../js/vendor/ScrollTrigger.min.js"></script>
+<script src="../js/page.js"></script>
+</body>
+</html>

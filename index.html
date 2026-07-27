@@ -4,15 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mateo Mamaladze — engineer, Munich</title>
-  <meta name="description" content="I'm a seventeen-year-old engineer from Munich. I build hardware and software, co-founded the health-sensor company OpenPulse, and teach robotics at my school." />
+  <meta name="description" content="I build hardware and software in Munich. At the moment, mostly OpenPulse — a modular biosensor platform where the raw data stays with the person wearing it." />
   <link rel="canonical" href="https://mateo-gepard.github.io/the-ascent/" />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <meta name="theme-color" content="#060708" />
 
-  <!-- Social cards -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Mateo Mamaladze" />
-  <meta property="og:description" content="Seventeen-year-old engineer from Munich. Hardware, software, and OpenPulse — first place for Europe at Blue Ocean 2026." />
+  <meta property="og:description" content="I build hardware and software in Munich. At the moment, mostly OpenPulse." />
   <meta property="og:url" content="https://mateo-gepard.github.io/the-ascent/" />
   <meta property="og:image" content="https://mateo-gepard.github.io/the-ascent/assets/og.png" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -21,46 +20,37 @@
 
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Mateo Mamaladze",
-    "url": "https://mateo-gepard.github.io/the-ascent/",
-    "jobTitle": "Student engineer, founder and maker",
-    "birthDate": "2009-05-11",
-    "nationality": ["German", "Georgian"],
-    "homeLocation": { "@type": "Place", "name": "Munich, Germany" },
-    "affiliation": { "@type": "Organization", "name": "OpenPulse" },
-    "award": [
-      "1st place for Europe — Blue Ocean Student Entrepreneur Competition 2026 (OpenPulse)",
-      "1st place, Health & Lifestyle — STARTUP TEENS 2026 (OpenPulse)",
+    "@context":"https://schema.org","@type":"Person","name":"Mateo Mamaladze",
+    "url":"https://mateo-gepard.github.io/the-ascent/",
+    "jobTitle":"Student engineer","birthDate":"2009-05-11",
+    "nationality":["German","Georgian"],
+    "email":"mateo.mamaladze@gmail.com",
+    "homeLocation":{"@type":"Place","name":"Munich, Germany"},
+    "affiliation":{"@type":"Organization","name":"OpenPulse"},
+    "award":[
+      "First place for Europe — Blue Ocean Student Entrepreneur Competition 2026 (OpenPulse)",
+      "First place, Health & Lifestyle — STARTUP TEENS 2026 (OpenPulse)",
       "National top 14 — JUGEND GRÜNDET 2026 (OpenPulse)"
     ],
-    "sameAs": [
-      "https://github.com/mateo-gepard",
-      "https://www.printables.com/@Matrix/models"
-    ]
+    "sameAs":["https://github.com/mateo-gepard","https://www.printables.com/@Matrix/models"]
   }
   </script>
 
-  <!-- Fonts (self-hosted: Switzer + IBM Plex Mono) -->
   <link rel="preload" href="assets/fonts/Switzer-Variable.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
-
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/page.css" />
 </head>
 <body class="is-loading">
 
-  <!-- ===================== PRELOADER ===================== -->
   <div class="loader" id="loader" aria-hidden="true">
     <div class="loader__name">MATEO&nbsp;MAMALADZE</div>
     <div class="loader__bar"><span class="loader__fill" id="loaderFill"></span></div>
     <div class="loader__count"><span id="loaderCount">0</span></div>
   </div>
 
-  <!-- ===================== PROGRESS THREAD ===================== -->
   <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
 
-  <!-- ===================== TOP BAR ===================== -->
   <header class="topbar">
     <a class="topbar__brand" href="#hero">Mateo Mamaladze</a>
     <span class="topbar__meta"><i class="dot"></i><em id="topLabel">Munich</em></span>
@@ -68,7 +58,7 @@
 
   <main>
 
-    <!-- ===================== HERO (full-screen scrubbed video) ===================== -->
+    <!-- ===================== HERO ===================== -->
     <section class="hero" id="hero">
       <div class="hero__pin">
         <div class="hero__media">
@@ -80,10 +70,7 @@
           <div class="hero__scrim"></div>
         </div>
 
-        <!-- Scroll-driven scenes -->
         <div class="scenes">
-
-          <!-- A · centered name -->
           <div class="scene scene--center" data-scene="a">
             <h1 class="scene__name">
               <span class="ln">Mateo</span>
@@ -91,618 +78,198 @@
             </h1>
           </div>
 
-          <!-- B · centered role -->
           <div class="scene scene--center" data-scene="b">
             <p class="scene__role">
-              <span class="ln">Student engineer<i>·</i>Founder<i>·</i>Maker</span>
+              <span class="ln">I build hardware and software in Munich.</span>
             </p>
           </div>
 
-          <!-- C · left column (appears when he enters the frame, kept clear of him) -->
           <div class="scene scene--left" data-scene="c">
             <div class="scene__inner">
-              <span class="scene__eyebrow">Munich</span>
+              <span class="scene__eyebrow">Currently</span>
               <h2 class="scene__statement">
-                <span class="ln">I'm seventeen.</span>
-                <span class="ln">I build hardware,</span>
-                <span class="ln em">software and companies.</span>
+                <span class="ln">At the moment,</span>
+                <span class="ln em">mostly OpenPulse.</span>
               </h2>
             </div>
           </div>
-
         </div>
 
-        <div class="hero__cue" id="heroCue">
-          <span>Scroll</span>
-          <i></i>
-        </div>
+        <div class="hero__cue" id="heroCue"><span>Scroll</span><i></i></div>
       </div>
     </section>
 
-    <!-- ===================== THE THREAD ===================== -->
-    <section class="thesis" id="thread">
-      <span class="sec-tag" data-reveal>How I work</span>
-
-      <h2 class="thesis__word" data-line><span>be·grei·fen</span></h2>
-
-      <div class="thesis__def">
-        <p data-reveal><i>German, verb</i></p>
-        <p data-reveal><b>1.</b> to take hold of something with your hand</p>
-        <p data-reveal><b>2.</b> to understand it</p>
-      </div>
-
-      <p class="thesis__statement" data-reveal>
-        German uses one word for both. That's fairly close to how I work:
-        when I want to understand something properly, I end up building a
-        version of it I can hold. This site is sorted into the four places
-        I've done that — objects, the body, learning, and public life.
+    <!-- ===================== INTRO ===================== -->
+    <section class="intro" id="intro">
+      <p class="intro__p" data-reveal>
+        I'm 17 and in my final year at the Maria-Theresia-Gymnasium in Munich. I
+        build things, usually because something I wanted to use was closed,
+        missing, or only available to people with better equipment than mine.
+        Right now most of my time goes into <strong>OpenPulse</strong>, a modular
+        biosensor platform where the raw data stays with the person wearing it.
+        It won first place for Europe at the Blue Ocean competition this year and
+        a category win at STARTUP TEENS. Before that I built a VR chemistry lab,
+        started teaching the robotics course at my school, published 3D models
+        that strangers have downloaded more than ten thousand times, and spent
+        two years buying and selling vintage watches.
       </p>
     </section>
 
-    <!-- ===================== FOUR MOVEMENTS (index) ===================== -->
-    <section class="movements" id="movements">
-      <span class="sec-tag" data-reveal>Four chapters</span>
+    <!-- ===================== SELECTED WORK ===================== -->
+    <section class="work" id="work">
+      <span class="sec-tag" data-reveal>Selected work</span>
+      <div class="work__grid">
 
-      <a class="movement" href="#matter" data-reveal>
-        <span class="movement__num">01</span>
-        <div class="movement__body">
-          <h3 class="movement__title">Matter</h3>
-          <p class="movement__text">
-            A rover with wheels that change size, a humanoid robot I teach
-            younger students to build, and eight printable designs I published
-            before I turned fifteen.
-          </p>
-        </div>
-        <span class="movement__meta">5,343 downloads</span>
-      </a>
-
-      <a class="movement" href="#body" data-reveal>
-        <span class="movement__num">02</span>
-        <div class="movement__body">
-          <h3 class="movement__title">Body</h3>
-          <p class="movement__text">
-            Trading vintage watches at fifteen got me interested in machines
-            you're allowed to open. OpenPulse is my attempt at the modern
-            version: a health wearable with swappable sensors.
-          </p>
-        </div>
-        <span class="movement__meta">1st in Europe · Blue Ocean 2026</span>
-      </a>
-
-      <a class="movement" href="#mind" data-reveal>
-        <span class="movement__num">03</span>
-        <div class="movement__body">
-          <h3 class="movement__title">Mind</h3>
-          <p class="movement__text">
-            A chemistry lab you can walk around inside, and a set of tools I
-            keep building for other students — mentoring, competition matching,
-            flight theory.
-          </p>
-        </div>
-        <span class="movement__meta">Jugend forscht · Bavaria 2026</span>
-      </a>
-
-      <a class="movement" href="#society" data-reveal>
-        <span class="movement__num">04</span>
-        <div class="movement__body">
-          <h3 class="movement__title">Society</h3>
-          <p class="movement__text">
-            Asking questions in rooms where students are usually there to
-            listen — a security conference, a consulate, a television studio.
-          </p>
-        </div>
-        <span class="movement__meta">Prinz-Carl-Palais · 2026</span>
-      </a>
-
-      <p class="movements__note" data-reveal>Plus background and a full record at the end.</p>
-    </section>
-
-    <!-- ===================================================================
-         CHAPTER 01 — MATTER
-         =================================================================== -->
-    <section class="chapter" id="matter">
-      <header class="chapter__head">
-        <span class="chapter__num mono" data-reveal>Chapter 01</span>
-        <h2 class="chapter__title" data-line><span>Matter</span></h2>
-        <p class="chapter__dek" data-reveal>Rovers, robots and printed parts.</p>
-      </header>
-
-      <!-- pinned wheel scrub: plate left, text column right -->
-      <div class="wheelstage" id="wheelStage">
-        <div class="wheelstage__pin">
-          <figure class="plate wheelstage__plate">
-            <span class="plate__head"><i>Fig. 01-A</i><i>Iris wheel — contract · expand</i></span>
-            <div class="plate__frame plate__frame--169 grade">
-              <video class="wheelstage__video" id="wheelVideo" playsinline muted preload="auto"
-                     poster="assets/wheel-poster.jpg">
-                <source src="assets/wheel-scrub.mp4" type='video/mp4; codecs="avc1.64001F"' />
-              </video>
+        <a class="wcard wcard--wide" href="p/openpulse.html" data-reveal>
+          <div class="wcard__media">
+            <img loading="lazy" decoding="async" src="assets/img/puck.jpg" alt="OpenPulse sensor puck" />
+          </div>
+          <div class="wcard__body">
+            <div class="wcard__top">
+              <span class="wcard__t">OpenPulse</span>
+              <span class="wcard__n">01</span>
             </div>
-            <span class="plate__cap">Scroll to run the mechanism</span>
-          </figure>
-
-          <div class="wheelstage__scenes">
-            <div class="wheelstage__scene" data-wscene="a">
-              <h3>A wheel that changes size.</h3>
-              <p>Gear-driven blades open and close it, so the same wheel can
-                 handle loose gravel and then fit through a gap. I designed
-                 and printed it myself.</p>
-            </div>
-            <div class="wheelstage__scene" data-wscene="b">
-              <h3>It belongs to MAGMA.</h3>
-              <p>A rover I built with Juan and Roman for the DLR Vulcano
-                 Summer School challenge — adaptive wheels, environmental
-                 sensors and a printed body shell.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- rover footage + blueprint -->
-      <div class="row">
-        <figure class="plate row__media">
-          <span class="plate__head" data-reveal><i>Fig. 01-B</i><i>MAGMA V1 — rolling test</i></span>
-          <div class="plate__frame plate__frame--169 grade">
-            <video src="assets/rover-loop.mp4" data-ambient muted loop playsinline preload="metadata" aria-label="MAGMA rover rolling test"></video>
-          </div>
-          <span class="plate__cap" data-reveal>Four-wheel prototype on its first drive</span>
-        </figure>
-        <div class="copy row__copy">
-          <p class="copy__lead" data-reveal>Volcanic ground is hot, loose and full of gas, so you send an instrument instead of a person.</p>
-          <p data-reveal>
-            That was the brief. Ours measures the air while it drives, and
-            every part has a drawing behind it — the wheels went through
-            four revisions before they stopped jamming.
-          </p>
-          <a class="mono link" href="assets/docs/magma_engineering_revD.pdf" target="_blank" data-reveal>
-            magma_engineering_revD.pdf ↗
-          </a>
-          <figure class="plate plate--sub">
-            <div class="plate__frame plate__frame--43 plate__frame--contain">
-              <img loading="lazy" decoding="async" src="assets/drawings/magma-chassis-sections-transparent.png"
-                   alt="MAGMA chassis engineering sections" />
-            </div>
-            <span class="plate__cap" data-reveal>Fig. 01-C — chassis sections, rev D</span>
-          </figure>
-        </div>
-      </div>
-
-      <!-- robot: the handshake -->
-      <div class="row row--rev">
-        <figure class="plate row__media">
-          <span class="plate__head" data-reveal><i>Fig. 01-D</i><i>Humanoid — right hand</i></span>
-          <div class="plate__frame plate__frame--169 grade">
-            <video src="assets/robothand-loop.mp4" data-ambient muted loop playsinline preload="metadata" aria-label="Shaking hands with the humanoid robot"></video>
-          </div>
-          <span class="plate__cap" data-reveal>Shaking hands with the course robot</span>
-        </figure>
-        <div class="copy row__copy">
-          <p class="copy__lead" data-reveal>Since 2024 I've run the robotics course at my school.</p>
-          <p data-reveal>
-            A group of younger students and one humanoid robot. We work
-            through the mechanics, the electronics and the control software
-            together; I wrote the interface we use to calibrate its servos.
-            Explaining a joint to someone else is still the fastest way
-            I know to find out whether I understand it.
-          </p>
-        </div>
-      </div>
-
-      <!-- the printed record -->
-      <div class="lgroup">
-        <span class="lgroup__head" data-reveal>Printable designs, all published before I turned fifteen</span>
-        <div class="lrow" data-reveal>
-          <i>2022</i><p><b>Pendulum wall clock</b> <span>— the first one I put online, at thirteen</span></p><em>565 downloads</em>
-        </div>
-        <div class="lrow" data-reveal>
-          <i>2023</i><p><b>Laptop stand</b> <span>— adjustable, for small and large laptops</span></p><em>882 downloads</em>
-        </div>
-        <div class="lrow" data-reveal>
-          <i>2023</i><p><b>Anti-gravity wine stand</b> <span>— by far the most popular thing I've made</span></p><em>2,862 downloads · 933 likes</em>
-        </div>
-        <div class="lrow" data-reveal>
-          <i>2024</i><p><b>Guitar pick holder</b> <span>— the last one before my fifteenth birthday</span></p><em>805 downloads</em>
-        </div>
-        <a class="lgroup__foot mono link" href="https://www.printables.com/@Matrix/models" target="_blank" rel="noopener" data-reveal>
-          All eight on Printables — 5,343 downloads, 1,593 likes ↗
-        </a>
-      </div>
-    </section>
-
-    <!-- ===================================================================
-         CHAPTER 02 — BODY
-         =================================================================== -->
-    <section class="chapter chapter--alt" id="body">
-      <header class="chapter__head">
-        <span class="chapter__num mono" data-reveal>Chapter 02</span>
-        <h2 class="chapter__title" data-line><span>Body</span></h2>
-        <p class="chapter__dek" data-reveal>Watches, and what I built after them.</p>
-      </header>
-
-      <!-- watch prelude -->
-      <div class="row">
-        <figure class="plate row__media">
-          <span class="plate__head" data-reveal><i>Fig. 02-A</i><i>Heuer Game-Master</i></span>
-          <div class="plate__frame plate__frame--43 grade">
-            <img loading="lazy" decoding="async" src="assets/img/watch-heuer.jpg" alt="Heuer Game-Master on a workbench" />
-          </div>
-          <span class="plate__cap" data-reveal>A Heuer Game-Master — one of the watches I sold</span>
-        </figure>
-        <div class="copy row__copy">
-          <p class="copy__lead" data-reveal>I started buying and selling vintage watches when I was fifteen.</p>
-          <p data-reveal>
-            It taught me things school doesn't: how to value something,
-            how to negotiate, and how to admit when a piece isn't what the
-            seller claimed. I registered the business at sixteen and it has
-            since turned over more than €17,000.
-          </p>
-          <p data-reveal>
-            What kept my attention, though, was that you can open these
-            things. Every part is visible and replaceable. Almost nothing
-            you wear today works that way.
-          </p>
-        </div>
-      </div>
-
-      <!-- THE SEQUENCE — 430-frame explode, canvas scrubbed -->
-      <div class="seqstage" id="seqStage">
-        <div class="seqstage__pin">
-          <canvas class="seqstage__canvas" id="seqCanvas"></canvas>
-
-          <div class="seqstage__scene" data-sscene="a">
-            <h3>So we built OpenPulse.</h3>
-            <p>A health wearable designed to come apart.</p>
-          </div>
-          <div class="seqstage__scene" data-sscene="b">
-            <h3>The sensors are swappable.</h3>
-            <p>Small pucks — optical pulse, temperature, air quality — click
-               into the same body, so you fit the device to the question
-               you're actually asking.</p>
-          </div>
-          <div class="seqstage__scene" data-sscene="c">
-            <span class="mono dim">nRF52840 · PPG · pogo-pin contacts · printed enclosure</span>
-            <p>You keep the raw data. No subscription, no closed app, nothing
-               that stops working when a company loses interest.</p>
-          </div>
-          <div class="seqstage__scene" data-sscene="d">
-            <h3>Where it stands</h3>
-            <p class="seqstage__wins">
-              <span>1<sup>st</sup> in Europe — Blue Ocean 2026</span>
-              <span>1<sup>st</sup>, Health &amp; Lifestyle — Startup Teens</span>
-              <span>Top 14 — Jugend gründet</span>
+            <p class="wcard__d">
+              A wearable biosensor platform with swappable sensor modules and no
+              locked data.
             </p>
+            <span class="wcard__m">First place for Europe · Blue Ocean 2026</span>
+            <span class="wcard__go">Read the case study <i>→</i></span>
           </div>
-        </div>
-      </div>
-
-      <!-- proof strip: two plates + records panel, equal columns -->
-      <div class="row row--even">
-        <figure class="plate">
-          <span class="plate__head" data-reveal><i>Fig. 02-B</i><i>Development unit</i></span>
-          <div class="plate__frame plate__frame--45 grade">
-            <img loading="lazy" decoding="async" src="assets/img/openpulse-internals.jpg" alt="Opening the OpenPulse enclosure" />
-          </div>
-          <span class="plate__cap" data-reveal>Inside a development unit — sensors, fan, wiring</span>
-        </figure>
-        <figure class="plate">
-          <span class="plate__head" data-reveal><i>Fig. 02-C</i><i>Sensor puck</i></span>
-          <div class="plate__frame plate__frame--45 grade">
-            <img loading="lazy" decoding="async" src="assets/img/puck-centered.jpg" alt="OpenPulse sensor puck" />
-          </div>
-          <span class="plate__cap" data-reveal>PPG optical module — pogo-pin interface</span>
-        </figure>
-        <div class="docs" data-reveal>
-          <span class="docs__head">Fabrication records</span>
-          <a class="mono link" href="assets/docs/openpulse-mainboard-fabrication-A-RC2.pdf" target="_blank">mainboard-A-RC2.pdf ↗</a>
-          <a class="mono link" href="assets/docs/openpulse-ppg-puck-fabrication-A-RC2.pdf" target="_blank">ppg-puck-A-RC2.pdf ↗</a>
-          <a class="mono link" href="assets/docs/openpulse-env-puck-fabrication-A-RC2.pdf" target="_blank">env-puck-A-RC2.pdf ↗</a>
-          <p class="docs__note">These are the actual manufacturing files for
-             the current boards. If you want to check the work, start here.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================================================================
-         CHAPTER 03 — MIND
-         =================================================================== -->
-    <section class="chapter" id="mind">
-      <header class="chapter__head">
-        <span class="chapter__num mono" data-reveal>Chapter 03</span>
-        <h2 class="chapter__title" data-line><span>Mind</span></h2>
-        <p class="chapter__dek" data-reveal>Tools for learning difficult things.</p>
-      </header>
-
-      <div class="row">
-        <figure class="plate row__media">
-          <span class="plate__head" data-reveal><i>Fig. 03-A</i><i><strong>BeGreifbar</strong> — in-headset</i></span>
-          <div class="plate__frame plate__frame--169 grade">
-            <video src="assets/vr-loop.mp4" data-ambient muted loop playsinline preload="metadata" aria-label="Inside the BeGreifbar VR laboratory"></video>
-          </div>
-          <span class="plate__cap" data-reveal>A magnetic field drawn over a real desk — Meta Quest 3, passthrough</span>
-        </figure>
-        <div class="copy row__copy">
-          <p class="copy__lead" data-reveal>BeGreifbar is a chemistry and physics lab you can walk around inside.</p>
-          <p data-reveal>
-            Molecules, fields and forces you can pick up, turn over and pull
-            apart with your hands. Juan, Roman and I wrote it for the Meta
-            Quest 3 — about 31,000 lines of code — and then tested whether it
-            actually helps people learn. It took us through Jugend forscht from
-            the regional round to the Bavarian state competition.
-          </p>
-          <p data-reveal>
-            Our first results were suggestive rather than conclusive, which is
-            an honest place to be. The next round needs a larger sample.
-          </p>
-        </div>
-      </div>
-
-      <!-- field catalogue: learning tools -->
-      <div class="lgroup">
-        <span class="lgroup__head" data-reveal>Other things I've built for students</span>
-        <div class="lrow" data-reveal>
-          <i>Live</i><p><b>Munich Scholar Mentors</b> <span>— a tutoring platform I co-founded; I teach physics, computer science, maths and biology on it</span></p><em><a class="link" href="https://munichscholarmentors.de/" target="_blank" rel="noopener">munichscholarmentors.de ↗</a></em>
-        </div>
-        <div class="lrow" data-reveal>
-          <i>2026</i><p><b>MTG forscht.</b> <span>— a group at my school that helps younger students get their own research projects started</span></p><em>First meeting, July 2026</em>
-        </div>
-        <div class="lrow" data-reveal>
-          <i>Tool</i><p><b>deinwettbewerb</b> <span>— finds the competitions worth entering out of about 300, and explains why each one fits</span></p><em>Web app</em>
-        </div>
-        <div class="lrow" data-reveal>
-          <i>Tool</i><p><b>SkyLab</b> <span>— a course on the aerodynamics part of the private pilot syllabus, with simulations and an exam mode</span></p><em>Aviation</em>
-        </div>
-        <div class="lrow" data-reveal>
-          <i>Tool</i><p><b>EduVids &amp; EduSlides</b> <span>— drafts teaching videos and slide decks, then critiques and revises its own output</span></p><em>AI</em>
-        </div>
-        <div class="lrow" data-reveal>
-          <i>Tool</i><p><b>Iphigenie e-reader</b> <span>— an annotated edition of the Goethe play we read in German class</span></p><em>Humanities</em>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================================================================
-         CHAPTER 04 — SOCIETY
-         =================================================================== -->
-    <section class="chapter chapter--alt" id="society">
-      <header class="chapter__head">
-        <span class="chapter__num mono" data-reveal>Chapter 04</span>
-        <h2 class="chapter__title" data-line><span>Society</span></h2>
-        <p class="chapter__dek" data-reveal>Asking questions in person.</p>
-      </header>
-
-      <figure class="plate plate--full">
-        <span class="plate__head" data-reveal><i>Fig. 04-A</i><i>Prinz-Carl-Palais — February 2026</i></span>
-        <div class="plate__frame plate__frame--pano grade">
-          <img loading="lazy" decoding="async" src="assets/img/msc.jpg" alt="Speaking from the audience at a Munich Security Conference side event" />
-        </div>
-        <span class="plate__cap" data-reveal>A side event of the Munich Security Conference, February 2026</span>
-      </figure>
-
-      <p class="chapter__intro" data-reveal>
-        Our school sent a delegation to a discussion on European deterrence,
-        with the Inspector of the German Army, the Commanding General of US
-        Army Europe and Africa, and a Bavarian state minister on the panel.
-        Students were invited to ask questions. I asked mine — that's me
-        standing up with the microphone.
-      </p>
-
-      <div class="row row--even">
-        <figure class="plate">
-          <span class="plate__head" data-reveal><i>Fig. 04-B</i><i>Bavarian Landtag</i></span>
-          <div class="plate__frame plate__frame--34 grade">
-            <img loading="lazy" decoding="async" src="assets/img/public-bavarian-landtag.jpg" alt="At the Bavarian Landtag" />
-          </div>
-          <span class="plate__cap" data-reveal>Inside the state parliament</span>
-        </figure>
-        <figure class="plate">
-          <span class="plate__head" data-reveal><i>Fig. 04-C</i><i>Consulate of Lithuania</i></span>
-          <div class="plate__frame plate__frame--34 grade">
-            <img loading="lazy" decoding="async" src="assets/img/public-lithuanian-consul.jpeg" alt="With the Consul General of Lithuania" />
-          </div>
-          <span class="plate__cap" data-reveal>A talk on societal resilience with Lithuania's Consul General</span>
-        </figure>
-        <figure class="plate">
-          <span class="plate__head" data-reveal><i>Fig. 04-D</i><i>Bavarian broadcasting</i></span>
-          <div class="plate__frame plate__frame--34 grade">
-            <img loading="lazy" decoding="async" src="assets/img/public-tv-br2.jpg" alt="On Bavarian television" />
-          </div>
-          <span class="plate__cap" data-reveal>Talking about AI in schools on Bavarian television</span>
-        </figure>
-      </div>
-
-      <p class="chapter__also mono dim" data-reveal>
-        Also — political simulations at the Amerikahaus · several visits to the
-        Bavarian state parliament · rhetoric and public-speaking training since 2025
-      </p>
-
-      <p class="chapter__close" data-reveal>
-        I don't think any of this is separate from the engineering. A sensor
-        and a security policy are both systems that someone decided you
-        shouldn't look inside. Asking is usually allowed.
-      </p>
-    </section>
-
-    <!-- ===================================================================
-         CHAPTER 05 — THE CLIMBER
-         =================================================================== -->
-    <section class="chapter" id="climber">
-      <header class="chapter__head">
-        <span class="chapter__num mono" data-reveal>Chapter 05</span>
-        <h2 class="chapter__title" data-line><span>Background</span></h2>
-        <p class="chapter__dek" data-reveal>School, and the rest of my life.</p>
-      </header>
-
-      <div class="row">
-        <figure class="plate row__media row__media--narrow">
-          <span class="plate__head" data-reveal><i>Fig. 05-A</i><i>Munich — b. 2009</i></span>
-          <div class="plate__frame plate__frame--45 grade">
-            <img loading="lazy" decoding="async" src="assets/img/portrait-hero.jpg" alt="Portrait of Mateo Mamaladze" />
-          </div>
-          <span class="plate__cap" data-reveal>Munich, 2026</span>
-        </figure>
-        <div class="copy row__copy row__copy--wide">
-          <p class="copy__lead" data-reveal>I was born in Munich in 2009 to a German-Georgian family, and skipped a year, so I'm the youngest in my class.</p>
-          <p data-reveal>
-            I'm in the gifted track at the Maria-Theresia-Gymnasium, taking
-            physics as my advanced course, and I sit my Abitur in 2027. Most of
-            what I've actually learned, though, has come from projects and from
-            places that were willing to let a school student in.
-          </p>
-        </div>
-      </div>
-
-      <!-- FRM II research internship -->
-      <div class="row row--rev">
-        <figure class="plate row__media">
-          <span class="plate__head" data-reveal><i>Fig. 05-B</i><i>FRM II — tensile specimens</i></span>
-          <div class="plate__frame plate__frame--43 grade">
-            <img loading="lazy" decoding="async" src="assets/img/frm2-tensile.jpg"
-                 alt="Dozens of labelled 3D-printed tensile test specimens on a lab bench, many broken at the neck" />
-          </div>
-          <span class="plate__cap" data-reveal>Specimens after testing — three per configuration, pulled until they broke</span>
-        </figure>
-        <div class="copy row__copy">
-          <p class="copy__lead" data-reveal>In 2024 I spent two months at the FRM II research reactor testing how strong a boron filament is.</p>
-          <p data-reveal>
-            Boron absorbs neutrons, which is why the reactor wants to 3D-print
-            with it: you can then make shielding and beam-shaping parts in
-            whatever shape an experiment happens to need, instead of machining
-            them. The open question was mechanical — nobody had characterised
-            how much load the printed material actually takes.
-          </p>
-          <p data-reveal>
-            So I printed tensile specimens and pulled them apart on a universal
-            testing machine: the boron filament against reference materials,
-            varied print orientation, three specimens per configuration. The
-            photograph is what was left afterwards. It was my first time
-            working to somebody else's measurement standard, and the first time
-            I understood that a material property is a number you have to earn.
-          </p>
-        </div>
-      </div>
-
-      <div class="lgroup">
-        <span class="lgroup__head" data-reveal>Outside school</span>
-        <div class="lrow" data-reveal>
-          <i>2024</i><p><b>FRM II research reactor, TUM</b> <span>— two months in Garching, tensile-testing a boron filament for printed neutron shielding</span></p><em>Apr–May 2024</em>
-        </div>
-        <div class="lrow" data-reveal>
-          <i>2025</i><p><b>Physics Olympiad, second round</b> <span>— the German selection process for the international competition</span></p><em>759 entrants</em>
-        </div>
-        <div class="lrow" data-reveal>
-          <i>×2</i><p><b>Känguru der Mathematik, first prize</b> <span>— two years running, in grades 9 and 10</span></p><em>top ≈0.85%</em>
-        </div>
-        <div class="lrow" data-reveal>
-          <i>—</i><p><b>Mathematics Olympiad</b> <span>— reached the Bavarian state round</span></p><em>State round</em>
-        </div>
-        <div class="lrow" data-reveal>
-          <i>2026</i><p><b>Engineering summer programme in Cambridge</b> <span>— two weeks at the end of June</span></p><em>Engineering</em>
-        </div>
-      </div>
-
-      <p class="chapter__close" data-reveal>
-        When I'm not building things I'm usually at the theatre or the opera —
-        eleven productions in the last two years, from Schiller to Fidelio. I
-        share a small sailboat on the Ammersee with a friend, which involves
-        more engine maintenance than sailing. And I cook Georgian food; in my
-        family khinkali is how you welcome people.
-      </p>
-      <p class="chapter__also mono dim" data-reveal>
-        Countries I've spent time in — Germany · Georgia · Italy · United States ·
-        Greece · Austria · Switzerland · United Kingdom · Hungary
-      </p>
-    </section>
-
-    <!-- ===================================================================
-         APPENDIX — THE LEDGER
-         =================================================================== -->
-    <section class="chapter chapter--alt" id="ledger">
-      <header class="chapter__head">
-        <span class="chapter__num mono" data-reveal>Appendix</span>
-        <h2 class="chapter__title" data-line><span>The Record</span></h2>
-        <p class="chapter__dek" data-reveal>Everything above in one list, with sources where they exist.</p>
-        <a class="mono link chapter__cv" href="assets/mateo-mamaladze-cv.pdf" download data-reveal>
-          Or download it as a PDF ↓
         </a>
-      </header>
 
-      <div class="lgroup">
-        <span class="lgroup__head" data-reveal>Honours</span>
-        <div class="lrow" data-reveal>
-          <i>2026</i><p><b>Blue Ocean — first place for Europe</b> <span>— with OpenPulse, in a competition of 23,000 students from 173 countries</span></p><em><a class="link" href="https://blueoceancompetition.org/2025-2026-winners/" target="_blank" rel="noopener">winners ↗</a></em>
-        </div>
-        <div class="lrow" data-reveal>
-          <i>2026</i><p><b>Startup Teens — first in Health &amp; Lifestyle</b> <span>— one of seven category winners; €10,000, decided at the Berlin final</span></p><em><a class="link" href="https://www.startupteens.de/news/unsere-challenge-gewinnerinnen-und-finalistinnen-2026/" target="_blank" rel="noopener">result ↗</a></em>
-        </div>
-        <div class="lrow" data-reveal>
-          <i>2026</i><p><b>Jugend gründet — top 14 nationally</b> <span>— we were one of 34 teams out of 1,461 invited to pitch</span></p><em><a class="link" href="https://www.jugend-gruendet.de/pitch-events-2026/" target="_blank" rel="noopener">listing ↗</a></em>
-        </div>
-        <div class="lrow" data-reveal>
-          <i>2026</i><p><b>Jugend forscht — special prize at the Bavarian state round</b> <span>— for BeGreifbar, after winning the regional round in München-Süd</span></p><em><a class="link" href="https://www.jugend-forscht-bayern.de/" target="_blank" rel="noopener">listing ↗</a></em>
-        </div>
-        <div class="lrow" data-reveal>
-          <i>2025</i><p><b>Physics Olympiad — second selection round</b> <span>— the German qualifying process for the international competition</span></p><em>759 entrants</em>
-        </div>
-        <div class="lrow" data-reveal>
-          <i>24·25</i><p><b>Känguru der Mathematik — first prize, twice</b> <span>— in consecutive years, grades 9 and 10</span></p><em>top ≈0.85%</em>
-        </div>
-      </div>
-
-      <div class="lgroup">
-        <span class="lgroup__head" data-reveal>Ventures</span>
-        <div class="lrow" data-reveal>
-          <i>2025—</i><p><b>OpenPulse</b> <span>— co-founder; I lead the hardware and product side. Still a prototype, openly documented</span></p><em><a class="link" href="https://github.com/mateo-gepard/Openpulse" target="_blank" rel="noopener">repository ↗</a></em>
-        </div>
-        <div class="lrow" data-reveal>
-          <i>2024—</i><p><b>Vintage watch trading</b> <span>— a registered business since I was sixteen; buying, valuing and reselling</span></p><em>€17,000+ turnover</em>
-        </div>
-        <div class="lrow" data-reveal>
-          <i>2025—</i><p><b>Munich Scholar Mentors</b> <span>— co-founder of a platform that matches students with tutors their own age</span></p><em><a class="link" href="https://munichscholarmentors.de/" target="_blank" rel="noopener">live site ↗</a></em>
-        </div>
-      </div>
-
-      <div class="lgroup">
-        <span class="lgroup__head" data-reveal>What I've built, by area</span>
-        <div class="lrow" data-reveal>
-          <i>Hardware</i><p><span>OpenPulse · the MAGMA rover · the robot control interface · a printed timer · a sundial · a tool that bends G-code for non-flat printing</span></p><em>6 projects</em>
-        </div>
-        <div class="lrow" data-reveal>
-          <i>Learning</i><p><span>BeGreifbar · EduVids · EduSlides · SkyLab · the Iphigenie e-reader · deinwettbewerb · a timetable viewer</span></p><em>7 projects</em>
-        </div>
-        <div class="lrow" data-reveal>
-          <i>Organising</i><p><span>Threadmap · Stufenportal for my year group · Athena · a spatial task manager</span></p><em>4 projects</em>
-        </div>
-        <div class="lrow" data-reveal>
-          <i>AI</i><p><span>Safeguard, a content filter for YouTube · Maestro, which coordinates several models on one task</span></p><em>2 projects</em>
-        </div>
-        <a class="lgroup__foot mono link" href="https://github.com/mateo-gepard" target="_blank" rel="noopener" data-reveal>
-          All 30 repositories on GitHub ↗
+        <a class="wcard" href="p/begreifbar.html" data-reveal>
+          <div class="wcard__media">
+            <video src="assets/vr-loop.mp4" data-ambient muted loop playsinline preload="none" aria-hidden="true"></video>
+          </div>
+          <div class="wcard__body">
+            <div class="wcard__top">
+              <span class="wcard__t">BeGreifbar</span>
+              <span class="wcard__n">02</span>
+            </div>
+            <p class="wcard__d">
+              A chemistry and physics lab for the Meta Quest 3 that you can walk
+              around inside. Built with two friends, taken to the Bavarian state
+              round of Jugend forscht.
+            </p>
+            <span class="wcard__go">Read the case study <i>→</i></span>
+          </div>
         </a>
-      </div>
 
-      <div class="lgroup">
-        <span class="lgroup__head" data-reveal>Research and teaching</span>
-        <div class="lrow" data-reveal>
-          <i>2024</i><p><b>Materials testing at FRM II, TUM</b> <span>— mechanical characterisation of a boron-filled filament for neutron-absorbing printed parts</span></p><em>Internship</em>
-        </div>
-        <div class="lrow" data-reveal>
-          <i>2024—</i><p><b>Robotics course at my school</b> <span>— I run it weekly for younger students</span></p><em>Teaching</em>
-        </div>
-        <div class="lrow" data-reveal>
-          <i>2026</i><p><b>Munich Security Conference side event</b> <span>— our school delegation at the Prinz-Carl-Palais</span></p><em><a class="link" href="https://mtg.musin.de/mtg-schuelerinnen-und-schueler-besuchen-die-muenchner-sicherheitskonferenz/" target="_blank" rel="noopener">school report ↗</a></em>
-        </div>
-        <div class="lrow" data-reveal>
-          <i>2026</i><p><b>Talk on societal resilience</b> <span>— given with Lithuania's Consul General in Munich</span></p><em>Civic</em>
-        </div>
-        <div class="lrow" data-reveal>
-          <i>—</i><p><b>Bavarian television and radio</b> <span>— interviewed about AI in schools</span></p><em>Media</em>
-        </div>
+        <a class="wcard" href="p/magma.html" data-reveal>
+          <div class="wcard__media">
+            <video src="assets/rover-loop.mp4" data-ambient muted loop playsinline preload="none" aria-hidden="true"></video>
+          </div>
+          <div class="wcard__body">
+            <div class="wcard__top">
+              <span class="wcard__t">MAGMA</span>
+              <span class="wcard__n">03</span>
+            </div>
+            <p class="wcard__d">
+              A rover for volcanic terrain, with wheels that change diameter as
+              the ground changes. Built for the German Aerospace Center's
+              Vulcano challenge.
+            </p>
+            <span class="wcard__go">Read the case study <i>→</i></span>
+          </div>
+        </a>
+
+        <a class="wcard" href="p/teaching.html" data-reveal>
+          <div class="wcard__media">
+            <video src="assets/robothand-loop.mp4" data-ambient muted loop playsinline preload="none" aria-hidden="true"></video>
+          </div>
+          <div class="wcard__body">
+            <div class="wcard__top">
+              <span class="wcard__t">The robotics course</span>
+              <span class="wcard__n">04</span>
+            </div>
+            <p class="wcard__d">
+              Since 2024 I've taught a group of students to build and program a
+              humanoid robot. When the robot turned out to be free only two
+              afternoons a week, I wrote a simulator so they could keep working
+              without it.
+            </p>
+            <span class="wcard__go">Read the case study <i>→</i></span>
+          </div>
+        </a>
+
+        <a class="wcard" href="p/sundial.html" data-reveal>
+          <div class="wcard__media wcard__media--dial">
+            <img loading="lazy" decoding="async" src="assets/img/sundial-placeholder.svg" alt="Sundial" />
+          </div>
+          <div class="wcard__body">
+            <div class="wcard__top">
+              <span class="wcard__t">A sundial, and the website that fixes it</span>
+              <span class="wcard__n">05</span>
+            </div>
+            <p class="wcard__d">
+              A wearable sundial I made by hand as a leaving present, and the
+              tool that tells it what time it actually is.
+            </p>
+            <span class="wcard__go">Read the case study <i>→</i></span>
+          </div>
+        </a>
+
+        <a class="wcard" href="p/models.html" data-reveal>
+          <div class="wcard__media">
+            <img loading="lazy" decoding="async" src="assets/img/robot.jpg" alt="Printed and built objects" />
+          </div>
+          <div class="wcard__body">
+            <div class="wcard__top">
+              <span class="wcard__t">3D models</span>
+              <span class="wcard__n">06</span>
+            </div>
+            <p class="wcard__d">
+              Designs I've been publishing since I was thirteen. Around 10,500
+              downloads and 2,800 likes across Printables and Thangs.
+            </p>
+            <span class="wcard__go">Read the case study <i>→</i></span>
+          </div>
+        </a>
+
       </div>
     </section>
 
-    <!-- ===================================================================
-         FINALE
-         =================================================================== -->
+    <!-- ===================== WHAT THESE HAVE IN COMMON ===================== -->
+    <section class="common" id="common">
+      <div class="common__in">
+        <span class="sec-tag" data-reveal>What these have in common</span>
+        <p data-reveal>
+          In most of them the limitation turned out to be structural rather than
+          personal. The robot in our course was only free two afternoons a week,
+          so I wrote a simulator and the students could work anyway. A sundial is
+          wrong by a different amount every week, so instead of building a more
+          accurate one I wrote the correction. Every fitness tracker I could buy
+          kept its raw signal behind a subscription, so we built one that doesn't.
+        </p>
+        <p data-reveal>
+          <strong>I usually find the constraint more interesting than the
+          result</strong>, and whatever I build to get around one tends to end up
+          useful to everyone else stuck behind the same thing.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== ONWARD ===================== -->
+    <nav class="onward" aria-label="More">
+      <a class="ocard" href="archive.html" data-reveal>
+        <b>Archive</b>
+        <span>Everything I've done, with dates and sources.</span>
+        <i>Full record →</i>
+      </a>
+      <a class="ocard" href="assets/mateo-mamaladze-cv.pdf" download data-reveal>
+        <b>CV</b>
+        <span>One document, printable, with every source listed.</span>
+        <i>PDF ↓</i>
+      </a>
+      <a class="ocard" href="about.html" data-reveal>
+        <b>About</b>
+        <span>Who I am when I'm not building.</span>
+        <i>Read →</i>
+      </a>
+    </nav>
+
+    <!-- ===================== CONTACT ===================== -->
     <section class="finale" id="contact">
       <h2 class="finale__line">
         <span data-line>Thanks for</span>
@@ -713,19 +280,6 @@
         I'd like to hear from you.
       </p>
       <a class="finale__mail link" href="mailto:mateo.mamaladze@gmail.com" data-reveal>mateo.mamaladze@gmail.com</a>
-
-      <a class="cvbtn" href="assets/mateo-mamaladze-cv.pdf" download data-reveal>
-        <span class="cvbtn__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-            <path d="M12 3v13m0 0l-4.5-4.5M12 16l4.5-4.5M4 20h16" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-        <span class="cvbtn__text">
-          <b>Download the full CV</b>
-          <i class="mono">PDF · 4 pages · everything on this page, with sources</i>
-        </span>
-      </a>
-
       <div class="finale__links" data-reveal>
         <a class="mono link" href="https://github.com/mateo-gepard" target="_blank" rel="noopener">GitHub ↗</a>
         <a class="mono link" href="https://www.printables.com/@Matrix/models" target="_blank" rel="noopener">Printables ↗</a>

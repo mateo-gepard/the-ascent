@@ -203,7 +203,9 @@ body.is-loading .topbar { opacity: 0; }
   font-weight: 200; letter-spacing: -0.03em; line-height: 0.95;
   font-size: clamp(56px, 11vw, 176px); color: var(--white);
 }
-.thesis__word { display: block; overflow: hidden; }
+/* overflow:hidden is the reveal mask — pad the box so descenders (g, j, y)
+   are not clipped, then pull the layout back with a matching negative margin */
+.thesis__word { display: block; overflow: hidden; padding-bottom: .16em; margin-bottom: -.16em; }
 .thesis__word > span { display: inline-block; }
 .thesis__def {
   margin-top: clamp(30px, 5vh, 54px);
@@ -279,7 +281,7 @@ body.is-loading .topbar { opacity: 0; }
   font-weight: 200; letter-spacing: -0.03em; line-height: 0.92;
   font-size: clamp(64px, 12vw, 180px); color: var(--white);
 }
-.chapter__title { display: block; overflow: hidden; }
+.chapter__title { display: block; overflow: hidden; padding-bottom: .14em; margin-bottom: -.14em; }
 .chapter__title > span { display: inline-block; }
 .chapter__dek {
   font-size: clamp(16px, 1.6vw, 22px); font-weight: 300; color: var(--grey);
@@ -540,7 +542,7 @@ body.is-loading .topbar { opacity: 0; }
   font-weight: 200; letter-spacing: -0.03em; line-height: 0.94;
   font-size: clamp(52px, 11vw, 170px); color: var(--white);
 }
-.finale__line span[data-line] { display: block; overflow: hidden; }
+.finale__line span[data-line] { display: block; overflow: hidden; padding-bottom: .14em; margin-bottom: -.14em; }
 .finale__line span[data-line] > * { display: inline-block; }
 .finale__note {
   margin-top: 28px; font-size: clamp(15px, 1.4vw, 19px); font-weight: 300;
