@@ -103,7 +103,7 @@
   line-height: 1.55;
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: var(--grey-dim);
+  color: var(--grey-meta);
 }
 
 /* ---------------- OpenPulse feature ---------------- */
@@ -167,7 +167,7 @@
   text-transform: uppercase;
 }
 .feat__tag {
-  color: var(--grey-dim);
+  color: var(--grey-meta);
   margin-bottom: clamp(25px, 4vh, 48px);
 }
 .feat__t {
@@ -194,7 +194,7 @@
   justify-content: space-between;
   gap: 20px;
   padding: 14px 0;
-  color: var(--grey-dim);
+  color: var(--grey-meta);
   border-bottom: 1px solid var(--line);
 }
 .feat__wins b {
@@ -258,7 +258,7 @@
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: .16em;
-  color: var(--grey-dim);
+  color: var(--grey-meta);
 }
 .wrow__media {
   position: relative;
@@ -321,7 +321,7 @@
   line-height: 1.6;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: var(--grey-dim);
+  color: var(--grey-meta);
 }
 .wrow__go {
   font-size: clamp(24px, 2.6vw, 38px);
@@ -462,6 +462,10 @@
 }
 
 @media (max-width: 760px) {
+  .topbar {
+    padding-top: 16px;
+    padding-bottom: 28px;
+  }
   .topbar__nav { gap: 18px; }
   .topbar__nav a:nth-child(2),
   .topbar__nav a:nth-child(3) { display: none; }
@@ -475,7 +479,12 @@
   .feat { padding-right: 0; padding-left: 0; }
   .feat__link { border-right: 0; border-left: 0; }
   .feat__body { min-height: 0; padding: 54px var(--edge) 70px; }
-  .feat__media { min-height: 74vw; }
+  .feat__media {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 3 / 4;
+  }
+  .feat__media img { object-position: center 48%; }
   .feat__wins span {
     display: grid;
     justify-content: start;
@@ -511,6 +520,7 @@
   .strip {
     padding: 80px var(--edge) 90px;
   }
+  #research .plate__frame--169 { aspect-ratio: 4 / 3; }
   .onward { padding-top: 80px; padding-bottom: 90px; }
   .onward { grid-template-columns: 1fr; }
   .ocard {
@@ -522,8 +532,18 @@
 }
 
 @media (max-width: 430px) {
-  .topbar__brand { max-width: 110px; line-height: 1.15; }
-  .topbar__nav { gap: 14px; }
+  .topbar__brand {
+    max-width: none;
+    white-space: nowrap;
+    font-size: 11.5px;
+    line-height: 1;
+    letter-spacing: .025em;
+  }
+  .topbar__nav {
+    gap: 12px;
+    font-size: 9px;
+    letter-spacing: .11em;
+  }
   .scene__role {
     max-width: 280px;
     font-size: 17px;

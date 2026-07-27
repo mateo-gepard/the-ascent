@@ -9,6 +9,7 @@
   display: flex; justify-content: space-between; align-items: center;
   padding: clamp(16px,2.2vw,26px) var(--edge);
   background: linear-gradient(to bottom, rgba(6,7,8,0.92), rgba(6,7,8,0));
+  -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
 }
 .pnav__back {
@@ -29,14 +30,14 @@
 }
 .phead__kicker {
   font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em;
-  text-transform: uppercase; color: var(--grey-dim); display: block; margin-bottom: 20px;
+  text-transform: uppercase; color: var(--grey-meta); display: block; margin-bottom: 20px;
 }
 .phead__title {
   font-weight: 200; letter-spacing: -0.035em; line-height: 0.9;
   font-size: clamp(52px,10vw,150px); color: var(--white);
   overflow: hidden; padding-bottom: .12em; margin-bottom: -.06em;
 }
-.phead__title > span { display: inline-block; }
+.phead__title > span { display: inline-block; transform: none; }
 .phead__dek {
   margin-top: 26px; font-size: clamp(18px,2.1vw,30px); font-weight: 300;
   line-height: 1.4; color: var(--grey); max-width: 34ch;
@@ -50,7 +51,7 @@
 .phead__facts div { display: flex; flex-direction: column; gap: 6px; }
 .phead__facts dt, .phead__facts b {
   font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em;
-  text-transform: uppercase; color: var(--grey-dim); font-weight: 400;
+  text-transform: uppercase; color: var(--grey-meta); font-weight: 400;
 }
 .phead__facts dd, .phead__facts span {
   font-size: 14px; font-weight: 300; color: var(--white); line-height: 1.5; margin: 0;
@@ -95,14 +96,14 @@
 }
 .pull cite {
   display: block; margin-top: 14px; font-family: var(--mono); font-size: 10px;
-  letter-spacing: 0.16em; text-transform: uppercase; color: var(--grey-dim); font-style: normal;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--grey-meta); font-style: normal;
 }
 
 /* ---------------- spec table ---------------- */
 .spec { width: 100%; border-collapse: collapse; max-width: 900px; }
 .spec th {
   font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--grey-dim); text-align: left; font-weight: 400;
+  color: var(--grey-meta); text-align: left; font-weight: 400;
   padding: 0 20px 12px 0; border-bottom: 1px solid var(--line);
 }
 .spec td {
@@ -111,7 +112,7 @@
 }
 .spec td:first-child { color: var(--white); font-weight: 400; white-space: nowrap; }
 .spec td:last-child, .spec th:last-child { padding-right: 0; }
-.spec .num { font-family: var(--mono); font-size: 12px; color: var(--grey-dim); white-space: nowrap; }
+.spec .num { font-family: var(--mono); font-size: 12px; color: var(--grey-meta); white-space: nowrap; }
 
 /* ---------------- results ---------------- */
 .rlist { display: grid; gap: 0; max-width: 1100px; }
@@ -127,7 +128,7 @@
 }
 .rlist__m {
   font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em;
-  color: var(--grey-dim); text-align: right; white-space: nowrap;
+  color: var(--grey-meta); text-align: right; white-space: nowrap;
 }
 @media (max-width: 700px){
   .rlist__i { grid-template-columns: 1fr; }
@@ -150,12 +151,12 @@
   gap: 30px; flex-wrap: wrap;
 }
 .pnext__l { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--grey-dim); display: block; margin-bottom: 14px; }
+  text-transform: uppercase; color: var(--grey-meta); display: block; margin-bottom: 14px; }
 .pnext__t {
   font-size: clamp(30px,5vw,64px); font-weight: 200; letter-spacing: -0.025em;
   color: var(--white); line-height: 1; transition: opacity .3s var(--ease-out);
 }
-.pnext a:hover .pnext__t { opacity: 0.6; }
+.pnext:hover .pnext__t { opacity: 0.6; }
 
 /* ---------------- home: work index ---------------- */
 .work { padding: clamp(70px,12vh,150px) var(--edge) clamp(40px,7vh,90px); }
@@ -182,11 +183,11 @@
 .wcard__body { display: flex; flex-direction: column; gap: 12px; }
 .wcard__top { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
 .wcard__t { font-size: clamp(22px,2.4vw,34px); font-weight: 300; color: var(--white); letter-spacing: -0.015em; }
-.wcard__n { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--grey-dim); }
+.wcard__n { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--grey-meta); }
 .wcard__d { font-size: clamp(14px,1.25vw,16px); font-weight: 300; line-height: 1.65; color: var(--grey); max-width: 54ch; }
 .wcard__m {
   font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--grey-dim); margin-top: 2px;
+  color: var(--grey-meta); margin-top: 2px;
 }
 .wcard__go {
   font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: var(--white);
@@ -228,7 +229,7 @@
 .ocard b { font-size: clamp(18px,1.9vw,24px); font-weight: 300; color: var(--white); }
 .ocard span { font-size: 14px; font-weight: 300; color: var(--grey); line-height: 1.6; }
 .ocard i { font-style: normal; font-family: var(--mono); font-size: 10px;
-  letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-dim); margin-top: 4px; }
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-meta); margin-top: 4px; }
 
 /* ---------------- sundial calculator ---------------- */
 .dial { border: 1px solid var(--line); padding: clamp(24px,3.4vw,44px); max-width: 900px; }
@@ -236,7 +237,7 @@
 .dial__f { display: flex; flex-direction: column; gap: 8px; }
 .dial__f label {
   font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em;
-  text-transform: uppercase; color: var(--grey-dim);
+  text-transform: uppercase; color: var(--grey-meta);
 }
 .dial__f input, .dial__f select {
   background: var(--bg-2); border: 1px solid var(--line); color: var(--white);
@@ -254,11 +255,11 @@
 .dial__big small { font-size: 0.34em; font-weight: 300; color: var(--grey); margin-left: 6px; letter-spacing: 0; }
 .dial__parts { display: flex; flex-direction: column; gap: 7px; }
 .dial__part {
-  font-family: var(--mono); font-size: 11px; color: var(--grey-dim);
+  font-family: var(--mono); font-size: 11px; color: var(--grey-meta);
   display: flex; gap: 12px; justify-content: space-between; min-width: 240px;
 }
 .dial__part b { color: var(--grey); font-weight: 400; }
-.dial__note { margin-top: 20px; font-size: 12px; color: var(--grey-dim); line-height: 1.6; }
+.dial__note { margin-top: 20px; font-size: 12px; color: var(--grey-meta); line-height: 1.6; }
 .eot { margin-top: clamp(30px,5vh,50px); width: 100%; max-width: 900px; }
 .eot svg { width: 100%; height: auto; display: block; overflow: visible; }
 .eot .ax { stroke: var(--line); stroke-width: 1; }
@@ -268,14 +269,69 @@
 
 /* ---------------- misc ---------------- */
 .note {
-  font-family: var(--mono); font-size: 11px; line-height: 1.9; color: var(--grey-dim);
+  font-family: var(--mono); font-size: 11px; line-height: 1.9; color: var(--grey-meta);
   border-left: 1px solid var(--line); padding-left: 18px; max-width: 60ch;
 }
 .pfoot {
   border-top: 1px solid var(--line); padding: clamp(34px,5vh,54px) var(--edge);
   display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;
   font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--grey-dim);
+  text-transform: uppercase; color: var(--grey-meta);
 }
 .pfoot a { color: var(--grey); }
 .pfoot a:hover { color: var(--white); }
+
+/* Rows already live inside the page gutter; avoid applying that gutter twice. */
+.pbody .row { padding-right: 0; padding-left: 0; }
+
+@media (max-width: 700px) {
+  .phead {
+    padding-top: 128px;
+    padding-bottom: 54px;
+  }
+  .phead__facts {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .phead__facts div {
+    display: grid;
+    grid-template-columns: minmax(78px, .32fr) 1fr;
+    gap: 14px;
+    align-items: start;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .phead__facts dt,
+  .phead__facts b { padding-top: 3px; }
+
+  .spec {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    padding-bottom: 8px;
+  }
+  .spec thead,
+  .spec tbody {
+    display: table;
+    width: 680px;
+    table-layout: fixed;
+  }
+  .spec td:first-child { white-space: normal; }
+
+  .dial__f { flex: 1 1 145px; }
+  .dial__f input,
+  .dial__f select {
+    width: 100%;
+    min-width: 0;
+  }
+  .dial__part {
+    width: 100%;
+    min-width: 0;
+  }
+  .eot text {
+    font-size: 22px;
+    letter-spacing: .04em;
+  }
+}
