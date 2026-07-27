@@ -137,10 +137,18 @@ body.is-loading .topbar { opacity: 0; }
   .hero { height: 100svh; }
   body.is-loading { height: 100svh; }
 }
-.hero__media { position: absolute; inset: 0; }
+.hero__media {
+  position: absolute;
+  inset: 0;
+  background: var(--bg) url("../assets/hero-poster.jpg") center 42% / cover no-repeat;
+}
 .hero__video {
   position: absolute; inset: 0; width: 100%; height: 100%;
   object-fit: cover; object-position: center 42%; will-change: contents;
+  opacity: 0;
+}
+.hero__video.is-frame-ready {
+  opacity: 1;
 }
 .hero__scrim {
   position: absolute; inset: 0; pointer-events: none;

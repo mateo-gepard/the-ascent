@@ -15,8 +15,40 @@
   const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
 
   const heroVideo = $("#heroVideo");
-  if (heroVideo && REDUCED) heroVideo.poster = "assets/hero-final.jpg";
-  else if (heroVideo && !SAVE_DATA) heroVideo.preload = "auto";
+  const heroMedia = $(".hero__media");
+  if (heroVideo && REDUCED) {
+    heroVideo.poster = "assets/hero-final.jpg";
+    if (heroMedia) heroMedia.style.backgroundImage = 'url("assets/hero-final.jpg")';
+  } else if (heroVideo && !SAVE_DATA) {
+    heroVideo.preload = "auto";
+  }
+
+  // Mobile Safari can replace a valid poster with a black video surface after
+  // metadata loads but before it has actually painted a frame. Keep the
+  // independent background image visible until the browser reports a rendered
+  // frame; if decoding is delayed or blocked, the fallback simply stays put.
+  function revealHeroVideoWhenPainted(video) {
+    if (!video || REDUCED || SAVE_DATA) return;
+    let queued = false;
+    const reveal = () => {
+      queued = false;
+      video.classList.add("is-frame-ready");
+    };
+    const queueReveal = () => {
+      if (queued || video.classList.contains("is-frame-ready") || video.readyState < 2) return;
+      queued = true;
+      if (typeof video.requestVideoFrameCallback === "function") {
+        video.requestVideoFrameCallback(reveal);
+      } else {
+        requestAnimationFrame(() => requestAnimationFrame(reveal));
+      }
+    };
+    video.addEventListener("loadeddata", queueReveal);
+    video.addEventListener("canplay", queueReveal);
+    video.addEventListener("seeked", queueReveal);
+    queueReveal();
+  }
+  revealHeroVideoWhenPainted(heroVideo);
 
   // The loader visually covers the site, so keep its links out of the tab order
   // until the page is actually available.
