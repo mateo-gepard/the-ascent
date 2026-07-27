@@ -11,12 +11,13 @@
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Mateo Mamaladze" />
-  <meta property="og:description" content="I build hardware and software in Munich. At the moment, mostly OpenPulse." />
+  <meta property="og:description" content="Student engineer, founder and maker in Munich. At the moment, mostly OpenPulse." />
   <meta property="og:url" content="https://mateo-gepard.github.io/the-ascent/" />
-  <meta property="og:image" content="https://mateo-gepard.github.io/the-ascent/assets/og.png" />
+  <meta property="og:image" content="https://mateo-gepard.github.io/the-ascent/assets/og-home.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Mateo Mamaladze" />
-  <meta name="twitter:image" content="https://mateo-gepard.github.io/the-ascent/assets/og.png" />
+  <meta name="twitter:description" content="Student engineer, founder and maker in Munich. At the moment, mostly OpenPulse." />
+  <meta name="twitter:image" content="https://mateo-gepard.github.io/the-ascent/assets/og-home.png" />
 
   <script type="application/ld+json">
   {
@@ -40,6 +41,7 @@
   <link rel="preload" href="assets/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/page.css" />
+  <link rel="stylesheet" href="css/home.css" />
 </head>
 <body class="is-loading">
 
@@ -53,7 +55,12 @@
 
   <header class="topbar">
     <a class="topbar__brand" href="#hero">Mateo Mamaladze</a>
-    <span class="topbar__meta"><i class="dot"></i><em id="topLabel">Munich</em></span>
+    <nav class="topbar__nav" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="archive.html">Archive</a>
+      <a href="about.html">About</a>
+      <a href="assets/mateo-mamaladze-cv.pdf" download>CV</a>
+    </nav>
   </header>
 
   <main>
@@ -80,7 +87,7 @@
 
           <div class="scene scene--center" data-scene="b">
             <p class="scene__role">
-              <span class="ln">I build hardware and software in Munich.</span>
+              <span class="ln">Student engineer<i>·</i><wbr>Founder<i>·</i><wbr>Maker</span>
             </p>
           </div>
 
@@ -101,130 +108,152 @@
 
     <!-- ===================== INTRO ===================== -->
     <section class="intro" id="intro">
-      <p class="intro__p" data-reveal>
-        I'm 17 and in my final year at the Maria-Theresia-Gymnasium in Munich. I
-        build things, usually because something I wanted to use was closed,
-        missing, or only available to people with better equipment than mine.
-        Right now most of my time goes into <strong>OpenPulse</strong>, a modular
-        biosensor platform where the raw data stays with the person wearing it.
-        It won first place for Europe at the Blue Ocean competition this year and
-        a category win at STARTUP TEENS. Before that I built a VR chemistry lab,
-        started teaching the robotics course at my school, published 3D models
-        that strangers have downloaded more than ten thousand times, and spent
-        two years buying and selling vintage watches.
-      </p>
+      <div class="intro__grid">
+        <p class="intro__p" data-reveal>
+          I'm 17 and in my final year at the Maria-Theresia-Gymnasium in Munich. I
+          build things, usually because something I wanted to use was closed,
+          missing, or only available to people with better equipment than mine.
+          Right now most of my time goes into <strong>OpenPulse</strong>, a
+          modular biosensor platform where the raw data stays with the person
+          wearing it.
+        </p>
+        <p class="intro__p intro__p--sec" data-reveal>
+          Before that I built a VR chemistry lab, started teaching the robotics
+          course at my school, published 3D models that strangers have downloaded
+          more than ten thousand times, and spent two years buying and selling
+          vintage watches.
+        </p>
+      </div>
+
+      <div class="figs" data-reveal>
+        <div class="fig"><b>17</b><span>years old, Abitur 2027</span></div>
+        <div class="fig"><b>3</b><span>co-founders, one company</span></div>
+        <div class="fig"><b>≈10,500</b><span>downloads of things I designed</span></div>
+        <div class="fig"><b>2</b><span>years teaching robotics</span></div>
+      </div>
+    </section>
+
+    <!-- ===================== FEATURED ===================== -->
+    <section class="feat" id="featured">
+      <a class="feat__link" href="p/openpulse.html">
+        <figure class="feat__media">
+          <img loading="lazy" decoding="async" width="1400" height="1866" src="assets/img/openpulse-internals.jpg"
+               alt="An OpenPulse development unit opened by hand, showing the sensors inside" />
+        </figure>
+        <div class="feat__body">
+          <span class="feat__tag" data-reveal>Currently building · 01</span>
+          <h2 class="feat__t" data-reveal>OpenPulse</h2>
+          <p class="feat__d" data-reveal>
+            A wearable biosensor platform with swappable sensor modules and no
+            locked data. Every commercial tracker I could buy kept its raw signal
+            behind a subscription, so we built one that doesn't.
+          </p>
+          <div class="feat__wins" data-reveal>
+            <span><b>1st for Europe</b> Blue Ocean 2026</span>
+            <span><b>1st in category</b> STARTUP TEENS</span>
+            <span><b>Top 14</b> Jugend gründet</span>
+          </div>
+          <span class="feat__go" data-reveal>Read the case study <i>→</i></span>
+        </div>
+      </a>
     </section>
 
     <!-- ===================== SELECTED WORK ===================== -->
     <section class="work" id="work">
-      <span class="sec-tag" data-reveal>Selected work</span>
-      <div class="work__grid">
+      <div class="work__head">
+        <h2 class="sec-tag" data-reveal>Selected work</h2>
+        <p class="work__intro" data-reveal>
+          Five more, each written up with what it is, how it works and what I got
+          wrong.
+        </p>
+      </div>
 
-        <a class="wcard wcard--wide" href="p/openpulse.html" data-reveal>
-          <div class="wcard__media">
-            <img loading="lazy" decoding="async" src="assets/img/puck.jpg" alt="OpenPulse sensor puck" />
-          </div>
-          <div class="wcard__body">
-            <div class="wcard__top">
-              <span class="wcard__t">OpenPulse</span>
-              <span class="wcard__n">01</span>
-            </div>
-            <p class="wcard__d">
-              A wearable biosensor platform with swappable sensor modules and no
-              locked data.
-            </p>
-            <span class="wcard__m">First place for Europe · Blue Ocean 2026</span>
-            <span class="wcard__go">Read the case study <i>→</i></span>
-          </div>
-        </a>
+      <div class="wlist">
 
-        <a class="wcard" href="p/begreifbar.html" data-reveal>
-          <div class="wcard__media">
+        <a class="wrow" href="p/begreifbar.html" data-reveal>
+          <span class="wrow__n">02</span>
+          <figure class="wrow__media">
             <video src="assets/vr-loop.mp4" data-ambient muted loop playsinline preload="none" aria-hidden="true"></video>
-          </div>
-          <div class="wcard__body">
-            <div class="wcard__top">
-              <span class="wcard__t">BeGreifbar</span>
-              <span class="wcard__n">02</span>
-            </div>
-            <p class="wcard__d">
+          </figure>
+          <div class="wrow__body">
+            <h3 class="wrow__t">BeGreifbar</h3>
+            <p class="wrow__d">
               A chemistry and physics lab for the Meta Quest 3 that you can walk
-              around inside. Built with two friends, taken to the Bavarian state
-              round of Jugend forscht.
+              around inside. Molecules you turn over in your hands instead of
+              decoding from wedge-and-dash notation on paper.
             </p>
-            <span class="wcard__go">Read the case study <i>→</i></span>
+            <span class="wrow__m">Jugend forscht — regional win, Bavarian state round · ≈31,000 lines</span>
           </div>
+          <span class="wrow__go"><i>→</i></span>
         </a>
 
-        <a class="wcard" href="p/magma.html" data-reveal>
-          <div class="wcard__media">
+        <a class="wrow" href="p/magma.html" data-reveal>
+          <span class="wrow__n">03</span>
+          <figure class="wrow__media">
             <video src="assets/rover-loop.mp4" data-ambient muted loop playsinline preload="none" aria-hidden="true"></video>
-          </div>
-          <div class="wcard__body">
-            <div class="wcard__top">
-              <span class="wcard__t">MAGMA</span>
-              <span class="wcard__n">03</span>
-            </div>
-            <p class="wcard__d">
+          </figure>
+          <div class="wrow__body">
+            <h3 class="wrow__t">MAGMA</h3>
+            <p class="wrow__d">
               A rover for volcanic terrain, with wheels that change diameter as
-              the ground changes. Built for the German Aerospace Center's
-              Vulcano challenge.
+              the ground changes — wide across loose ash, narrow across broken
+              rock, without stopping.
             </p>
-            <span class="wcard__go">Read the case study <i>→</i></span>
+            <span class="wrow__m">DLR Vulcano challenge · mechanical design, chassis and wheel</span>
           </div>
+          <span class="wrow__go"><i>→</i></span>
         </a>
 
-        <a class="wcard" href="p/teaching.html" data-reveal>
-          <div class="wcard__media">
+        <a class="wrow" href="p/teaching.html" data-reveal>
+          <span class="wrow__n">04</span>
+          <figure class="wrow__media">
             <video src="assets/robothand-loop.mp4" data-ambient muted loop playsinline preload="none" aria-hidden="true"></video>
-          </div>
-          <div class="wcard__body">
-            <div class="wcard__top">
-              <span class="wcard__t">The robotics course</span>
-              <span class="wcard__n">04</span>
-            </div>
-            <p class="wcard__d">
+          </figure>
+          <div class="wrow__body">
+            <h3 class="wrow__t">The robotics course</h3>
+            <p class="wrow__d">
               Since 2024 I've taught a group of students to build and program a
               humanoid robot. When the robot turned out to be free only two
               afternoons a week, I wrote a simulator so they could keep working
               without it.
             </p>
-            <span class="wcard__go">Read the case study <i>→</i></span>
+            <span class="wrow__m">Weekly, since September 2024 · PibUi control software</span>
           </div>
+          <span class="wrow__go"><i>→</i></span>
         </a>
 
-        <a class="wcard" href="p/sundial.html" data-reveal>
-          <div class="wcard__media wcard__media--dial">
-            <img loading="lazy" decoding="async" src="assets/img/sundial-placeholder.svg" alt="Sundial" />
-          </div>
-          <div class="wcard__body">
-            <div class="wcard__top">
-              <span class="wcard__t">A sundial, and the website that fixes it</span>
-              <span class="wcard__n">05</span>
-            </div>
-            <p class="wcard__d">
-              A wearable sundial I made by hand as a leaving present, and the
-              tool that tells it what time it actually is.
+        <a class="wrow" href="p/sundial.html" data-reveal>
+          <span class="wrow__n">05</span>
+          <figure class="wrow__media wrow__media--art">
+            <img loading="lazy" decoding="async" src="assets/img/sundial-placeholder.svg" alt="Sundial diagram" />
+          </figure>
+          <div class="wrow__body">
+            <h3 class="wrow__t">A sundial, and the website that fixes it</h3>
+            <p class="wrow__d">
+              A wearable brass sundial I made by hand as a leaving present. A
+              sundial is wrong by a different amount every week, so instead of
+              building a more accurate one I wrote the correction.
             </p>
-            <span class="wcard__go">Read the case study <i>→</i></span>
+            <span class="wrow__m">The correction runs live on the page</span>
           </div>
+          <span class="wrow__go"><i>→</i></span>
         </a>
 
-        <a class="wcard" href="p/models.html" data-reveal>
-          <div class="wcard__media">
-            <img loading="lazy" decoding="async" src="assets/img/robot.jpg" alt="Printed and built objects" />
-          </div>
-          <div class="wcard__body">
-            <div class="wcard__top">
-              <span class="wcard__t">3D models</span>
-              <span class="wcard__n">06</span>
-            </div>
-            <p class="wcard__d">
-              Designs I've been publishing since I was thirteen. Around 10,500
-              downloads and 2,800 likes across Printables and Thangs.
+        <a class="wrow" href="p/models.html" data-reveal>
+          <span class="wrow__n">06</span>
+          <figure class="wrow__media wrow__media--photo">
+            <img loading="lazy" decoding="async" width="1440" height="1440" src="assets/img/models-wine-stand.webp" alt="Mateo's 3D-printed anti-gravity wine bottle stand holding a bottle" />
+          </figure>
+          <div class="wrow__body">
+            <h3 class="wrow__t">3D models</h3>
+            <p class="wrow__d">
+              Designs I've been publishing since I was thirteen. Nobody asked for
+              any of them — they're the part of my work where the only reason
+              anyone engaged with it was that it was useful to them.
             </p>
-            <span class="wcard__go">Read the case study <i>→</i></span>
+            <span class="wrow__m">≈10,500 downloads · ≈2,800 likes · Printables and Thangs</span>
           </div>
+          <span class="wrow__go"><i>→</i></span>
         </a>
 
       </div>
@@ -233,7 +262,7 @@
     <!-- ===================== WHAT THESE HAVE IN COMMON ===================== -->
     <section class="common" id="common">
       <div class="common__in">
-        <span class="sec-tag" data-reveal>What these have in common</span>
+        <h2 class="sec-tag" data-reveal>What these have in common</h2>
         <p data-reveal>
           In most of them the limitation turned out to be structural rather than
           personal. The robot in our course was only free two afternoons a week,
@@ -250,21 +279,86 @@
       </div>
     </section>
 
+    <!-- ===================== RESEARCH ===================== -->
+    <section class="strip" id="research">
+      <h2 class="sec-tag" data-reveal>Research</h2>
+      <div class="strip__row">
+        <figure class="plate strip__media">
+          <span class="plate__head" data-reveal><i>FRM II · TUM</i><i>April — May 2024</i></span>
+          <div class="plate__frame plate__frame--169 grade">
+            <img loading="lazy" decoding="async" width="1800" height="1350" src="assets/img/frm2-tensile.jpg"
+                 alt="Dozens of labelled 3D-printed tensile specimens on a lab bench, most broken at the neck" />
+          </div>
+          <span class="plate__cap" data-reveal>Specimens after testing — three per configuration, pulled until they broke</span>
+        </figure>
+        <div class="copy strip__copy">
+          <p class="copy__lead" data-reveal>
+            Two months at a research reactor, finding out how strong a boron
+            filament is.
+          </p>
+          <p data-reveal>
+            Boron absorbs neutrons, which is why the reactor wants to 3D-print
+            with it: you can then make shielding and beam-shaping parts in
+            whatever shape an experiment needs, instead of machining them. Nobody
+            had characterised how much load the printed material actually takes,
+            so I printed specimens and pulled them apart on a universal testing
+            machine.
+          </p>
+          <p data-reveal>
+            It was the first time I worked to somebody else's measurement
+            standard, and the first time I understood that
+            <strong>a material property is a number you have to earn.</strong>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== IN PUBLIC ===================== -->
+    <section class="strip strip--alt" id="public">
+      <h2 class="sec-tag" data-reveal>In public</h2>
+      <div class="strip__row strip__row--rev">
+        <figure class="plate strip__media">
+          <span class="plate__head" data-reveal><i>Prinz-Carl-Palais</i><i>February 2026</i></span>
+          <div class="plate__frame plate__frame--169 grade">
+            <img loading="lazy" decoding="async" width="2400" height="1600" src="assets/img/msc.jpg"
+                 alt="Speaking with a microphone from the audience at a Munich Security Conference side event" />
+          </div>
+          <span class="plate__cap" data-reveal>A side event of the Munich Security Conference</span>
+        </figure>
+        <div class="copy strip__copy">
+          <p class="copy__lead" data-reveal>
+            Asking questions in rooms where students are usually there to listen.
+          </p>
+          <p data-reveal>
+            Our school sent a delegation to a discussion on European deterrence,
+            with the Inspector of the German Army, the Commanding General of US
+            Army Europe and Africa, and a Bavarian state minister on the panel.
+            Students were invited to ask questions. I asked mine.
+          </p>
+          <p data-reveal>
+            I've also spoken on societal resilience alongside Lithuania's Consul
+            General in Munich, and about AI in schools on Bavarian television.
+          </p>
+          <a class="mono link" href="archive.html" data-reveal>The full record →</a>
+        </div>
+      </div>
+    </section>
+
     <!-- ===================== ONWARD ===================== -->
     <nav class="onward" aria-label="More">
       <a class="ocard" href="archive.html" data-reveal>
         <b>Archive</b>
-        <span>Everything I've done, with dates and sources.</span>
+        <span>Everything I've done, with dates and sources — and a note wherever I only have my own account.</span>
         <i>Full record →</i>
       </a>
       <a class="ocard" href="assets/mateo-mamaladze-cv.pdf" download data-reveal>
         <b>CV</b>
-        <span>One document, printable, with every source listed.</span>
+        <span>Four pages, printable, with every source listed at the end.</span>
         <i>PDF ↓</i>
       </a>
       <a class="ocard" href="about.html" data-reveal>
         <b>About</b>
-        <span>Who I am when I'm not building.</span>
+        <span>Who I am when I'm not building. Theatre, a small boat, Georgian cooking.</span>
         <i>Read →</i>
       </a>
     </nav>
