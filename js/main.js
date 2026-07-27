@@ -421,7 +421,7 @@
     }
     if (!label) return;
     const map = [
-      ["#hero", "Munich — 46.6°N"],
+      ["#hero", "Munich"],
       ["#thread", "How I work"],
       ["#movements", "Contents"],
       ["#matter", "01 — Matter"],
