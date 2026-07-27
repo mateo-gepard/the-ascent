@@ -26,8 +26,8 @@
   <span class="phead__kicker">Project 03 · 2026</span>
   <h1 class="phead__title" data-line><span>MAGMA</span></h1>
   <p class="phead__dek">
-    A rover for volcanic terrain, with wheels that change diameter as the ground
-    changes.
+    A four-wheeled rover built for the German Aerospace Center's Vulcano
+    challenge.
   </p>
   <dl class="phead__facts" data-reveal>
     <div><dt>Role</dt><dd>Mechanical design — wheel mechanism and chassis</dd></div>
@@ -52,13 +52,12 @@
     </figure>
     <div class="wheelstage__scenes">
       <div class="wheelstage__scene" data-wscene="a">
-        <h3>Two incompatible problems.</h3>
-        <p>Loose ash, where a narrow wheel sinks and a wide one floats. Broken
-           rock, where a large wheel jams between edges and a smaller one steps
-           through cleanly.</p>
+        <h3>Loose ash and broken rock</h3>
+        <p>Narrow wheels sink into ash, while large wheels can jam between
+           broken rocks.</p>
       </div>
       <div class="wheelstage__scene" data-wscene="b">
-        <h3>So the wheel changes size.</h3>
+        <h3>The wheel changes diameter while the rover moves</h3>
         <p>Curved segments on a gear ring slide outwards or inwards together,
            while the rover keeps moving.</p>
       </div>
@@ -67,36 +66,6 @@
 </div>
 
 <main class="pbody">
-
-  <section class="psec">
-    <h2 class="psec__h">What it is</h2>
-    <div class="prose">
-      <p class="lede" data-reveal>
-        A four-wheeled rover built for the German Aerospace Center's Vulcano
-        challenge, which asks school teams to design a vehicle that can cross an
-        active volcanic field and take useful environmental measurements.
-      </p>
-    </div>
-  </section>
-
-  <section class="psec">
-    <h2 class="psec__h">Why it exists</h2>
-    <div class="prose">
-      <p data-reveal>
-        The ground on a volcano is two incompatible problems at once. There is
-        loose ash, where a narrow wheel sinks and a wide one floats. And there is
-        broken rock, where a large wheel jams between edges and a smaller one
-        steps through cleanly. A fixed wheel diameter is a compromise between the
-        two, and every school rover I looked at accepted that compromise and then
-        drove slowly enough to survive it.
-      </p>
-      <p data-reveal>
-        We built wheels that change diameter instead. Each wheel opens and closes
-        like a camera iris while the rover is moving, so it can run wide across
-        ash and narrow across rock without stopping to be reconfigured.
-      </p>
-    </div>
-  </section>
 
   <section class="psec">
     <h2 class="psec__h">How it works</h2>
@@ -120,12 +89,10 @@
           to change configuration.
         </p>
         <p data-reveal>
-          The load path was the difficult part. In a camera iris the blades carry
-          nothing; here every segment carries a share of the vehicle's weight at
-          whatever diameter it happens to be at, and the worst case is the fully
-          expanded position, where the segments overlap least and the unsupported
-          span is longest. That case set the segment thickness and the material,
-          and it is also what sets the upper limit on the diameter range.
+          Each segment carries part of the vehicle's weight at every wheel
+          diameter. The fully expanded position has the least overlap and the
+          longest unsupported span, so it set the segment thickness, material and
+          upper limit of the diameter range.
         </p>
       </div>
     </div>
@@ -135,9 +102,8 @@
         The starting point was a published variable-diameter wheel mechanism. I
         adapted it to a vehicle this size and to parts that could either be
         printed or bought from a normal distributor, because the version two bill
-        of materials had to come in around €410. <strong>That budget was the real
-        design constraint and it removed most of the elegant options
-        early.</strong>
+        of materials had to come in around €410. The budget determined the
+        materials and mechanisms we could use.
       </p>
     </div>
 
@@ -148,7 +114,7 @@
           <img loading="lazy" decoding="async" src="../assets/drawings/magma-chassis-sections-transparent.png"
                alt="Engineering sections of the MAGMA chassis" />
         </div>
-        <span class="plate__cap" data-reveal>Every part has a drawing behind it</span>
+        <span class="plate__cap" data-reveal>Chassis sections used for fabrication</span>
       </figure>
       <div class="copy row__copy">
         <p data-reveal>
@@ -161,12 +127,32 @@
         </div>
       </div>
     </div>
+
+    <div class="row" style="padding-top:clamp(30px,5vh,60px)">
+      <figure class="plate row__media">
+        <span class="plate__head" data-reveal><i>Fig. 4</i><i>Vulcano sensor package</i></span>
+        <div class="plate__frame plate__frame--45 grade">
+          <img loading="lazy" decoding="async" width="1400" height="1866"
+               src="../assets/img/magma-sensor-enclosure-portrait.jpg"
+               alt="The open environmental sensor enclosure built for the MAGMA Vulcano rover" />
+        </div>
+        <span class="plate__cap" data-reveal>Gas sensor, fan and wiring inside the printed enclosure</span>
+      </figure>
+      <div class="copy row__copy">
+        <p data-reveal>
+          This enclosure belongs to the MAGMA rover. It holds the environmental
+          sensors and fan used during the DLR Vulcano challenge.
+        </p>
+      </div>
+    </div>
   </section>
 
   <section class="psec">
     <h2 class="psec__h">What I got wrong</h2>
     <div class="prose">
-      <p class="lede" data-reveal>The rover was built. The submission wasn't.</p>
+      <p class="lede" data-reveal>
+        Our demonstration video failed to show that the rover worked.
+      </p>
       <p data-reveal>
         Our five-minute demonstration video was due while I was in Georgia
         visiting my grandparents, and the two days before the deadline were the
@@ -178,12 +164,9 @@
         what the judges saw was a badly shot clip of something that could have
         been anything.
       </p>
-      <div class="pull" data-reveal>
-        <p>Documentation is part of the build and has to be scheduled like the
-           build, not treated as the thing you do at the end if there's time left.</p>
-      </div>
       <p data-reveal>
-        On the next project I filmed each subsystem on the day it first worked.
+        I now schedule documentation as part of the build and record each
+        subsystem as soon as it works.
       </p>
     </div>
   </section>
@@ -192,7 +175,7 @@
     <h2 class="psec__h">Where it stands</h2>
     <div class="row">
       <figure class="plate row__media">
-        <span class="plate__head" data-reveal><i>Fig. 4</i><i>MAGMA V1 — rolling test</i></span>
+        <span class="plate__head" data-reveal><i>Fig. 5</i><i>MAGMA V1 · rolling test</i></span>
         <div class="plate__frame plate__frame--169 grade">
           <video src="../assets/rover-loop.mp4" data-ambient muted loop playsinline preload="metadata"
                  aria-label="The MAGMA rover driving"></video>
@@ -205,9 +188,7 @@
           integrated. Version two is designed and partly sourced.
         </p>
         <p data-reveal>
-          Autonomy isn't implemented; the current vehicle is remote-operated, and
-          I'd rather say that than call it autonomous because the challenge brief
-          uses the word.
+          The current vehicle is remote-operated. Autonomy is not implemented.
         </p>
         <div class="plinks" data-reveal>
           <a href="https://github.com/mateo-gepard/Vulcano" target="_blank" rel="noopener">Repository ↗</a>

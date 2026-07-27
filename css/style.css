@@ -393,7 +393,7 @@ body.is-loading .topbar { opacity: 0; }
 /* ---- wheel stage (pinned scrub: plate left, scene column right) ---- */
 .wheelstage { position: relative; height: 100vh; z-index: 30; background: var(--bg); }
 .wheelstage__pin {
-  position: relative; height: 100%; background: var(--bg);
+  position: relative; height: 100%; overflow: hidden; background: var(--bg);
   display: grid; grid-template-columns: 1.35fr 1fr;
   gap: clamp(24px, 4vw, 72px); align-items: center;
   padding: 0 var(--edge);
