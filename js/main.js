@@ -9,8 +9,18 @@
   gsap.registerPlugin(ScrollTrigger);
 
   const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const COMPACT = window.matchMedia("(max-width: 820px), (pointer: coarse)").matches;
+  const SAVE_DATA = Boolean(navigator.connection && navigator.connection.saveData);
   const $  = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
+
+  const heroVideo = $("#heroVideo");
+  if (heroVideo && REDUCED) heroVideo.poster = "assets/hero-final.jpg";
+  else if (heroVideo && !SAVE_DATA) heroVideo.preload = "auto";
+
+  // The loader visually covers the site, so keep its links out of the tab order
+  // until the page is actually available.
+  [$(".topbar"), $("main")].forEach((el) => { if (el) el.inert = true; });
 
   /* ---------------- smooth scroll ----------------
      Deliberately NOT using a smooth-scroll library. Native scroll + ScrollTrigger's
@@ -57,19 +67,24 @@
       gsap.set("#loader", { autoAlpha: 0, display: "none" });
     };
 
-    if (document.hidden) {
-      return Promise.race([ready, wait(2500)]).then(finishInstant);
+    if (document.hidden || REDUCED || SAVE_DATA) {
+      return Promise.race([ready, wait(COMPACT ? 250 : 800)]).then(finishInstant);
     }
 
-    const crawl = gsap.to(state, { p: 92, duration: 2.6, ease: "power1.out", onUpdate: paint });
+    const crawl = gsap.to(state, {
+      p: COMPACT ? 88 : 92,
+      duration: COMPACT ? 0.65 : 2.6,
+      ease: "power1.out",
+      onUpdate: paint,
+    });
 
-    return Promise.race([ready, wait(4000)]).then(() => {
+    return Promise.race([ready, wait(COMPACT ? 850 : 4000)]).then(() => {
       crawl.kill();
       if (document.hidden) return finishInstant(); // tab was backgrounded mid-load
       return new Promise((resolve) => {
         const tl = gsap.timeline({ onComplete: resolve })
-          .to(state, { p: 100, duration: 0.45, ease: "power2.out", onUpdate: paint })
-          .to("#loader", { autoAlpha: 0, duration: 0.7, ease: "power2.inOut" }, "+=0.12")
+          .to(state, { p: 100, duration: COMPACT ? 0.16 : 0.45, ease: "power2.out", onUpdate: paint })
+          .to("#loader", { autoAlpha: 0, duration: COMPACT ? 0.24 : 0.7, ease: "power2.inOut" }, COMPACT ? "+=0.03" : "+=0.12")
           .set("#loader", { display: "none" });
         // if rAF suspends before the outro finishes, hard-finish on visibility change
         document.addEventListener("visibilitychange", () => {
@@ -84,6 +99,15 @@
     const video = $("#heroVideo");
     const proxy = { t: 0 };
     let dur = 8;
+
+    if (REDUCED || SAVE_DATA) {
+      // Static mode: reduced motion gets the final portrait; Save Data keeps
+      // the lightweight opening poster and skips the video download entirely.
+      gsap.set(".scene", { opacity: 0 });
+      gsap.set(REDUCED ? '[data-scene="c"]' : '[data-scene="a"]', { opacity: 1 });
+      video.pause();
+      return;
+    }
 
     // --- coalesced seeking: never queue a new seek while one is in flight ---
     let targetT = 0;
@@ -103,26 +127,19 @@
     function build() {
       dur = video.duration || 8;
 
-      if (REDUCED) {
-        // static: show last scene, play video as ambient loop
-        gsap.set('[data-scene="c"]', { opacity: 1 });
-        video.loop = true; video.play().catch(() => {});
-        return;
-      }
-
+      const compactHero = window.matchMedia("(max-width: 820px), (pointer: coarse)").matches;
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: ".hero",
           start: "top top",
           // function-based px distance: constant across refreshes.
           // (%-based ends re-measure against the inflated pin spacer and compound)
-          end: () => "+=" + Math.round(Math.max(window.innerHeight, 600) * 3.8),
+          end: () => "+=" + Math.round(Math.max(window.innerHeight, 600) * (compactHero ? 2.7 : 3.8)),
           pin: true,          // pin the hero section itself — video stays full-screen
           pinSpacing: true,
           scrub: 1,
         },
       });
-      const compactHero = window.matchMedia("(max-width: 820px)").matches;
 
       // ---- video scrubs across the whole pin (holds final gaze at the end) ----
       tl.fromTo(proxy, { t: 0 },
@@ -360,12 +377,20 @@
   /* ---------------- reveals ---------------- */
   function initReveals() {
     if (REDUCED) return;
+    const compactReveal = window.matchMedia("(max-width: 820px), (pointer: coarse)").matches;
     // explicit fromTo so start values never depend on CSS-transform parsing
     $$("[data-reveal]").forEach((el) => {
       gsap.fromTo(el,
-        { opacity: 0, y: 26, filter: "blur(6px)" },
-        { opacity: 1, y: 0, filter: "blur(0px)", duration: 1.1, ease: "power3.out",
-          scrollTrigger: { trigger: el, start: "top 88%" } });
+        { opacity: 0, y: compactReveal ? 12 : 26, filter: compactReveal ? "none" : "blur(6px)" },
+        {
+          opacity: 1,
+          y: 0,
+          filter: "none",
+          duration: compactReveal ? 0.68 : 1.1,
+          ease: "power3.out",
+          clearProps: "willChange",
+          scrollTrigger: { trigger: el, start: compactReveal ? "top 94%" : "top 88%" },
+        });
     });
     $$("[data-line]").forEach((line) => {
       const inner = line.firstElementChild || line;
@@ -454,6 +479,10 @@
   function initAmbient() {
     const vids = $$("video[data-ambient]");
     if (!vids.length) return;
+    if (REDUCED || SAVE_DATA) {
+      vids.forEach((video) => video.pause());
+      return;
+    }
     const io = new IntersectionObserver((entries) => {
       entries.forEach((en) => {
         const v = en.target;
@@ -492,7 +521,7 @@
         if (!t) return;
         e.preventDefault();
         if (lenis) lenis.scrollTo(t, { duration: 1.4 });
-        else t.scrollIntoView({ behavior: "smooth" });
+        else t.scrollIntoView({ behavior: REDUCED ? "auto" : "smooth" });
       });
     });
   }
@@ -502,12 +531,13 @@
     const video = $("#heroVideo");
 
     // never let font loading block the intro
-    await Promise.race([fontsReady(), wait(1200)]);
+    await Promise.race([fontsReady(), wait(COMPACT ? 450 : 1200)]);
 
     // preloader stays until the video can be scrubbed (capped inside runPreloader)
-    await runPreloader(videoReady(video));
+    await runPreloader((REDUCED || SAVE_DATA) ? Promise.resolve() : videoReady(video));
 
     document.body.classList.remove("is-loading");
+    [$(".topbar"), $("main")].forEach((el) => { if (el) el.inert = false; });
     gsap.to([".topbar", "main"], { opacity: 1, duration: 0.8, ease: "power2.out" });
 
     initHero();

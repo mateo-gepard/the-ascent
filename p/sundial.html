@@ -67,19 +67,19 @@
       <thead><tr><th>Effect</th><th>Cause</th><th>Size</th></tr></thead>
       <tbody>
         <tr>
-          <td>Longitude</td>
-          <td>Central European Time uses a reference meridian east of Munich; the correction is four minutes per degree</td>
-          <td class="num">≈ 14 min, constant</td>
+          <td data-label="Effect">Longitude</td>
+          <td data-label="Cause">Central European Time uses a reference meridian east of Munich; the correction is four minutes per degree</td>
+          <td data-label="Size" class="num">≈ 14 min, constant</td>
         </tr>
         <tr>
-          <td>Equation of time</td>
-          <td>The eccentricity of the Earth's orbit and the tilt of its axis</td>
-          <td class="num">−14 to +16 min</td>
+          <td data-label="Effect">Equation of time</td>
+          <td data-label="Cause">The eccentricity of the Earth's orbit and the tilt of its axis</td>
+          <td data-label="Size" class="num">−14 to +16 min</td>
         </tr>
         <tr>
-          <td>Daylight saving</td>
-          <td>Legal adjustment to clock time</td>
-          <td class="num">60 min, or 0</td>
+          <td data-label="Effect">Daylight saving</td>
+          <td data-label="Cause">Legal adjustment to clock time</td>
+          <td data-label="Size" class="num">60 min, or 0</td>
         </tr>
       </tbody>
     </table>
@@ -127,7 +127,7 @@
         </div>
       </div>
 
-      <div class="dial__out">
+      <div class="dial__out" role="status" aria-live="polite" aria-atomic="true">
         <div>
           <div class="dial__big" id="dTotal">—</div>
           <div class="dial__part" style="margin-top:10px">

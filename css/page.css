@@ -19,6 +19,7 @@
   transition: color .3s var(--ease-out);
 }
 .pnav__back:hover { color: var(--white); }
+.pnav__back:focus-visible { color: var(--white); }
 .pnav__back i { font-style: normal; transition: transform .3s var(--ease-out); }
 .pnav__back:hover i { transform: translateX(-4px); }
 .pnav__name { font-size: 12px; font-weight: 500; color: var(--white); }
@@ -243,7 +244,11 @@
   background: var(--bg-2); border: 1px solid var(--line); color: var(--white);
   font-family: var(--mono); font-size: 13px; padding: 11px 13px; min-width: 150px;
 }
-.dial__f input:focus, .dial__f select:focus { outline: none; border-color: var(--white); }
+.dial__f input:focus, .dial__f select:focus {
+  outline: 2px solid var(--white);
+  outline-offset: 2px;
+  border-color: var(--white);
+}
 .dial__out {
   margin-top: 30px; padding-top: 26px; border-top: 1px solid var(--line);
   display: flex; flex-wrap: wrap; gap: 30px 44px; align-items: flex-end;
@@ -285,9 +290,23 @@
 .pbody .row { padding-right: 0; padding-left: 0; }
 
 @media (max-width: 700px) {
+  .pnav {
+    min-height: calc(54px + env(safe-area-inset-top));
+    padding-top: max(5px, env(safe-area-inset-top));
+    padding-bottom: 5px;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .pnav__back,
+  .pnav__name {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
   .phead {
-    padding-top: 128px;
-    padding-bottom: 54px;
+    padding-top: calc(112px + env(safe-area-inset-top));
+    padding-bottom: 48px;
   }
   .phead__facts {
     grid-template-columns: 1fr;
@@ -295,7 +314,7 @@
   }
   .phead__facts div {
     display: grid;
-    grid-template-columns: minmax(78px, .32fr) 1fr;
+    grid-template-columns: 88px minmax(0, 1fr);
     gap: 14px;
     align-items: start;
     padding: 12px 0;
@@ -304,34 +323,156 @@
   .phead__facts dt,
   .phead__facts b { padding-top: 3px; }
 
+  .pbody { padding-bottom: 80px; }
+  .psec { margin-bottom: 64px; }
+  .pbody .row { padding-top: 32px; }
+  .plate__head {
+    font-size: 9px;
+    line-height: 1.45;
+    letter-spacing: .1em;
+  }
+
   .spec {
     display: block;
     width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    padding-bottom: 8px;
+    max-width: none;
+    border-top: 1px solid var(--line);
+    overflow: visible;
   }
-  .spec thead,
-  .spec tbody {
-    display: table;
-    width: 680px;
-    table-layout: fixed;
+  .spec thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
-  .spec td:first-child { white-space: normal; }
+  .spec tbody,
+  .spec tr,
+  .spec td {
+    display: block;
+    width: 100%;
+  }
+  .spec tr {
+    padding: 15px 0 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .spec td,
+  .spec td:first-child {
+    display: grid;
+    grid-template-columns: 82px minmax(0, 1fr);
+    gap: 12px;
+    padding: 3px 0;
+    border: 0;
+    white-space: normal;
+    line-height: 1.55;
+  }
+  .spec td::before {
+    content: attr(data-label);
+    padding-top: 2px;
+    font-family: var(--mono);
+    font-size: 9px;
+    font-weight: 400;
+    line-height: 1.45;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--grey-meta);
+  }
+  .spec .num { white-space: normal; }
 
   .dial__f { flex: 1 1 145px; }
   .dial__f input,
   .dial__f select {
     width: 100%;
     min-width: 0;
+    min-height: 44px;
+    font-size: 16px;
   }
   .dial__part {
     width: 100%;
     min-width: 0;
   }
   .eot text {
-    font-size: 22px;
+    font-size: 34px;
     letter-spacing: .04em;
+  }
+  .eot .ax,
+  .eot .curve { vector-effect: non-scaling-stroke; }
+
+  .plinks a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .pnext {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    padding-top: 44px;
+    padding-bottom: 46px;
+    gap: 18px;
+  }
+  .pnext > div { min-width: 0; }
+  .pnext__t {
+    font-size: clamp(28px, 9vw, 46px);
+    line-height: 1.06;
+  }
+  .pfoot {
+    padding-bottom: max(34px, env(safe-area-inset-bottom));
+  }
+  .pfoot a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+@media (max-width: 340px) {
+  .phead__facts div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .phead__facts dt,
+  .phead__facts b { padding-top: 0; }
+  .pnext {
+    padding-top: 38px;
+    padding-bottom: 40px;
+  }
+  .pnext__t { font-size: 28px; }
+  .pfoot { flex-direction: column; }
+}
+
+@media (max-height: 520px) and (max-width: 900px) and (orientation: landscape) {
+  .wheelstage__pin {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-content: center;
+    gap: 20px;
+  }
+  .wheelstage__scenes { height: 72vh; }
+  .wheelstage__scene h3 { font-size: 28px; }
+  .wheelstage__scene p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .seqstage__scene,
+  .seqstage__scene:nth-of-type(odd) {
+    top: 50%;
+    bottom: auto;
+    left: var(--edge);
+    right: auto;
+    max-width: 28%;
+    transform: translateY(-50%);
+  }
+  .seqstage__scene:nth-of-type(odd) {
+    left: auto;
+    right: var(--edge);
+  }
+  .seqstage__scene h3 { font-size: 30px; }
+  .seqstage__scene p {
+    font-size: 14px;
+    line-height: 1.5;
   }
 }

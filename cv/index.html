@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mateo Mamaladze — Curriculum Vitae</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
 <style>
   /* ===================================================================
      Print-engineered CV — A4, restrained, evidence-forward.
@@ -110,6 +112,200 @@
   }
   .foot b{font-weight:500;color:var(--ink)}
   .brk{break-before:page}
+
+  /* ---------- phone layout (screen only; print remains A4) ---------- */
+  @media screen and (max-width:700px){
+    html{
+      -webkit-text-size-adjust:100%;
+      text-size-adjust:100%;
+    }
+    body{
+      width:100%;
+      max-width:none;
+      padding:24px 18px 40px;
+      overflow-x:hidden;
+      font-size:16px;
+      line-height:1.58;
+      overflow-wrap:anywhere;
+    }
+
+    .mast{
+      padding-bottom:24px;
+      margin-bottom:25px;
+    }
+    .mast__name{
+      margin-bottom:10px;
+      font-size:clamp(32px,10.5vw,44px);
+      line-height:1.02;
+    }
+    .mast__role{
+      margin-bottom:20px;
+      font-size:17px;
+      line-height:1.48;
+    }
+    .mast__grid{
+      grid-template-columns:1fr;
+      gap:12px;
+      font-size:12px;
+      line-height:1.45;
+    }
+    .mast__grid b{
+      margin-top:2px;
+      font-size:13px;
+      overflow-wrap:anywhere;
+    }
+
+    section{margin-bottom:32px}
+    h2{
+      padding-bottom:8px;
+      margin-bottom:14px;
+      font-size:12px;
+      line-height:1.4;
+    }
+    .lead{
+      max-width:none;
+      font-size:16px !important;
+      line-height:1.62;
+    }
+
+    .res{
+      display:block;
+    }
+    .res__i,
+    .res__i:nth-child(2){
+      padding:16px 0;
+      border-top:1px solid var(--rule);
+    }
+    .res__i:first-child{
+      padding-top:0;
+      border-top:0;
+    }
+    .res__h{
+      font-size:16px;
+      line-height:1.4;
+    }
+    .res__s{
+      margin-top:5px;
+      font-size:15px;
+      line-height:1.55;
+    }
+    .res__m{
+      margin-top:7px;
+      font-size:12px;
+      line-height:1.5;
+    }
+
+    .e{
+      grid-template-columns:1fr;
+      gap:5px;
+      padding:17px 0;
+    }
+    .e__when{
+      padding-top:0;
+      font-size:12px;
+      line-height:1.45;
+    }
+    .e__title{
+      font-size:16px;
+      line-height:1.42;
+    }
+    .e__org{
+      margin-top:3px;
+      font-size:14px;
+      line-height:1.48;
+    }
+    .e__body{
+      max-width:none;
+      margin-top:8px;
+      font-size:15px;
+      line-height:1.6;
+    }
+    .e__body li{
+      margin-top:6px;
+      margin-left:20px;
+      padding-left:2px;
+    }
+    .e__scope{
+      margin-top:8px;
+      font-size:12px;
+      line-height:1.5;
+    }
+
+    table,
+    tbody,
+    tr,
+    td{
+      display:block;
+      width:100%;
+    }
+    thead{
+      position:absolute;
+      width:1px;
+      height:1px;
+      padding:0;
+      margin:-1px;
+      overflow:hidden;
+      clip:rect(0,0,0,0);
+      white-space:nowrap;
+      border:0;
+    }
+    tbody tr{
+      padding:16px 0;
+      border-top:1px solid var(--rule);
+    }
+    tbody tr:first-child{
+      padding-top:0;
+      border-top:0;
+    }
+    td,
+    .t-when,
+    .t-scope{
+      width:auto;
+      padding:0;
+      border:0;
+      white-space:normal;
+    }
+    td{
+      font-size:15px;
+      line-height:1.55;
+    }
+    .t-when{
+      margin-bottom:5px;
+      font-size:12px;
+      line-height:1.45;
+    }
+    .t-scope{
+      margin-top:7px;
+      font-size:12px;
+      line-height:1.5;
+    }
+
+    .cols{
+      column-count:1;
+      column-gap:0;
+    }
+    .kv{
+      padding:14px 0;
+    }
+    .kv:first-child{padding-top:0}
+    .kv__k{
+      font-size:11px;
+      line-height:1.45;
+    }
+    .kv__v{
+      margin-top:5px;
+      font-size:15px;
+      line-height:1.58;
+    }
+
+    .foot{
+      margin-top:34px;
+      padding-top:16px;
+      font-size:11px;
+      line-height:1.65;
+      overflow-wrap:anywhere;
+    }
+  }
 </style>
 </head>
 <body>
